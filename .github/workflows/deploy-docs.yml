@@ -1,0 +1,86 @@
+name: Deploy documentation
+
+on:
+  # Master docs
+  schedule:
+    # GitHub pages has a soft limit of 10 releases per hour, so we can run every 10th minute
+    # to check if we need to deploy master pages and do so if we need to. This means, in the
+    # worst case scenario, we will deploy 6 times in an hour, leaving 4 builds for a re-deploy
+    # or a version release.
+    - cron: "*/10 * * * *"
+
+  # Release docs
+  push:
+    branches:
+      - "release/**"
+      - "!release/master"
+
+# Both master and release docs are in the same workflow to be able to enforce concurrency and prevent
+# the branches from breaking
+concurrency: deploy-docs
+
+jobs:
+  master-docs-check:
+    if: github.event.event_name == 'schedule'
+
+    runs-on: ubuntu-latest
+    outputs:
+      exists: ${{ steps.check.outputs.exists }}
+
+    steps:
+      - name: Check if 'release/master' exists
+        id: check
+        run: |
+          echo "::set-output name=exists::$(git ls-remote --heads git@github.com:${{ github.repository }}.git release/master | wc -l)"
+
+  deploy-docs:
+    needs: [master-docs-check]
+
+    # Run if it was a push action (version release) or if there is a branch for the master docs
+    if: always() && (github.event.event_name == 'push' || needs.master-docs-check.outputs.exists == "1")
+
+    runs-on: ubuntu-latest
+    env:
+      # `ref_name` will be undefined for scheduled events
+      VERSION: ${{ github.ref_name || 'master' }}
+
+    steps:
+      - name: Checkout master branch
+        uses: actions/checkout@v2.4.0
+        with:
+          ref: master
+          token: ${{ secrets.PAT_TOKEN }}
+
+#      - name: Delete master docs
+#        if: env.VERSION == "master"
+#        run: |
+#          rm -rf docs/master
+
+      - name: Checkout release branch
+        uses: actions/checkout@v2.4.0
+        with:
+          ref: release/${{ env.VERSION }}
+          path: docs/${{ env.VERSION }}
+
+      - name: Setup git config
+        run: |
+          git config --global user.name "hikari-bot"
+          git config --global user.email "90276125+hikari-bot[bot]@users.noreply.github.com"
+
+      - name: Temporarily disable "include administrators" branch protection
+        uses: benjefferies/branch-protection-bot@1.0.7
+        with:
+          access_token: ${{ secrets.PAT_TOKEN }}
+          enforce_admins: false
+
+      - name: Push new documentation
+        run: |
+          bash scripts/deploy.sh
+          git push origin :release/$(VERSION)
+
+      - name: Re-enable "include administrators" branch protection
+        uses: benjefferies/branch-protection-bot@1.0.7
+        if: always()
+        with:
+          access_token: ${{ secrets.PAT_TOKEN }}
+          enforce_admins: true

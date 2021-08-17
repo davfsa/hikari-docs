@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  pull_request:
+
+jobs:
+  linting:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2.4.0
+
+      - name: Setup python
+        uses: actions/setup-python@v2.3.1
+        with:
+          python-version: 3.8
+
+      - name: Linting
+        run: |
+          pip install nox
+          nox -s check-trailing-whitespaces
