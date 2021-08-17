@@ -1,0 +1,25 @@
+# PyCharm/IntelliJ-generated files
+*.iml
+.idea/
+
+# Visual Studio Code-generated files
+.settings/
+.project
+.vscode/
+.vs/
+
+# Gem/bundle files
+*.gem
+.bundle/
+Gemfile.lock
+vendor/
+
+# Jekyll files
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata/
+
+# Python cached sources
+__pycache__/
+*.pyc
