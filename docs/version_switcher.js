@@ -19,14 +19,13 @@ function docsTreeRequestHandler() {
     let availableVersions = specialVersions;
     JSON.parse(this.responseText)
         .tree
-        .filter(function (t) {return (t.type === "tree" && !availableVersions.includes(t.path));})
+        .filter(function (t) { return (t.type === "tree" && !availableVersions.includes(t.path)); })
         .reverse()
         .forEach(function (t) { availableVersions.push(t.path); });
 
-    let selectedVersion = versionSelector.children[0].value;
     versionSelector.innerHTML = "";
 
-    availableVersions.forEach(function (v){
+    availableVersions.forEach(function (v) {
         let option = document.createElement("option");
 
         option.value = v;
@@ -34,7 +33,9 @@ function docsTreeRequestHandler() {
         versionSelector.appendChild(option);
     });
 
-    versionSelector.value = selectedVersion;
+    // FIXME: Set to 1 when deplying to hikari-py.dev
+    versionSelector.value = window.location.pathname.split("/")[2];
+    versionSelector.removeAttribute("disabled");
 }
 
 function masterTreeRequestHandler() {
@@ -43,12 +44,13 @@ function masterTreeRequestHandler() {
         return;
     }
 
-    let docsTreeUrl = JSON.parse(this.responseText).tree.filter(function (t){return t.path === "docs"})[0].url;
+    let docsTreeUrl = JSON.parse(this.responseText).tree.filter(function (t) { return t.path === "docs" })[0].url;
     performRequest(docsTreeUrl, docsTreeRequestHandler);
 }
 
 versionSelector.addEventListener("change", function () {
-    window.location.pathname = versionSelector.value;
-}, {passive: true});
+    // FIXME: Remove when actually deploying to hikari-py.dev. Also, re-add the CNAME
+    window.location.href = "/hikari-docs/" + versionSelector.value;
+}, { passive: true });
 
 performRequest(masterTreeUrl, masterTreeRequestHandler);

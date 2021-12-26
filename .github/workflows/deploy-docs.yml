@@ -51,16 +51,23 @@ jobs:
           ref: master
           token: ${{ secrets.PAT_TOKEN }}
 
-#      - name: Delete master docs
-#        if: env.VERSION == "master"
-#        run: |
-#          rm -rf docs/master
+      # - name: Delete master docs
+      #   if: env.VERSION == "master"
+      #   run: |
+      #     rm -rf docs/master
 
       - name: Checkout release branch
         uses: actions/checkout@v2.4.0
         with:
           ref: release/${{ env.VERSION }}
           path: docs/${{ env.VERSION }}
+
+      - name: Get commit message
+        id: commit-message
+        run: |
+          cd docs/$(VERSION)
+          echo "::set-output name=message::$(git show -s --format=%s)"
+          cd ../../
 
       - name: Setup git config
         run: |
@@ -74,6 +81,8 @@ jobs:
           enforce_admins: false
 
       - name: Push new documentation
+        env:
+          COMMIT_MESSAGE: ${{ steps.commit-message.output.message }}
         run: |
           bash scripts/deploy.sh
           git push origin :release/$(VERSION)

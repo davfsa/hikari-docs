@@ -29,5 +29,6 @@ posix_read() {
 }
 
 posix_read "Hikari version ('master' for git version)" VERSION
+posix_read "Commit message" COMMIT_MESSAGE
 
 bash scripts/deploy.sh
