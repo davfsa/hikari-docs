@@ -1,0 +1,2 @@
+This documentation is for an outdated version. Documentation is available for the <a href="/stable">latest stable release</a>
+This documentation is from an unreleased development version, please consider upgrading to the latest stable version

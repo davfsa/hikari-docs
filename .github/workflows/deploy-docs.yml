@@ -16,7 +16,7 @@ on:
       - "!release/master"
 
 # Both master and release docs are in the same workflow to be able to enforce concurrency and prevent
-# the branches from breaking
+# racing conditions
 concurrency: deploy-docs
 
 jobs:
@@ -45,12 +45,18 @@ jobs:
       VERSION: ${{ github.ref_name || 'master' }}
 
     steps:
+      - name: Setup python
+        uses: actions/setup-python@v2.3.2
+        with:
+          python-version: 3.8
+
       - name: Checkout master branch
         uses: actions/checkout@v2.4.0
         with:
           ref: master
           token: ${{ secrets.PAT_TOKEN }}
 
+      # TODO: Enable if needed
       # - name: Delete master docs
       #   if: env.VERSION == "master"
       #   run: |

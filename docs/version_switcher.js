@@ -1,56 +1,70 @@
-const masterTreeUrl = "https://api.github.com/repos/davfsa/hikari-docs/git/trees/master";
-const specialVersions = ["stable", "latest", "master"]
+// Copyright (c) 2020 Nekokatt
+// Copyright (c) 2021-present davfsa
+
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+if (typeof availableVersions === 'undefined') {
+    throw "Missing 'availableVersions' variable!";
+}
+if (typeof latestStable === 'undefined') {
+    throw "Missing 'latestStable' variable!";
+}
+if (typeof currentVersion === 'undefined') {
+    throw "Missing 'currentVersion' variable!";
+}
+
+const specialVersions = ["stable", "latest", "master"];
 const versionSelector = document.getElementById("version-selector");
+const versionWarning = document.getElementById("version-warning");
 
-
-function performRequest(url, handler) {
-    let xhr = new XMLHttpRequest();
-    xhr.open("GET", url);
-    xhr.onload = handler;
-    xhr.send(null);
-}
-
-function docsTreeRequestHandler() {
-    if (this.status !== 200) {
-        console.error("Something went wrong when loading the 'docs' tree. If this issue persists, please open an issue");
-        return;
-    }
-
-    let availableVersions = specialVersions;
-    JSON.parse(this.responseText)
-        .tree
-        .filter(function (t) { return (t.type === "tree" && !availableVersions.includes(t.path)); })
-        .reverse()
-        .forEach(function (t) { availableVersions.push(t.path); });
-
-    versionSelector.innerHTML = "";
-
-    availableVersions.forEach(function (v) {
-        let option = document.createElement("option");
-
-        option.value = v;
-        option.innerHTML = v;
-        versionSelector.appendChild(option);
-    });
-
-    // FIXME: Set to 1 when deplying to hikari-py.dev
-    versionSelector.value = window.location.pathname.split("/")[2];
-    versionSelector.removeAttribute("disabled");
-}
-
-function masterTreeRequestHandler() {
-    if (this.status !== 200) {
-        console.error("Something went wrong when loading the 'master' tree. If this issue persists, please open an issue");
-        return;
-    }
-
-    let docsTreeUrl = JSON.parse(this.responseText).tree.filter(function (t) { return t.path === "docs" })[0].url;
-    performRequest(docsTreeUrl, docsTreeRequestHandler);
-}
-
+// Add listener
 versionSelector.addEventListener("change", function () {
-    // FIXME: Remove when actually deploying to hikari-py.dev. Also, re-add the CNAME
-    window.location.href = "/hikari-docs/" + versionSelector.value;
+    // FIXME: Set remove `/hikari-docs` when deplying to docs.hikari-py.dev. Also, re-add the CNAME
+    window.location.href = `/hikari-docs/${versionSelector.value}`;
 }, { passive: true });
 
-performRequest(masterTreeUrl, masterTreeRequestHandler);
+
+// Load in versions
+versionSelector.innerHTML = "";
+
+let versions = specialVersions.concat(Object.keys(availableVersions));
+versions.forEach(function (v) {
+    let option = document.createElement("option");
+
+    option.value = v;
+    option.innerText = v;
+    versionSelector.appendChild(option);
+});
+
+
+versionSelector.value = currentVersion;
+versionSelector.removeAttribute("disabled");
+
+// Display warning if needed
+let vIndex = versions.indexOf(versionSelector.value);
+let lvIndex = versions.indexOf(latestStable);
+
+if (versionSelector.value === "master") {
+    versionWarning.innerText = "Unreleased version!";
+} else if (vIndex <= specialVersions.length - 1 || vIndex == lvIndex) {
+    versionWarning.innerText = "";
+} else if (vIndex < lvIndex) {
+    versionWarning.innerText = "Pre-release version!";
+} else {
+    versionWarning.innerText = "Not latest!";
+}

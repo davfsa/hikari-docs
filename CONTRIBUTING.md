@@ -5,7 +5,8 @@ are greatly appreciated. In this document you can find contribution guidelines t
 standards at its best.
 
 *Note: If you want to fix or improve the hikari documentation, please do so on the
-[main hikari repository](https://github.com/hikari-py/hikari), as all the documentation is built from there.*
+[main hikari repository](https://github.com/hikari-py/hikari/tree/master/docs), as all the documentation is built from
+there.*
 
 # Code of conduct
 
@@ -16,7 +17,8 @@ You can read the code of conduct [here](https://github.com/hikari-py/hikari/blob
 
 # Documentation builds
 
-The documentation is built in the CI for the [main hikari repository](https://github.com/hikari-py/hikari) and then
+The documentation is built in the
+[CI for the main hikari repository](https://github.com/hikari-py/hikari/blob/master/.github/workflows/ci.yml) and then
 added to this repository through the use of this repository's workflow.
 
 # Consistency

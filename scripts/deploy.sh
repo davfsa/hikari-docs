@@ -1,6 +1,6 @@
 #!/bin/sh
 # Copyright (c) 2020 Nekokatt
-# Copyright (c) 2021 davfsa
+# Copyright (c) 2021-present davfsa
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -34,8 +34,8 @@ cd docs || exit 1
 create_symlink() {
   target="${1}"
   link_name="${2}"
-  echo "${link_name} -> ${target}"
   ln -f -s "${target}" "${link_name}"
+  echo "${link_name} -> ${target}"
 }
 
 if [ "${VERSION}" != "master" ]; then
