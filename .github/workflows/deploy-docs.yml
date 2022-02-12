@@ -16,12 +16,12 @@ on:
       - "!release/master"
 
 # Both master and release docs are in the same workflow to be able to enforce concurrency and prevent
-# the branches from breaking
+# racing conditions
 concurrency: deploy-docs
 
 jobs:
   master-docs-check:
-    if: github.event.event_name == 'schedule'
+    if: github.event_name == 'schedule'
 
     runs-on: ubuntu-latest
     outputs:
@@ -31,13 +31,13 @@ jobs:
       - name: Check if 'release/master' exists
         id: check
         run: |
-          echo "::set-output name=exists::$(git ls-remote --heads git@github.com:${{ github.repository }}.git release/master | wc -l)"
+          echo "::set-output name=exists::$(git ls-remote --heads https://github.com/${{ github.repository }}.git release/master | wc -l)"
 
   deploy-docs:
     needs: [master-docs-check]
 
     # Run if it was a push action (version release) or if there is a branch for the master docs
-    if: always() && (github.event.event_name == 'push' || needs.master-docs-check.outputs.exists == "1")
+    if: always() && (github.event_name == 'push' || needs.master-docs-check.outputs.exists == '1')
 
     runs-on: ubuntu-latest
     env:
@@ -45,16 +45,16 @@ jobs:
       VERSION: ${{ github.ref_name || 'master' }}
 
     steps:
+      - name: Setup python
+        uses: actions/setup-python@v2.3.2
+        with:
+          python-version: 3.8
+
       - name: Checkout master branch
         uses: actions/checkout@v2.4.0
         with:
           ref: master
           token: ${{ secrets.PAT_TOKEN }}
-
-      # - name: Delete master docs
-      #   if: env.VERSION == "master"
-      #   run: |
-      #     rm -rf docs/master
 
       - name: Checkout release branch
         uses: actions/checkout@v2.4.0
@@ -65,7 +65,7 @@ jobs:
       - name: Get commit message
         id: commit-message
         run: |
-          cd docs/$(VERSION)
+          cd "docs/${VERSION}"
           echo "::set-output name=message::$(git show -s --format=%s)"
           cd ../../
 
@@ -82,10 +82,11 @@ jobs:
 
       - name: Push new documentation
         env:
-          COMMIT_MESSAGE: ${{ steps.commit-message.output.message }}
+          COMMIT_MESSAGE: ${{ steps.commit-message.outputs.message }}
         run: |
+          rm -rf "docs/${VERSION}/.git"
           bash scripts/deploy.sh
-          git push origin :release/$(VERSION)
+          git push origin :release/${VERSION}
 
       - name: Re-enable "include administrators" branch protection
         uses: benjefferies/branch-protection-bot@1.0.7

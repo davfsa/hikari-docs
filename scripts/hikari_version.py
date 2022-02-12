@@ -1,5 +1,5 @@
 # Copyright (c) 2020 Nekokatt
-# Copyright (c) 2021 davfsa
+# Copyright (c) 2021-present davfsa
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -19,7 +19,8 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 #
-# Taken from https://github.com/hikari-py/hikari/blob/c40921838d0384194135c9d61046ca7df08730fc/hikari/internal/ux.py
+# FIXME: Update with the new link which adds `__hash__`
+# Taken from https://github.com/hikari-py/hikari/blob/<TODO>/hikari/internal/ux.py#<TODO>
 from __future__ import annotations
 
 import re
@@ -64,6 +65,9 @@ class HikariVersion:
 
     def __repr__(self) -> str:
         return f"HikariVersion('{str(self)}')"
+
+    def __hash__(self) -> int:
+        return hash(str(self))
 
     def __eq__(self, other: typing.Any) -> bool:
         return self._compare(other, lambda s, o: s == o)

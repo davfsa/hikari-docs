@@ -1,6 +1,6 @@
 #!/bin/sh
 # Copyright (c) 2020 Nekokatt
-# Copyright (c) 2021 davfsa
+# Copyright (c) 2021-present davfsa
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -29,24 +29,11 @@ if [ -z "${VERSION}" ]; then echo '$VERSION environment variable is empty' && ex
 if [ -z ${COMMIT_MESSAGE+x} ]; then echo '$COMMIT_MESSAGE environment variable is missing' && exit 1; fi
 if [ -z "${COMMIT_MESSAGE}" ]; then echo '$COMMIT_MESSAGE environment variable is empty' && exit 1; fi
 
-echo "===== UPDATING SYMBOLIC LINKS ====="
-cd docs || exit 1
-create_symlink() {
-  target="${1}"
-  link_name="${2}"
-  echo "${link_name} -> ${target}"
-  ln -f -s "${target}" "${link_name}"
-}
+echo "-- Generating versions.js --"
+python scripts/generate_versions.py
 
-if [ "${VERSION}" != "master" ]; then
-  create_symlink "${VERSION}" latest
-
-  if [ "$(python scripts/is_prerelease.py "${VERSION}")" = "false" ]; then
-    create_symlink "${VERSION}" stable
-  fi
-else
-  echo "No symbolic links need to be updated"
-fi
+echo "-- Updating symbolic links --"
+python scripts/update_symlinks.py "${VERSION}"
 
 echo "===== PUSHING CHANGES ====="
 git add -Av .
