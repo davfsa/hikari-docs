@@ -22,7 +22,7 @@
 // Anything enclosed in the 'version_info' comments will be automatically replaced by the deploy script.
 // Do not manually edit!
 // version_info: start
-const latestStable="";const availableVersions={};
+const latestStable="2.0.0.dev107";const availableVersions={"2.0.0.dev107":{"p":1}};
 // version_info: end
 
 let specialVersions = ["stable", "latest", "master"];

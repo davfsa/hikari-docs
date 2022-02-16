@@ -1,0 +1,2 @@
+git config --global user.name "hikari-bot"
+git config --global user.email "90276125+hikari-bot[bot]@users.noreply.github.com"
