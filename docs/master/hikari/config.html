@@ -1,0 +1,936 @@
+<!doctypehtml><html class=sidebar-hidden lang=en><meta charset=utf-8><meta content=width=device-width,initial-scale=1 name=viewport><meta content="pdoc 9.0.1"name=generator><title>hikari.config API documentation</title><meta content=website property=og:type><meta content=https://www.hikari-py.dev/logo.png property=og:image><meta content="hikari.config API documentation"property=og:title><meta content="A Discord Bot framework for modern Python and asyncio built on good intentions"property=og:description><meta content=#ff029a property=theme-color><link rel="shortcut icon"href=https://www.hikari-py.dev/logo.png type=image/png><link crossorigin=anonymous href=https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap-reboot.css integrity=sha512-MiwRA9Okl+Pah06DKec2BuhcKl6RnH8dFrlmosZPAvUuHAx2grCGHC35eXHrQwSIsDOPvwRteRZzRwFU6Qoj7w== referrerpolicy=no-referrer rel=stylesheet><style>:root{--pdoc-background: #212529;--text: #f7f7f7;--muted: #9d9d9d;--link: #DB61D9 ;--link-hover: #3989ff;--code: #333;--accent: #343434;--accent2: #555;--nav-hover: rgba(0, 0, 0, .1);--def: #ff79c6;--name: #61aeee;--annotation: #DE4F91}body{background-color:var(--pdoc-background)}html,body{width:100%;height:100%;overflow-wrap:break-word;scroll-behavior:smooth;font-family:SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace}@media (max-width: 1079px){:root{--sidebar-width: 25rem}html{font-size:3.5vw}main,header{padding:2rem 3vw 0 1.5rem}html:not(.sidebar-hidden) body{overflow:hidden!important}html:not(.sidebar-hidden) main{pointer-events:none!important}.sidebar-hidden nav{transform:translate(calc(0px - var(--sidebar-width)))}nav{transition:transform .2s}.sidebar-toggle{position:fixed;top:0;bottom:calc(100% - 6rem);left:var(--sidebar-width);border-left:10px solid grey;border-top:5px solid rgba(0,0,0,0);border-bottom:5px solid rgba(0,0,0,0)}}@media (min-width: 1080px){:root{--sidebar-width: clamp(12.5rem, 37vw, 30rem)}html{font-size:1rem}main,header{padding:3rem 4rem 3rem calc(var(--sidebar-width) + 3rem)}}nav{position:fixed;left:0;top:0;bottom:0;height:100vh;width:var(--sidebar-width);z-index:1}.sidebar{height:100vh;overflow:auto;padding:.5rem 1.5rem 0 1rem;background-color:var(--accent);border-right:1px solid var(--accent2);scrollbar-color:var(--accent2) transparent}::-webkit-scrollbar{width:10px;background:var(--accent) transparent}::-webkit-scrollbar-thumb{-webkit-border-radius:1ex;background:var(--accent2)}.sidebar input[type=search]{display:block;outline-offset:0;width:102%}.sidebar ul{list-style:none;padding-left:1rem}.sidebar li{display:block;margin:0;padding:.2rem 0 .2rem .5rem;transition:all .1s}.sidebar>ul>li{padding-left:0}.sidebar li:hover{background-color:var(--nav-hover)}.sidebar a:hover{color:var(--text)}.sidebar a{display:block}.sidebar a.function,.sidebar a.variable{color:#bd93f9}.sidebar>h2:first-of-type{margin-top:1rem}.sidebar .class:before{content:"class ";color:var(--muted)}.sidebar .function:after{content:"()";color:var(--muted)}.sidebar .sidebar-buttons{display:flex;width:103%;margin-bottom:.5rem;align-items:center}.sidebar .sidebar-buttons .push{margin-left:auto}.svg-button>svg{width:1.7rem;margin:0 .3rem;cursor:pointer}.version-selector{background-color:var(--accent);color:var(--text);border:hidden}.version-selector:disabled{-webkit-appearance:none}.version-warning{background-color:#520000;padding:1rem;margin-right:3rem;text-align:center}.version-warning:empty{display:none}.version-warning a{color:#81d9ff}.version-warning a:hover{color:#00b2ff}nav,main{color:var(--text);box-sizing:border-box;line-height:1.5;background:none}h1,h2,h3{font-weight:300;margin:.3em 0;padding:.2em 0}a{text-decoration:none;color:var(--link)}a:hover{color:var(--link-hover)}blockquote{margin-left:2rem}p{font-weight:300;margin-bottom:.5rem}pre{background-color:var(--code);border-top:1px solid var(--accent2);border-bottom:1px solid var(--accent2);margin-bottom:1em;padding:.5rem 0 .5rem .5rem;overflow-x:auto}code{color:var(--text);padding:.2em .4em;margin:0;font-size:85%;background-color:var(--code);border-radius:6px}a>code{color:inherit}pre>code{display:inline-block;font-size:inherit;background:none;border:none;padding:0}.modulename{color:var(--annotation);font-weight:bold}.modulename a{color:var(--link);transition:.1s all}.modulename a:hover{filter:brightness(80%)}.git-button{float:right;border:solid var(--link) 1px}.git-button:hover{background-color:var(--link);color:var(--pdoc-background)}details{--shift: -2.4rem;text-align:right;margin-top:var(--shift);margin-bottom:calc(0px - var(--shift));clear:both;filter:opacity(1)}details:not([open]){height:0;overflow:visible}details>summary{font-size:.75rem;cursor:pointer;color:var(--muted);border-width:0;padding:0 1rem;display:inline-block;display:inline list-item;user-select:none}details>summary:focus{outline:0}details>div{margin-top:calc(0px - var(--shift) / 2);text-align:left}.docstring{margin:0 0 2rem 2rem}.docstring pre{margin-left:1em;margin-right:1em}.docstring li{margin-bottom:15px}.docstring li:last-child{margin-bottom:0}span.name{color:#61aeee}span.base{color:#8be9fd}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background-color:var(--accent2);box-shadow:-1rem 0 0 0 var(--accent2)}li strong{color:var(--def)}b,strong{font-weight:bold}em{color:orange}h6{padding-top:1rem;font-size:1.7rem;color:#fff}h6#notes{color:orange}h6#raises{color:#f66}div.decorator{color:#61aeee}div:target>.attr,section:target>.attr,dd:target>a{background-color:var(--accent2)}.inherited dt,.inherited dt:before{color:#61aeee}.attr:hover{filter:contrast(.95)}.headerlink{position:absolute;margin-left:-2.5rem;line-height:1.4rem;font-size:1.5rem;font-weight:normal;transition:all .1s ease-in-out;opacity:0}*:hover>.headerlink,*:target>.attr>.headerlink{opacity:1}.attr{display:block;color:var(--text);margin:2rem 0 .5rem 1rem;padding:.4rem 5rem .4rem 1rem;background-color:var(--accent)}.attr:first-of-type{margin-left:0}.member_divisor{margin-left:3rem}.member_divisor>h5{margin-left:-1rem;font-size:1.5rem;color:#a9a9a9}.member_divisor .attr:first-of-type{margin-top:0}.name{color:var(--name);font-weight:bold}.def{color:var(--def);font-weight:bold}.signature{white-space:pre-wrap}.annotation{color:var(--annotation)}.inherited{margin-left:4rem}.inherited div{margin-left:2rem}.inherited dt{font-weight:700}.inherited dt,.inherited dd{display:inline;margin-left:0;margin-bottom:.5rem}.inherited dd:not(:last-child):after{content:", "}.inherited .class:before{content:"class "}.inherited .function a:after{content:"()"}.search-result .docstring{overflow:auto;max-height:25vh}.search-result.focused>.attr{background-color:var(--accent2)}.attribution{margin-top:2rem;display:block;opacity:.5;transition:all .2s;filter:grayscale(100%)}.attribution:hover{opacity:1;color:#fff}.c{color:#6a7aaa}.err{color:#f55;background-color:#1e0010}.k{color:#ff79c6}.l{color:#ae81ff}.n{color:#f8f8f2}.o{color:#ff79c6}.p{color:#f8f8f2}.ch{color:#6a7aaa}.cm{color:#6a7aaa}.cp{color:#6a7aaa}.cpf{color:#6a7aaa}.c1{color:#6a7aaa}.cs{color:#6a7aaa}.gd{color:#6a7aaa}.ge{font-style:italic}.gi{color:#a6e22e}.go{color:#ff79c6}.gp{color:#f92672;font-weight:bold}.gs{font-weight:bold}.gu{color:#75715e}.kc{color:#ff79c6}.kd{color:#bd93f9}.kn{color:#ff79c6}.kp{color:#bd93f9}.kr{color:#ff79c6}.kt{color:#ff79c6}.ld{color:#e6db74}.m{color:#ae81ff}.s{color:#e6db74}.na{color:#a6e22e}.nb{color:#8be9fd}.nc{color:#e6c07b}.no{color:#ff79c6}.ni{color:#ff79c6}.ne{color:#8be9fd}.nf{color:#61aeee}.nl{color:#f8f8f2}.nn{color:#f8f8f2}.nx{color:#a6e22e}.py{color:#f8f8f2}.nt{color:#f92672}.nv{color:#f8f8f2}.ow{color:#ff79c6}.w{color:#f8f8f2}.mb{color:#ae81ff}.mf{color:#ae81ff}.mh{color:#ae81ff}.mi{color:#ae81ff}.mo{color:#ae81ff}.sa{color:#ff79c6}.sb{color:#e6db74}.sc{color:#e6db74}.dl{color:#e6db74}.sd{color:#6272a4}.s2{color:#e6db74}.se{color:#ae81ff}.sh{color:#e6db74}.si{color:#bd93f9}.sx{color:#e6db74}.sr{color:#e6db74}.s1{color:#e6db74}.ss{color:#e6db74}.bp{color:#bd93f9}.fm{color:#bd93f9}.vc{color:#bd93f9}.vg{color:#f8f8f2}.vi{color:#fff}.vm{color:#bd93f9}.il{color:#ae81ff}.nd{color:#61aeee}.kc{color:#bd93f9}</style><body><nav class=pdoc><div class=sidebar id=sidebar><div class=sidebar-buttons><label>Hikari (<select class=version-selector disabled id=version-selector><option>master</select>)</label><div class=push></div><a class=svg-button href=../index.html><svg viewbox="0 0 576 512"height=32 width=32 xmlns=http://www.w3.org/2000/svg><path d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"fill=#ffffff /></svg></a><a class=svg-button href=https://discord.gg/Jx4cNGG><svg viewbox="0 0 71 55"height=32 width=32 xmlns=http://www.w3.org/2000/svg><path d="M60.1045 4.8978C55.5792 2.8214 50.7265 1.2916 45.6527 0.41542C45.5603 0.39851 45.468 0.440769 45.4204 0.525289C44.7963 1.6353 44.105 3.0834 43.6209 4.2216C38.1637 3.4046 32.7345 3.4046 27.3892 4.2216C26.905 3.0581 26.1886 1.6353 25.5617 0.525289C25.5141 0.443589 25.4218 0.40133 25.3294 0.41542C20.2584 1.2888 15.4057 2.8186 10.8776 4.8978C10.8384 4.9147 10.8048 4.9429 10.7825 4.9795C1.57795 18.7309 -0.943561 32.1443 0.293408 45.3914C0.299005 45.4562 0.335386 45.5182 0.385761 45.5576C6.45866 50.0174 12.3413 52.7249 18.1147 54.5195C18.2071 54.5477 18.305 54.5139 18.3638 54.4378C19.7295 52.5728 20.9469 50.6063 21.9907 48.5383C22.0523 48.4172 21.9935 48.2735 21.8676 48.2256C19.9366 47.4931 18.0979 46.6 16.3292 45.5858C16.1893 45.5041 16.1781 45.304 16.3068 45.2082C16.679 44.9293 17.0513 44.6391 17.4067 44.3461C17.471 44.2926 17.5606 44.2813 17.6362 44.3151C29.2558 49.6202 41.8354 49.6202 53.3179 44.3151C53.3935 44.2785 53.4831 44.2898 53.5502 44.3433C53.9057 44.6363 54.2779 44.9293 54.6529 45.2082C54.7816 45.304 54.7732 45.5041 54.6333 45.5858C52.8646 46.6197 51.0259 47.4931 49.0921 48.2228C48.9662 48.2707 48.9102 48.4172 48.9718 48.5383C50.038 50.6034 51.2554 52.5699 52.5959 54.435C52.6519 54.5139 52.7526 54.5477 52.845 54.5195C58.6464 52.7249 64.529 50.0174 70.6019 45.5576C70.6551 45.5182 70.6887 45.459 70.6943 45.3942C72.1747 30.0791 68.2147 16.7757 60.1968 4.9823C60.1772 4.9429 60.1437 4.9147 60.1045 4.8978ZM23.7259 37.3253C20.2276 37.3253 17.3451 34.1136 17.3451 30.1693C17.3451 26.225 20.1717 23.0133 23.7259 23.0133C27.308 23.0133 30.1626 26.2532 30.1066 30.1693C30.1066 34.1136 27.28 37.3253 23.7259 37.3253ZM47.3178 37.3253C43.8196 37.3253 40.9371 34.1136 40.9371 30.1693C40.9371 26.225 43.7636 23.0133 47.3178 23.0133C50.9 23.0133 53.7545 26.2532 53.6986 30.1693C53.6986 34.1136 50.9 37.3253 47.3178 37.3253Z"fill=#ffffff /></svg></a><a class=svg-button href=https://github.com/hikari-py/hikari><svg viewbox="0 0 16 16"height=32 width=32 xmlns=http://www.w3.org/2000/svg><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"fill=#ffffff></path></svg></a><a class=svg-button href=https://pypi.org/project/hikari><svg viewbox="0 0 512 512"height=32 width=32 xmlns=http://www.w3.org/2000/svg><path d="M488.6 250.2L392 214V105.5c0-15-9.3-28.4-23.4-33.7l-100-37.5c-8.1-3.1-17.1-3.1-25.3 0l-100 37.5c-14.1 5.3-23.4 18.7-23.4 33.7V214l-96.6 36.2C9.3 255.5 0 268.9 0 283.9V394c0 13.6 7.7 26.1 19.9 32.2l100 50c10.1 5.1 22.1 5.1 32.2 0l103.9-52 103.9 52c10.1 5.1 22.1 5.1 32.2 0l100-50c12.2-6.1 19.9-18.6 19.9-32.2V283.9c0-15-9.3-28.4-23.4-33.7zM358 214.8l-85 31.9v-68.2l85-37v73.3zM154 104.1l102-38.2 102 38.2v.6l-102 41.4-102-41.4v-.6zm84 291.1l-85 42.5v-79.1l85-38.8v75.4zm0-112l-102 41.4-102-41.4v-.6l102-38.2 102 38.2v.6zm240 112l-85 42.5v-79.1l85-38.8v75.4zm0-112l-102 41.4-102-41.4v-.6l102-38.2 102 38.2v.6z"fill=#ffffff /></svg></a></div><input title="Search the documentation"pattern=.+ placeholder=Search... role=searchbox type=search><h2>API Documentation</h2><ul class=memberlist><li><a class=class href=#BasicAuthHeader>BasicAuthHeader</a> <ul class=memberlist><li><a class=function href=#BasicAuthHeader.__init__>__init__</a><li><a class=variable href=#BasicAuthHeader.charset>charset</a><li><a class=variable href=#BasicAuthHeader.header>header</a><li><a class=variable href=#BasicAuthHeader.password>password</a><li><a class=variable href=#BasicAuthHeader.username>username</a></ul><li><a class=class href=#CacheComponents>CacheComponents</a> <ul class=memberlist><li><a class=function href=#CacheComponents.__init__>__init__</a><li><a class=variable href=#CacheComponents.ALL>ALL</a><li><a class=variable href=#CacheComponents.DM_CHANNEL_IDS>DM_CHANNEL_IDS</a><li><a class=variable href=#CacheComponents.EMOJIS>EMOJIS</a><li><a class=variable href=#CacheComponents.GUILDS>GUILDS</a><li><a class=variable href=#CacheComponents.GUILD_CHANNELS>GUILD_CHANNELS</a><li><a class=variable href=#CacheComponents.INVITES>INVITES</a><li><a class=variable href=#CacheComponents.MEMBERS>MEMBERS</a><li><a class=variable href=#CacheComponents.MESSAGES>MESSAGES</a><li><a class=variable href=#CacheComponents.NONE>NONE</a><li><a class=variable href=#CacheComponents.PRESENCES>PRESENCES</a><li><a class=variable href=#CacheComponents.ROLES>ROLES</a><li><a class=variable href=#CacheComponents.VOICE_STATES>VOICE_STATES</a><li><a class=function href=#CacheComponents.all>all</a><li><a class=function href=#CacheComponents.any>any</a><li><a class=function href=#CacheComponents.as_integer_ratio>as_integer_ratio</a><li><a class=function href=#CacheComponents.bit_length>bit_length</a><li><a class=function href=#CacheComponents.conjugate>conjugate</a><li><a class=variable href=#CacheComponents.denominator>denominator</a><li><a class=function href=#CacheComponents.difference>difference</a><li><a class=function href=#CacheComponents.from_bytes>from_bytes</a><li><a class=variable href=#CacheComponents.imag>imag</a><li><a class=function href=#CacheComponents.intersection>intersection</a><li><a class=function href=#CacheComponents.invert>invert</a><li><a class=function href=#CacheComponents.is_disjoint>is_disjoint</a><li><a class=function href=#CacheComponents.is_subset>is_subset</a><li><a class=function href=#CacheComponents.is_superset>is_superset</a><li><a class=function href=#CacheComponents.isdisjoint>isdisjoint</a><li><a class=function href=#CacheComponents.issubset>issubset</a><li><a class=function href=#CacheComponents.issuperset>issuperset</a><li><a class=variable href=#CacheComponents.name>name</a><li><a class=function href=#CacheComponents.none>none</a><li><a class=variable href=#CacheComponents.numerator>numerator</a><li><a class=variable href=#CacheComponents.real>real</a><li><a class=function href=#CacheComponents.split>split</a><li><a class=function href=#CacheComponents.symmetric_difference>symmetric_difference</a><li><a class=function href=#CacheComponents.symmetricdifference>symmetricdifference</a><li><a class=function href=#CacheComponents.to_bytes>to_bytes</a><li><a class=function href=#CacheComponents.union>union</a><li><a class=variable href=#CacheComponents.value>value</a></ul><li><a class=class href=#CacheSettings>CacheSettings</a> <ul class=memberlist><li><a class=function href=#CacheSettings.__init__>__init__</a><li><a class=variable href=#CacheSettings.components>components</a><li><a class=variable href=#CacheSettings.max_dm_channel_ids>max_dm_channel_ids</a><li><a class=variable href=#CacheSettings.max_messages>max_messages</a></ul><li><a class=class href=#HTTPSettings>HTTPSettings</a> <ul class=memberlist><li><a class=function href=#HTTPSettings.__init__>__init__</a><li><a class=variable href=#HTTPSettings.enable_cleanup_closed>enable_cleanup_closed</a><li><a class=variable href=#HTTPSettings.force_close_transports>force_close_transports</a><li><a class=variable href=#HTTPSettings.max_redirects>max_redirects</a><li><a class=variable href=#HTTPSettings.ssl>ssl</a><li><a class=variable href=#HTTPSettings.timeouts>timeouts</a></ul><li><a class=class href=#HTTPTimeoutSettings>HTTPTimeoutSettings</a> <ul class=memberlist><li><a class=function href=#HTTPTimeoutSettings.__init__>__init__</a><li><a class=variable href=#HTTPTimeoutSettings.acquire_and_connect>acquire_and_connect</a><li><a class=variable href=#HTTPTimeoutSettings.request_socket_connect>request_socket_connect</a><li><a class=variable href=#HTTPTimeoutSettings.request_socket_read>request_socket_read</a><li><a class=variable href=#HTTPTimeoutSettings.total>total</a></ul><li><a class=class href=#ProxySettings>ProxySettings</a> <ul class=memberlist><li><a class=function href=#ProxySettings.__init__>__init__</a><li><a class=variable href=#ProxySettings.all_headers>all_headers</a><li><a class=variable href=#ProxySettings.auth>auth</a><li><a class=variable href=#ProxySettings.headers>headers</a><li><a class=variable href=#ProxySettings.trust_env>trust_env</a><li><a class=variable href=#ProxySettings.url>url</a></ul></ul><a class=attribution href=https://pdoc.dev>built with pdoc v9.0.1</a></div><div class=sidebar-toggle id=sidebar-toggle></div></nav><main class=pdoc><div class=version-warning id=version-warning></div><section><h1 class=modulename><a href=./../index.html>hikari</a><wbr>.config</h1><div class=docstring><p>Data class containing network-related configuration settings.</div><details><summary>View Source</summary> <div class=codehilite><pre><span></span><span class=c1># -*- coding: utf-8 -*-</span>
+<span class=c1># cython: language_level=3</span>
+<span class=c1># Copyright (c) 2020 Nekokatt</span>
+<span class=c1># Copyright (c) 2021-present davfsa</span>
+<span class=c1>#</span>
+<span class=c1># Permission is hereby granted, free of charge, to any person obtaining a copy</span>
+<span class=c1># of this software and associated documentation files (the "Software"), to deal</span>
+<span class=c1># in the Software without restriction, including without limitation the rights</span>
+<span class=c1># to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</span>
+<span class=c1># copies of the Software, and to permit persons to whom the Software is</span>
+<span class=c1># furnished to do so, subject to the following conditions:</span>
+<span class=c1>#</span>
+<span class=c1># The above copyright notice and this permission notice shall be included in all</span>
+<span class=c1># copies or substantial portions of the Software.</span>
+<span class=c1>#</span>
+<span class=c1># THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
+<span class=c1># IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
+<span class=c1># FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span>
+<span class=c1># AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
+<span class=c1># LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</span>
+<span class=c1># OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</span>
+<span class=c1># SOFTWARE.</span>
+<span class=sd>"""Data class containing network-related configuration settings."""</span>
+
+<span class=kn>from</span> <span class=nn>__future__</span> <span class=kn>import</span> <span class=n>annotations</span>
+
+<span class=n>__all__</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>List</span><span class=p>[</span><span class=nb>str</span><span class=p>]</span> <span class=o>=</span> <span class=p>[</span>
+    <span class=s2>"BasicAuthHeader"</span><span class=p>,</span>
+    <span class=s2>"ProxySettings"</span><span class=p>,</span>
+    <span class=s2>"HTTPTimeoutSettings"</span><span class=p>,</span>
+    <span class=s2>"HTTPSettings"</span><span class=p>,</span>
+    <span class=s2>"CacheComponents"</span><span class=p>,</span>
+    <span class=s2>"CacheSettings"</span><span class=p>,</span>
+<span class=p>]</span>
+
+<span class=kn>import</span> <span class=nn>base64</span>
+<span class=kn>import</span> <span class=nn>ssl</span> <span class=k>as</span> <span class=nn>ssl_</span>
+<span class=kn>import</span> <span class=nn>typing</span>
+
+<span class=kn>import</span> <span class=nn>attr</span>
+<span class=kn>import</span> <span class=nn>yarl</span>
+
+<span class=kn>from</span> <span class=nn>hikari.internal</span> <span class=kn>import</span> <span class=n>attr_extensions</span>
+<span class=kn>from</span> <span class=nn>hikari.internal</span> <span class=kn>import</span> <span class=n>data_binding</span>
+<span class=kn>from</span> <span class=nn>hikari.internal</span> <span class=kn>import</span> <span class=n>enums</span>
+
+<span class=n>_BASICAUTH_TOKEN_PREFIX</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Final</span><span class=p>[</span><span class=nb>str</span><span class=p>]</span> <span class=o>=</span> <span class=s2>"Basic"</span>  <span class=c1># nosec</span>
+<span class=n>_PROXY_AUTHENTICATION_HEADER</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Final</span><span class=p>[</span><span class=nb>str</span><span class=p>]</span> <span class=o>=</span> <span class=s2>"Proxy-Authentication"</span>
+
+
+<span class=k>def</span> <span class=nf>_ssl_factory</span><span class=p>(</span><span class=n>value</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Union</span><span class=p>[</span><span class=nb>bool</span><span class=p>,</span> <span class=n>ssl_</span><span class=o>.</span><span class=n>SSLContext</span><span class=p>])</span> <span class=o>-></span> <span class=n>ssl_</span><span class=o>.</span><span class=n>SSLContext</span><span class=p>:</span>
+    <span class=k>if</span> <span class=ow>not</span> <span class=nb>isinstance</span><span class=p>(</span><span class=n>value</span><span class=p>,</span> <span class=nb>bool</span><span class=p>):</span>
+        <span class=k>return</span> <span class=n>value</span>
+
+    <span class=n>ssl</span> <span class=o>=</span> <span class=n>ssl_</span><span class=o>.</span><span class=n>create_default_context</span><span class=p>()</span>
+    <span class=c1># We can't turn SSL verification off without disabling hostname verification first.</span>
+    <span class=c1># If we are using verification, this will just leave it enabled, so it is fine.</span>
+    <span class=n>ssl</span><span class=o>.</span><span class=n>check_hostname</span> <span class=o>=</span> <span class=n>value</span>
+    <span class=n>ssl</span><span class=o>.</span><span class=n>verify_mode</span> <span class=o>=</span> <span class=n>ssl_</span><span class=o>.</span><span class=n>CERT_REQUIRED</span> <span class=k>if</span> <span class=n>value</span> <span class=k>else</span> <span class=n>ssl_</span><span class=o>.</span><span class=n>CERT_NONE</span>
+    <span class=k>return</span> <span class=n>ssl</span>
+
+
+<span class=nd>@attr_extensions</span><span class=o>.</span><span class=n>with_copy</span>
+<span class=nd>@attr</span><span class=o>.</span><span class=n>define</span><span class=p>(</span><span class=n>kw_only</span><span class=o>=</span><span class=kc>True</span><span class=p>,</span> <span class=nb>repr</span><span class=o>=</span><span class=kc>True</span><span class=p>,</span> <span class=n>weakref_slot</span><span class=o>=</span><span class=kc>False</span><span class=p>)</span>
+<span class=k>class</span> <span class=nc>BasicAuthHeader</span><span class=p>:</span>
+    <span class=sd>"""An object that can be set as a producer for a basic auth header."""</span>
+
+    <span class=n>username</span><span class=p>:</span> <span class=nb>str</span> <span class=o>=</span> <span class=n>attr</span><span class=o>.</span><span class=n>field</span><span class=p>(</span><span class=n>validator</span><span class=o>=</span><span class=n>attr</span><span class=o>.</span><span class=n>validators</span><span class=o>.</span><span class=n>instance_of</span><span class=p>(</span><span class=nb>str</span><span class=p>))</span>
+    <span class=sd>"""Username for the header.</span>
+
+<span class=sd>    ...warning :: This must not contain `":"`.</span>
+<span class=sd>    """</span>
+
+    <span class=n>password</span><span class=p>:</span> <span class=nb>str</span> <span class=o>=</span> <span class=n>attr</span><span class=o>.</span><span class=n>field</span><span class=p>(</span><span class=nb>repr</span><span class=o>=</span><span class=kc>False</span><span class=p>,</span> <span class=n>validator</span><span class=o>=</span><span class=n>attr</span><span class=o>.</span><span class=n>validators</span><span class=o>.</span><span class=n>instance_of</span><span class=p>(</span><span class=nb>str</span><span class=p>))</span>
+    <span class=sd>"""Password to use."""</span>
+
+    <span class=n>charset</span><span class=p>:</span> <span class=nb>str</span> <span class=o>=</span> <span class=n>attr</span><span class=o>.</span><span class=n>field</span><span class=p>(</span><span class=n>default</span><span class=o>=</span><span class=s2>"utf-8"</span><span class=p>,</span> <span class=n>validator</span><span class=o>=</span><span class=n>attr</span><span class=o>.</span><span class=n>validators</span><span class=o>.</span><span class=n>instance_of</span><span class=p>(</span><span class=nb>str</span><span class=p>))</span>
+    <span class=sd>"""Encoding to use for the username and password.</span>
+
+<span class=sd>    Default is `"utf-8"`, but you may choose to use something else,</span>
+<span class=sd>    including third-party encodings (e.g. IBM's EBCDIC codepages).</span>
+<span class=sd>    """</span>
+
+    <span class=nd>@property</span>
+    <span class=k>def</span> <span class=nf>header</span><span class=p>(</span><span class=bp>self</span><span class=p>)</span> <span class=o>-></span> <span class=nb>str</span><span class=p>:</span>
+        <span class=sd>"""Create the full `Authentication` header value."""</span>
+        <span class=n>raw_token</span> <span class=o>=</span> <span class=sa>f</span><span class=s2>"</span><span class=si>{</span><span class=bp>self</span><span class=o>.</span><span class=n>username</span><span class=si>}</span><span class=s2>:</span><span class=si>{</span><span class=bp>self</span><span class=o>.</span><span class=n>password</span><span class=si>}</span><span class=s2>"</span><span class=o>.</span><span class=n>encode</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>charset</span><span class=p>)</span>
+        <span class=n>token_part</span> <span class=o>=</span> <span class=n>base64</span><span class=o>.</span><span class=n>b64encode</span><span class=p>(</span><span class=n>raw_token</span><span class=p>)</span><span class=o>.</span><span class=n>decode</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>charset</span><span class=p>)</span>
+        <span class=k>return</span> <span class=sa>f</span><span class=s2>"</span><span class=si>{</span><span class=n>_BASICAUTH_TOKEN_PREFIX</span><span class=si>}</span><span class=s2> </span><span class=si>{</span><span class=n>token_part</span><span class=si>}</span><span class=s2>"</span>
+
+    <span class=k>def</span> <span class=fm>__str__</span><span class=p>(</span><span class=bp>self</span><span class=p>)</span> <span class=o>-></span> <span class=nb>str</span><span class=p>:</span>
+        <span class=k>return</span> <span class=bp>self</span><span class=o>.</span><span class=n>header</span>
+
+
+<span class=nd>@attr_extensions</span><span class=o>.</span><span class=n>with_copy</span>
+<span class=nd>@attr</span><span class=o>.</span><span class=n>define</span><span class=p>(</span><span class=n>kw_only</span><span class=o>=</span><span class=kc>True</span><span class=p>,</span> <span class=n>weakref_slot</span><span class=o>=</span><span class=kc>False</span><span class=p>)</span>
+<span class=k>class</span> <span class=nc>ProxySettings</span><span class=p>:</span>
+    <span class=sd>"""Settings for configuring an HTTP-based proxy."""</span>
+
+    <span class=n>auth</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Any</span> <span class=o>=</span> <span class=n>attr</span><span class=o>.</span><span class=n>field</span><span class=p>(</span><span class=n>default</span><span class=o>=</span><span class=kc>None</span><span class=p>)</span>
+    <span class=sd>"""Authentication header value to use.</span>
+
+<span class=sd>    When cast to a `str`, this should provide the full value</span>
+<span class=sd>    for the authentication header.</span>
+
+<span class=sd>    If you are using basic auth, you should consider using the</span>
+<span class=sd>    `BasicAuthHeader` helper object here, as this will provide any</span>
+<span class=sd>    transformations you may require into a base64 string.</span>
+
+<span class=sd>    The default is to have this set to `None`, which will</span>
+<span class=sd>    result in no authentication being provided.</span>
+
+<span class=sd>    Returns</span>
+<span class=sd>    -------</span>
+<span class=sd>    typing.Any</span>
+<span class=sd>        The value for the `Authentication` header, or `None`</span>
+<span class=sd>        to disable.</span>
+<span class=sd>    """</span>
+
+    <span class=n>headers</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Optional</span><span class=p>[</span><span class=n>data_binding</span><span class=o>.</span><span class=n>Headers</span><span class=p>]</span> <span class=o>=</span> <span class=n>attr</span><span class=o>.</span><span class=n>field</span><span class=p>(</span><span class=n>default</span><span class=o>=</span><span class=kc>None</span><span class=p>)</span>
+    <span class=sd>"""Additional headers to use for requests via a proxy, if required."""</span>
+
+    <span class=n>url</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Union</span><span class=p>[</span><span class=kc>None</span><span class=p>,</span> <span class=nb>str</span><span class=p>,</span> <span class=n>yarl</span><span class=o>.</span><span class=n>URL</span><span class=p>]</span> <span class=o>=</span> <span class=n>attr</span><span class=o>.</span><span class=n>field</span><span class=p>(</span><span class=n>default</span><span class=o>=</span><span class=kc>None</span><span class=p>)</span>
+    <span class=sd>"""Proxy URL to use.</span>
+
+<span class=sd>    Defaults to `None` which disables the use of an explicit proxy.</span>
+
+<span class=sd>    Returns</span>
+<span class=sd>    -------</span>
+<span class=sd>    typing.Union[None, str, yarl.URL]</span>
+<span class=sd>        The proxy URL to use, or `None` to disable it.</span>
+<span class=sd>    """</span>
+
+    <span class=nd>@url</span><span class=o>.</span><span class=n>validator</span>
+    <span class=k>def</span> <span class=nf>_</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>_</span><span class=p>:</span> <span class=n>attr</span><span class=o>.</span><span class=n>Attribute</span><span class=p>[</span><span class=n>typing</span><span class=o>.</span><span class=n>Union</span><span class=p>[</span><span class=kc>None</span><span class=p>,</span> <span class=nb>str</span><span class=p>,</span> <span class=n>yarl</span><span class=o>.</span><span class=n>URL</span><span class=p>]],</span> <span class=n>value</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Union</span><span class=p>[</span><span class=kc>None</span><span class=p>,</span> <span class=nb>str</span><span class=p>,</span> <span class=n>yarl</span><span class=o>.</span><span class=n>URL</span><span class=p>])</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+        <span class=k>if</span> <span class=n>value</span> <span class=ow>is</span> <span class=ow>not</span> <span class=kc>None</span> <span class=ow>and</span> <span class=ow>not</span> <span class=nb>isinstance</span><span class=p>(</span><span class=n>value</span><span class=p>,</span> <span class=p>(</span><span class=nb>str</span><span class=p>,</span> <span class=n>yarl</span><span class=o>.</span><span class=n>URL</span><span class=p>)):</span>
+            <span class=k>raise</span> <span class=ne>ValueError</span><span class=p>(</span><span class=s2>"ProxySettings.url must be None, a str, or a yarl.URL instance"</span><span class=p>)</span>
+
+    <span class=n>trust_env</span><span class=p>:</span> <span class=nb>bool</span> <span class=o>=</span> <span class=n>attr</span><span class=o>.</span><span class=n>field</span><span class=p>(</span><span class=n>default</span><span class=o>=</span><span class=kc>False</span><span class=p>,</span> <span class=n>validator</span><span class=o>=</span><span class=n>attr</span><span class=o>.</span><span class=n>validators</span><span class=o>.</span><span class=n>instance_of</span><span class=p>(</span><span class=nb>bool</span><span class=p>))</span>
+    <span class=sd>"""Toggle whether to look for a `netrc` file or environment variables.</span>
+
+<span class=sd>    If `True`, and no `url` is given on this object, then</span>
+<span class=sd>    `HTTP_PROXY` and `HTTPS_PROXY` will be used from the environment</span>
+<span class=sd>    variables, or a `netrc` file may be read to determine credentials.</span>
+
+<span class=sd>    If `False`, then this information is instead ignored.</span>
+
+<span class=sd>    Defaults to `False` to prevent potentially unwanted behavior.</span>
+
+<span class=sd>    .. note::</span>
+<span class=sd>        For more details of using `netrc`, visit:</span>
+<span class=sd>        &LThttps://www.gnu.org/software/inetutils/manual/html_node/The-_002enetrc-file.html></span>
+
+<span class=sd>    Returns</span>
+<span class=sd>    -------</span>
+<span class=sd>    bool</span>
+<span class=sd>        `True` if allowing the use of environment variables</span>
+<span class=sd>        and/or `netrc` to determine proxy settings; `False`</span>
+<span class=sd>        if this should be disabled explicitly.</span>
+<span class=sd>    """</span>
+
+    <span class=nd>@property</span>
+    <span class=k>def</span> <span class=nf>all_headers</span><span class=p>(</span><span class=bp>self</span><span class=p>)</span> <span class=o>-></span> <span class=n>typing</span><span class=o>.</span><span class=n>Optional</span><span class=p>[</span><span class=n>data_binding</span><span class=o>.</span><span class=n>Headers</span><span class=p>]:</span>
+        <span class=sd>"""Return all proxy headers.</span>
+
+<span class=sd>        Will be `None` if no headers are to be send with any request.</span>
+<span class=sd>        """</span>
+        <span class=k>if</span> <span class=bp>self</span><span class=o>.</span><span class=n>headers</span> <span class=ow>is</span> <span class=kc>None</span><span class=p>:</span>
+            <span class=k>if</span> <span class=bp>self</span><span class=o>.</span><span class=n>auth</span> <span class=ow>is</span> <span class=kc>None</span><span class=p>:</span>
+                <span class=k>return</span> <span class=kc>None</span>
+            <span class=k>return</span> <span class=p>{</span><span class=n>_PROXY_AUTHENTICATION_HEADER</span><span class=p>:</span> <span class=bp>self</span><span class=o>.</span><span class=n>auth</span><span class=p>}</span>
+
+        <span class=k>if</span> <span class=bp>self</span><span class=o>.</span><span class=n>auth</span> <span class=ow>is</span> <span class=kc>None</span><span class=p>:</span>
+            <span class=k>return</span> <span class=bp>self</span><span class=o>.</span><span class=n>headers</span>
+        <span class=k>return</span> <span class=p>{</span><span class=o>**</span><span class=bp>self</span><span class=o>.</span><span class=n>headers</span><span class=p>,</span> <span class=n>_PROXY_AUTHENTICATION_HEADER</span><span class=p>:</span> <span class=bp>self</span><span class=o>.</span><span class=n>auth</span><span class=p>}</span>
+
+
+<span class=nd>@attr_extensions</span><span class=o>.</span><span class=n>with_copy</span>
+<span class=nd>@attr</span><span class=o>.</span><span class=n>define</span><span class=p>(</span><span class=n>kw_only</span><span class=o>=</span><span class=kc>True</span><span class=p>,</span> <span class=n>weakref_slot</span><span class=o>=</span><span class=kc>False</span><span class=p>)</span>
+<span class=k>class</span> <span class=nc>HTTPTimeoutSettings</span><span class=p>:</span>
+    <span class=sd>"""Settings to control HTTP request timeouts."""</span>
+
+    <span class=n>acquire_and_connect</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Optional</span><span class=p>[</span><span class=nb>float</span><span class=p>]</span> <span class=o>=</span> <span class=n>attr</span><span class=o>.</span><span class=n>field</span><span class=p>(</span><span class=n>default</span><span class=o>=</span><span class=kc>None</span><span class=p>)</span>
+    <span class=sd>"""Timeout for `request_socket_connect` PLUS connection acquisition.</span>
+
+<span class=sd>    By default, this has no timeout allocated. Setting it to `None`</span>
+<span class=sd>    will disable it.</span>
+<span class=sd>    """</span>
+
+    <span class=n>request_socket_connect</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Optional</span><span class=p>[</span><span class=nb>float</span><span class=p>]</span> <span class=o>=</span> <span class=n>attr</span><span class=o>.</span><span class=n>field</span><span class=p>(</span><span class=n>default</span><span class=o>=</span><span class=kc>None</span><span class=p>)</span>
+    <span class=sd>"""Timeout for connecting a socket.</span>
+
+<span class=sd>    By default, this has no timeout allocated. Setting it to `None`</span>
+<span class=sd>    will disable it.</span>
+<span class=sd>    """</span>
+
+    <span class=n>request_socket_read</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Optional</span><span class=p>[</span><span class=nb>float</span><span class=p>]</span> <span class=o>=</span> <span class=n>attr</span><span class=o>.</span><span class=n>field</span><span class=p>(</span><span class=n>default</span><span class=o>=</span><span class=kc>None</span><span class=p>)</span>
+    <span class=sd>"""Timeout for reading a socket.</span>
+
+<span class=sd>    By default, this has no timeout allocated. Setting it to `None`</span>
+<span class=sd>    will disable it.</span>
+<span class=sd>    """</span>
+
+    <span class=n>total</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Optional</span><span class=p>[</span><span class=nb>float</span><span class=p>]</span> <span class=o>=</span> <span class=n>attr</span><span class=o>.</span><span class=n>field</span><span class=p>(</span><span class=n>default</span><span class=o>=</span><span class=mf>30.0</span><span class=p>)</span>
+    <span class=sd>"""Total timeout for entire request.</span>
+
+<span class=sd>    By default, this has a 30 second timeout allocated. Setting it to `None`</span>
+<span class=sd>    will disable it.</span>
+<span class=sd>    """</span>
+
+    <span class=nd>@acquire_and_connect</span><span class=o>.</span><span class=n>validator</span>
+    <span class=nd>@request_socket_connect</span><span class=o>.</span><span class=n>validator</span>
+    <span class=nd>@request_socket_read</span><span class=o>.</span><span class=n>validator</span>
+    <span class=nd>@total</span><span class=o>.</span><span class=n>validator</span>
+    <span class=k>def</span> <span class=nf>_</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>attrib</span><span class=p>:</span> <span class=n>attr</span><span class=o>.</span><span class=n>Attribute</span><span class=p>[</span><span class=n>typing</span><span class=o>.</span><span class=n>Optional</span><span class=p>[</span><span class=nb>float</span><span class=p>]],</span> <span class=n>value</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Optional</span><span class=p>[</span><span class=nb>float</span><span class=p>])</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+        <span class=c1># This error won't occur until some time in the future where it will be annoying to</span>
+        <span class=c1># try and determine the root cause, so validate it NOW.</span>
+        <span class=k>if</span> <span class=n>value</span> <span class=ow>is</span> <span class=ow>not</span> <span class=kc>None</span> <span class=ow>and</span> <span class=p>(</span><span class=ow>not</span> <span class=nb>isinstance</span><span class=p>(</span><span class=n>value</span><span class=p>,</span> <span class=p>(</span><span class=nb>float</span><span class=p>,</span> <span class=nb>int</span><span class=p>))</span> <span class=ow>or</span> <span class=n>value</span> <span class=o><=</span> <span class=mi>0</span><span class=p>):</span>
+            <span class=k>raise</span> <span class=ne>ValueError</span><span class=p>(</span><span class=sa>f</span><span class=s2>"HTTPTimeoutSettings.</span><span class=si>{</span><span class=n>attrib</span><span class=o>.</span><span class=n>name</span><span class=si>}</span><span class=s2> must be None, or a POSITIVE float/int"</span><span class=p>)</span>
+
+
+<span class=nd>@attr_extensions</span><span class=o>.</span><span class=n>with_copy</span>
+<span class=nd>@attr</span><span class=o>.</span><span class=n>define</span><span class=p>(</span><span class=n>kw_only</span><span class=o>=</span><span class=kc>True</span><span class=p>,</span> <span class=n>weakref_slot</span><span class=o>=</span><span class=kc>False</span><span class=p>)</span>
+<span class=k>class</span> <span class=nc>HTTPSettings</span><span class=p>:</span>
+    <span class=sd>"""Settings to control HTTP clients."""</span>
+
+    <span class=n>enable_cleanup_closed</span><span class=p>:</span> <span class=nb>bool</span> <span class=o>=</span> <span class=n>attr</span><span class=o>.</span><span class=n>field</span><span class=p>(</span><span class=n>default</span><span class=o>=</span><span class=kc>True</span><span class=p>,</span> <span class=n>validator</span><span class=o>=</span><span class=n>attr</span><span class=o>.</span><span class=n>validators</span><span class=o>.</span><span class=n>instance_of</span><span class=p>(</span><span class=nb>bool</span><span class=p>))</span>
+    <span class=sd>"""Toggle whether to clean up closed transports.</span>
+
+<span class=sd>    This defaults to `True` to combat various protocol and asyncio</span>
+<span class=sd>    issues present when using Microsoft Windows. If you are sure you know</span>
+<span class=sd>    what you are doing, you may instead set this to `False` to disable this</span>
+<span class=sd>    behavior internally.</span>
+<span class=sd>    """</span>
+
+    <span class=n>force_close_transports</span><span class=p>:</span> <span class=nb>bool</span> <span class=o>=</span> <span class=n>attr</span><span class=o>.</span><span class=n>field</span><span class=p>(</span><span class=n>default</span><span class=o>=</span><span class=kc>True</span><span class=p>,</span> <span class=n>validator</span><span class=o>=</span><span class=n>attr</span><span class=o>.</span><span class=n>validators</span><span class=o>.</span><span class=n>instance_of</span><span class=p>(</span><span class=nb>bool</span><span class=p>))</span>
+    <span class=sd>"""Toggle whether to force close transports on shutdown.</span>
+
+<span class=sd>    This defaults to `True` to combat various protocol and asyncio</span>
+<span class=sd>    issues present when using Microsoft Windows. If you are sure you know</span>
+<span class=sd>    what you are doing, you may instead set this to `False` to disable this</span>
+<span class=sd>    behavior internally.</span>
+<span class=sd>    """</span>
+
+    <span class=n>max_redirects</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Optional</span><span class=p>[</span><span class=nb>int</span><span class=p>]</span> <span class=o>=</span> <span class=n>attr</span><span class=o>.</span><span class=n>field</span><span class=p>(</span><span class=n>default</span><span class=o>=</span><span class=mi>10</span><span class=p>)</span>
+    <span class=sd>"""Behavior for handling redirect HTTP responses.</span>
+
+<span class=sd>    If a `int`, allow following redirects from `3xx` HTTP responses</span>
+<span class=sd>    for up to this many redirects. Exceeding this value will raise an</span>
+<span class=sd>    exception.</span>
+
+<span class=sd>    If `None`, then disallow any redirects.</span>
+
+<span class=sd>    The default is to disallow this behavior for security reasons.</span>
+
+<span class=sd>    Generally, it is safer to keep this disabled. You may find a case in the</span>
+<span class=sd>    future where you need to enable this if Discord change their URL without</span>
+<span class=sd>    warning.</span>
+
+<span class=sd>    .. note::</span>
+<span class=sd>        This will only apply to the REST API. WebSockets remain unaffected</span>
+<span class=sd>        by any value set here.</span>
+<span class=sd>    """</span>
+
+    <span class=nd>@max_redirects</span><span class=o>.</span><span class=n>validator</span>
+    <span class=k>def</span> <span class=nf>_</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>_</span><span class=p>:</span> <span class=n>attr</span><span class=o>.</span><span class=n>Attribute</span><span class=p>[</span><span class=n>typing</span><span class=o>.</span><span class=n>Optional</span><span class=p>[</span><span class=nb>int</span><span class=p>]],</span> <span class=n>value</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Optional</span><span class=p>[</span><span class=nb>int</span><span class=p>])</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+        <span class=c1># This error won't occur until some time in the future where it will be annoying to</span>
+        <span class=c1># try and determine the root cause, so validate it NOW.</span>
+        <span class=k>if</span> <span class=n>value</span> <span class=ow>is</span> <span class=ow>not</span> <span class=kc>None</span> <span class=ow>and</span> <span class=p>(</span><span class=ow>not</span> <span class=nb>isinstance</span><span class=p>(</span><span class=n>value</span><span class=p>,</span> <span class=nb>int</span><span class=p>)</span> <span class=ow>or</span> <span class=n>value</span> <span class=o><=</span> <span class=mi>0</span><span class=p>):</span>
+            <span class=k>raise</span> <span class=ne>ValueError</span><span class=p>(</span><span class=s2>"http_settings.max_redirects must be None or a POSITIVE integer"</span><span class=p>)</span>
+
+    <span class=n>ssl</span><span class=p>:</span> <span class=n>ssl_</span><span class=o>.</span><span class=n>SSLContext</span> <span class=o>=</span> <span class=n>attr</span><span class=o>.</span><span class=n>field</span><span class=p>(</span>
+        <span class=n>factory</span><span class=o>=</span><span class=k>lambda</span><span class=p>:</span> <span class=n>_ssl_factory</span><span class=p>(</span><span class=kc>True</span><span class=p>),</span>
+        <span class=n>converter</span><span class=o>=</span><span class=n>_ssl_factory</span><span class=p>,</span>
+        <span class=n>validator</span><span class=o>=</span><span class=n>attr</span><span class=o>.</span><span class=n>validators</span><span class=o>.</span><span class=n>instance_of</span><span class=p>(</span><span class=n>ssl_</span><span class=o>.</span><span class=n>SSLContext</span><span class=p>),</span>
+    <span class=p>)</span>
+    <span class=sd>"""SSL context to use.</span>
+
+<span class=sd>    This may be __assigned__ a `bool` or an `ssl.SSLContext` object.</span>
+
+<span class=sd>    If assigned to `True`, a default SSL context is generated by</span>
+<span class=sd>    this class that will enforce SSL verification. This is then stored in</span>
+<span class=sd>    this field.</span>
+
+<span class=sd>    If `False`, then a default SSL context is generated by this</span>
+<span class=sd>    class that will **NOT** enforce SSL verification. This is then stored</span>
+<span class=sd>    in this field.</span>
+
+<span class=sd>    If an instance of `ssl.SSLContext`, then this context will be used.</span>
+
+<span class=sd>    .. warning::</span>
+<span class=sd>        Setting a custom value here may have security implications, or</span>
+<span class=sd>        may result in the application being unable to connect to Discord</span>
+<span class=sd>        at all.</span>
+
+<span class=sd>    .. warning::</span>
+<span class=sd>        Disabling SSL verification is almost always unadvised. This</span>
+<span class=sd>        is because your application will no longer check whether you are</span>
+<span class=sd>        connecting to Discord, or to some third party spoof designed</span>
+<span class=sd>        to steal personal credentials such as your application token.</span>
+
+<span class=sd>        There may be cases where SSL certificates do not get updated,</span>
+<span class=sd>        and in this case, you may find that disabling this explicitly</span>
+<span class=sd>        allows you to work around any issues that are occurring, but</span>
+<span class=sd>        you should immediately seek a better solution where possible</span>
+<span class=sd>        if any form of personal security is in your interest.</span>
+<span class=sd>    """</span>
+
+    <span class=n>timeouts</span><span class=p>:</span> <span class=n>HTTPTimeoutSettings</span> <span class=o>=</span> <span class=n>attr</span><span class=o>.</span><span class=n>field</span><span class=p>(</span>
+        <span class=n>factory</span><span class=o>=</span><span class=n>HTTPTimeoutSettings</span><span class=p>,</span> <span class=n>validator</span><span class=o>=</span><span class=n>attr</span><span class=o>.</span><span class=n>validators</span><span class=o>.</span><span class=n>instance_of</span><span class=p>(</span><span class=n>HTTPTimeoutSettings</span><span class=p>)</span>
+    <span class=p>)</span>
+    <span class=sd>"""Settings to control HTTP request timeouts.</span>
+
+<span class=sd>    The behaviour if this is not explicitly defined is to use sane</span>
+<span class=sd>    defaults that are most efficient for optimal use of this library.</span>
+<span class=sd>    """</span>
+
+
+<span class=k>class</span> <span class=nc>CacheComponents</span><span class=p>(</span><span class=n>enums</span><span class=o>.</span><span class=n>Flag</span><span class=p>):</span>
+    <span class=sd>"""Flags to control the cache components."""</span>
+
+    <span class=n>NONE</span> <span class=o>=</span> <span class=mi>0</span>
+    <span class=sd>"""Disables the cache."""</span>
+
+    <span class=n>GUILDS</span> <span class=o>=</span> <span class=mi>1</span> <span class=o><<</span> <span class=mi>0</span>
+    <span class=sd>"""Enables the guild cache."""</span>
+
+    <span class=n>GUILD_CHANNELS</span> <span class=o>=</span> <span class=mi>1</span> <span class=o><<</span> <span class=mi>1</span>
+    <span class=sd>"""Enables the guild channels cache."""</span>
+
+    <span class=n>MEMBERS</span> <span class=o>=</span> <span class=mi>1</span> <span class=o><<</span> <span class=mi>2</span>
+    <span class=sd>"""Enables the members cache."""</span>
+
+    <span class=n>ROLES</span> <span class=o>=</span> <span class=mi>1</span> <span class=o><<</span> <span class=mi>3</span>
+    <span class=sd>"""Enables the roles cache."""</span>
+
+    <span class=n>INVITES</span> <span class=o>=</span> <span class=mi>1</span> <span class=o><<</span> <span class=mi>4</span>
+    <span class=sd>"""Enables the invites cache."""</span>
+
+    <span class=n>EMOJIS</span> <span class=o>=</span> <span class=mi>1</span> <span class=o><<</span> <span class=mi>5</span>
+    <span class=sd>"""Enables the emojis cache."""</span>
+
+    <span class=n>PRESENCES</span> <span class=o>=</span> <span class=mi>1</span> <span class=o><<</span> <span class=mi>6</span>
+    <span class=sd>"""Enables the presences cache."""</span>
+
+    <span class=n>VOICE_STATES</span> <span class=o>=</span> <span class=mi>1</span> <span class=o><<</span> <span class=mi>7</span>
+    <span class=sd>"""Enables the voice states cache."""</span>
+
+    <span class=n>MESSAGES</span> <span class=o>=</span> <span class=mi>1</span> <span class=o><<</span> <span class=mi>8</span>
+    <span class=sd>"""Enables the messages cache."""</span>
+
+    <span class=n>DM_CHANNEL_IDS</span> <span class=o>=</span> <span class=mi>1</span> <span class=o><<</span> <span class=mi>10</span>
+    <span class=sd>"""Enables the DM channel IDs cache."""</span>
+
+    <span class=n>ALL</span> <span class=o>=</span> <span class=p>(</span>
+        <span class=n>GUILDS</span>
+        <span class=o>|</span> <span class=n>GUILD_CHANNELS</span>
+        <span class=o>|</span> <span class=n>MEMBERS</span>
+        <span class=o>|</span> <span class=n>ROLES</span>
+        <span class=o>|</span> <span class=n>INVITES</span>
+        <span class=o>|</span> <span class=n>EMOJIS</span>
+        <span class=o>|</span> <span class=n>PRESENCES</span>
+        <span class=o>|</span> <span class=n>VOICE_STATES</span>
+        <span class=o>|</span> <span class=n>MESSAGES</span>
+        <span class=o>|</span> <span class=n>DM_CHANNEL_IDS</span>
+    <span class=p>)</span>
+    <span class=sd>"""Fully enables the cache."""</span>
+
+
+<span class=nd>@attr_extensions</span><span class=o>.</span><span class=n>with_copy</span>
+<span class=nd>@attr</span><span class=o>.</span><span class=n>define</span><span class=p>(</span><span class=n>kw_only</span><span class=o>=</span><span class=kc>True</span><span class=p>,</span> <span class=n>weakref_slot</span><span class=o>=</span><span class=kc>False</span><span class=p>)</span>
+<span class=k>class</span> <span class=nc>CacheSettings</span><span class=p>:</span>
+    <span class=sd>"""Settings to control the cache."""</span>
+
+    <span class=n>components</span><span class=p>:</span> <span class=n>CacheComponents</span> <span class=o>=</span> <span class=n>attr</span><span class=o>.</span><span class=n>field</span><span class=p>(</span><span class=n>default</span><span class=o>=</span><span class=n>CacheComponents</span><span class=o>.</span><span class=n>ALL</span><span class=p>)</span>
+    <span class=sd>"""The cache components to use.</span>
+
+<span class=sd>    Defaults to `CacheComponents.ALL`.</span>
+<span class=sd>    """</span>
+
+    <span class=n>max_messages</span><span class=p>:</span> <span class=nb>int</span> <span class=o>=</span> <span class=n>attr</span><span class=o>.</span><span class=n>field</span><span class=p>(</span><span class=n>default</span><span class=o>=</span><span class=mi>300</span><span class=p>)</span>
+    <span class=sd>"""The maximum number of messages to store in the cache at once.</span>
+
+<span class=sd>    This will have no effect if the messages cache is not enabled.</span>
+
+<span class=sd>    Defaults to `300`.</span>
+<span class=sd>    """</span>
+
+    <span class=n>max_dm_channel_ids</span><span class=p>:</span> <span class=nb>int</span> <span class=o>=</span> <span class=n>attr</span><span class=o>.</span><span class=n>field</span><span class=p>(</span><span class=n>default</span><span class=o>=</span><span class=mi>50</span><span class=p>)</span>
+    <span class=sd>"""The maximum number of channel IDs to store in the cache at once.</span>
+
+<span class=sd>    This will have no effect if the channel IDs cache is not enabled.</span>
+
+<span class=sd>    Defaults to `50`.</span>
+<span class=sd>    """</span>
+</pre></div></details></section><section id=BasicAuthHeader><div class="attr class"><a class=headerlink href=#BasicAuthHeader>#  </a><div class=decorator>@attr_extensions.with_copy</div><div class=decorator>@attr.define(kw_only=True, repr=True, weakref_slot=False)</div><span class=def>class </span><span class=name>BasicAuthHeader</span>:</div><details><summary>View Source</summary> <div class=codehilite><pre><span></span><span class=nd>@attr_extensions</span><span class=o>.</span><span class=n>with_copy</span>
+<span class=nd>@attr</span><span class=o>.</span><span class=n>define</span><span class=p>(</span><span class=n>kw_only</span><span class=o>=</span><span class=kc>True</span><span class=p>,</span> <span class=nb>repr</span><span class=o>=</span><span class=kc>True</span><span class=p>,</span> <span class=n>weakref_slot</span><span class=o>=</span><span class=kc>False</span><span class=p>)</span>
+<span class=k>class</span> <span class=nc>BasicAuthHeader</span><span class=p>:</span>
+    <span class=sd>"""An object that can be set as a producer for a basic auth header."""</span>
+
+    <span class=n>username</span><span class=p>:</span> <span class=nb>str</span> <span class=o>=</span> <span class=n>attr</span><span class=o>.</span><span class=n>field</span><span class=p>(</span><span class=n>validator</span><span class=o>=</span><span class=n>attr</span><span class=o>.</span><span class=n>validators</span><span class=o>.</span><span class=n>instance_of</span><span class=p>(</span><span class=nb>str</span><span class=p>))</span>
+    <span class=sd>"""Username for the header.</span>
+
+<span class=sd>    ...warning :: This must not contain `":"`.</span>
+<span class=sd>    """</span>
+
+    <span class=n>password</span><span class=p>:</span> <span class=nb>str</span> <span class=o>=</span> <span class=n>attr</span><span class=o>.</span><span class=n>field</span><span class=p>(</span><span class=nb>repr</span><span class=o>=</span><span class=kc>False</span><span class=p>,</span> <span class=n>validator</span><span class=o>=</span><span class=n>attr</span><span class=o>.</span><span class=n>validators</span><span class=o>.</span><span class=n>instance_of</span><span class=p>(</span><span class=nb>str</span><span class=p>))</span>
+    <span class=sd>"""Password to use."""</span>
+
+    <span class=n>charset</span><span class=p>:</span> <span class=nb>str</span> <span class=o>=</span> <span class=n>attr</span><span class=o>.</span><span class=n>field</span><span class=p>(</span><span class=n>default</span><span class=o>=</span><span class=s2>"utf-8"</span><span class=p>,</span> <span class=n>validator</span><span class=o>=</span><span class=n>attr</span><span class=o>.</span><span class=n>validators</span><span class=o>.</span><span class=n>instance_of</span><span class=p>(</span><span class=nb>str</span><span class=p>))</span>
+    <span class=sd>"""Encoding to use for the username and password.</span>
+
+<span class=sd>    Default is `"utf-8"`, but you may choose to use something else,</span>
+<span class=sd>    including third-party encodings (e.g. IBM's EBCDIC codepages).</span>
+<span class=sd>    """</span>
+
+    <span class=nd>@property</span>
+    <span class=k>def</span> <span class=nf>header</span><span class=p>(</span><span class=bp>self</span><span class=p>)</span> <span class=o>-></span> <span class=nb>str</span><span class=p>:</span>
+        <span class=sd>"""Create the full `Authentication` header value."""</span>
+        <span class=n>raw_token</span> <span class=o>=</span> <span class=sa>f</span><span class=s2>"</span><span class=si>{</span><span class=bp>self</span><span class=o>.</span><span class=n>username</span><span class=si>}</span><span class=s2>:</span><span class=si>{</span><span class=bp>self</span><span class=o>.</span><span class=n>password</span><span class=si>}</span><span class=s2>"</span><span class=o>.</span><span class=n>encode</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>charset</span><span class=p>)</span>
+        <span class=n>token_part</span> <span class=o>=</span> <span class=n>base64</span><span class=o>.</span><span class=n>b64encode</span><span class=p>(</span><span class=n>raw_token</span><span class=p>)</span><span class=o>.</span><span class=n>decode</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>charset</span><span class=p>)</span>
+        <span class=k>return</span> <span class=sa>f</span><span class=s2>"</span><span class=si>{</span><span class=n>_BASICAUTH_TOKEN_PREFIX</span><span class=si>}</span><span class=s2> </span><span class=si>{</span><span class=n>token_part</span><span class=si>}</span><span class=s2>"</span>
+
+    <span class=k>def</span> <span class=fm>__str__</span><span class=p>(</span><span class=bp>self</span><span class=p>)</span> <span class=o>-></span> <span class=nb>str</span><span class=p>:</span>
+        <span class=k>return</span> <span class=bp>self</span><span class=o>.</span><span class=n>header</span>
+</pre></div></details><div class=docstring><p>An object that can be set as a producer for a basic auth header.</div><section class=member_divisor><h5>Variables and properties</h5><div id=BasicAuthHeader.charset><div class="attr variable"><a class=headerlink href=#BasicAuthHeader.charset>#  </a><span class=name>charset</span><span class=annotation>: str</span></div><div class=docstring><p>Encoding to use for the username and password.<p>Default is <code>"utf-8"</code>, but you may choose to use something else, including third-party encodings (e.g. IBM's EBCDIC codepages).</div></div><div id=BasicAuthHeader.header><div class="attr variable"><a class=headerlink href=#BasicAuthHeader.header>#  </a><span class=name>header</span><span class=annotation>: str</span></div><div class=docstring><p>Create the full <code>Authentication</code> header value.</div></div><div id=BasicAuthHeader.password><div class="attr variable"><a class=headerlink href=#BasicAuthHeader.password>#  </a><span class=name>password</span><span class=annotation>: str</span></div><div class=docstring><p>Password to use.</div></div><div id=BasicAuthHeader.username><div class="attr variable"><a class=headerlink href=#BasicAuthHeader.username>#  </a><span class=name>username</span><span class=annotation>: str</span></div><div class=docstring><p>Username for the header.<p>...warning :: This must not contain <code>":"</code>.</div></div></section><section class=member_divisor><h5>Methods</h5><div id=BasicAuthHeader.__init__><div class="attr function"><a class=headerlink href=#BasicAuthHeader.__init__>#  </a><span class=def>def </span><span class=name>__init__</span><span class=signature>(self, *, username: str, password: str, charset: str = 'utf-8'):</span></div><details><summary>View Source</summary> <div class=codehilite><pre><span></span><span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=o>*</span><span class=p>,</span> <span class=n>username</span><span class=p>,</span> <span class=n>password</span><span class=p>,</span> <span class=n>charset</span><span class=o>=</span><span class=n>attr_dict</span><span class=p>[</span><span class=s1>'charset'</span><span class=p>]</span><span class=o>.</span><span class=n>default</span><span class=p>):</span>
+    <span class=n>_setattr</span> <span class=o>=</span> <span class=n>_cached_setattr</span><span class=o>.</span><span class=fm>__get__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=bp>self</span><span class=o>.</span><span class=vm>__class__</span><span class=p>)</span>
+    <span class=n>_setattr</span><span class=p>(</span><span class=s1>'username'</span><span class=p>,</span> <span class=n>username</span><span class=p>)</span>
+    <span class=n>_setattr</span><span class=p>(</span><span class=s1>'password'</span><span class=p>,</span> <span class=n>password</span><span class=p>)</span>
+    <span class=n>_setattr</span><span class=p>(</span><span class=s1>'charset'</span><span class=p>,</span> <span class=n>charset</span><span class=p>)</span>
+    <span class=k>if</span> <span class=n>_config</span><span class=o>.</span><span class=n>_run_validators</span> <span class=ow>is</span> <span class=kc>True</span><span class=p>:</span>
+        <span class=n>__attr_validator_username</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>__attr_username</span><span class=p>,</span> <span class=bp>self</span><span class=o>.</span><span class=n>username</span><span class=p>)</span>
+        <span class=n>__attr_validator_password</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>__attr_password</span><span class=p>,</span> <span class=bp>self</span><span class=o>.</span><span class=n>password</span><span class=p>)</span>
+        <span class=n>__attr_validator_charset</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>__attr_charset</span><span class=p>,</span> <span class=bp>self</span><span class=o>.</span><span class=n>charset</span><span class=p>)</span>
+</pre></div></details><div class=docstring><p>Method generated by attrs for class BasicAuthHeader.</div></div></section></section><section id=CacheComponents><div class="attr class"><a class=headerlink href=#CacheComponents>#  </a><span class=def>class </span><span class=name>CacheComponents</span><wbr>(<span class=base>builtins.int</span>, <span class=base><a href=internal/enums.html#Flag>hikari.internal.enums.Flag</a></span>):</div><details><summary>View Source</summary> <div class=codehilite><pre><span></span><span class=k>class</span> <span class=nc>CacheComponents</span><span class=p>(</span><span class=n>enums</span><span class=o>.</span><span class=n>Flag</span><span class=p>):</span>
+    <span class=sd>"""Flags to control the cache components."""</span>
+
+    <span class=n>NONE</span> <span class=o>=</span> <span class=mi>0</span>
+    <span class=sd>"""Disables the cache."""</span>
+
+    <span class=n>GUILDS</span> <span class=o>=</span> <span class=mi>1</span> <span class=o><<</span> <span class=mi>0</span>
+    <span class=sd>"""Enables the guild cache."""</span>
+
+    <span class=n>GUILD_CHANNELS</span> <span class=o>=</span> <span class=mi>1</span> <span class=o><<</span> <span class=mi>1</span>
+    <span class=sd>"""Enables the guild channels cache."""</span>
+
+    <span class=n>MEMBERS</span> <span class=o>=</span> <span class=mi>1</span> <span class=o><<</span> <span class=mi>2</span>
+    <span class=sd>"""Enables the members cache."""</span>
+
+    <span class=n>ROLES</span> <span class=o>=</span> <span class=mi>1</span> <span class=o><<</span> <span class=mi>3</span>
+    <span class=sd>"""Enables the roles cache."""</span>
+
+    <span class=n>INVITES</span> <span class=o>=</span> <span class=mi>1</span> <span class=o><<</span> <span class=mi>4</span>
+    <span class=sd>"""Enables the invites cache."""</span>
+
+    <span class=n>EMOJIS</span> <span class=o>=</span> <span class=mi>1</span> <span class=o><<</span> <span class=mi>5</span>
+    <span class=sd>"""Enables the emojis cache."""</span>
+
+    <span class=n>PRESENCES</span> <span class=o>=</span> <span class=mi>1</span> <span class=o><<</span> <span class=mi>6</span>
+    <span class=sd>"""Enables the presences cache."""</span>
+
+    <span class=n>VOICE_STATES</span> <span class=o>=</span> <span class=mi>1</span> <span class=o><<</span> <span class=mi>7</span>
+    <span class=sd>"""Enables the voice states cache."""</span>
+
+    <span class=n>MESSAGES</span> <span class=o>=</span> <span class=mi>1</span> <span class=o><<</span> <span class=mi>8</span>
+    <span class=sd>"""Enables the messages cache."""</span>
+
+    <span class=n>DM_CHANNEL_IDS</span> <span class=o>=</span> <span class=mi>1</span> <span class=o><<</span> <span class=mi>10</span>
+    <span class=sd>"""Enables the DM channel IDs cache."""</span>
+
+    <span class=n>ALL</span> <span class=o>=</span> <span class=p>(</span>
+        <span class=n>GUILDS</span>
+        <span class=o>|</span> <span class=n>GUILD_CHANNELS</span>
+        <span class=o>|</span> <span class=n>MEMBERS</span>
+        <span class=o>|</span> <span class=n>ROLES</span>
+        <span class=o>|</span> <span class=n>INVITES</span>
+        <span class=o>|</span> <span class=n>EMOJIS</span>
+        <span class=o>|</span> <span class=n>PRESENCES</span>
+        <span class=o>|</span> <span class=n>VOICE_STATES</span>
+        <span class=o>|</span> <span class=n>MESSAGES</span>
+        <span class=o>|</span> <span class=n>DM_CHANNEL_IDS</span>
+    <span class=p>)</span>
+    <span class=sd>"""Fully enables the cache."""</span>
+</pre></div></details><div class=docstring><p>Flags to control the cache components.</div><section class=member_divisor><h5>Variables and properties</h5><div id=CacheComponents.ALL><div class="attr variable"><a class=headerlink href=#CacheComponents.ALL>#  </a><span class=name>ALL</span></div><div class=docstring><p>Fully enables the cache.</div></div><div id=CacheComponents.DM_CHANNEL_IDS><div class="attr variable"><a class=headerlink href=#CacheComponents.DM_CHANNEL_IDS>#  </a><span class=name>DM_CHANNEL_IDS</span></div><div class=docstring><p>Enables the DM channel IDs cache.</div></div><div id=CacheComponents.EMOJIS><div class="attr variable"><a class=headerlink href=#CacheComponents.EMOJIS>#  </a><span class=name>EMOJIS</span></div><div class=docstring><p>Enables the emojis cache.</div></div><div id=CacheComponents.GUILDS><div class="attr variable"><a class=headerlink href=#CacheComponents.GUILDS>#  </a><span class=name>GUILDS</span></div><div class=docstring><p>Enables the guild cache.</div></div><div id=CacheComponents.GUILD_CHANNELS><div class="attr variable"><a class=headerlink href=#CacheComponents.GUILD_CHANNELS>#  </a><span class=name>GUILD_CHANNELS</span></div><div class=docstring><p>Enables the guild channels cache.</div></div><div id=CacheComponents.INVITES><div class="attr variable"><a class=headerlink href=#CacheComponents.INVITES>#  </a><span class=name>INVITES</span></div><div class=docstring><p>Enables the invites cache.</div></div><div id=CacheComponents.MEMBERS><div class="attr variable"><a class=headerlink href=#CacheComponents.MEMBERS>#  </a><span class=name>MEMBERS</span></div><div class=docstring><p>Enables the members cache.</div></div><div id=CacheComponents.MESSAGES><div class="attr variable"><a class=headerlink href=#CacheComponents.MESSAGES>#  </a><span class=name>MESSAGES</span></div><div class=docstring><p>Enables the messages cache.</div></div><div id=CacheComponents.NONE><div class="attr variable"><a class=headerlink href=#CacheComponents.NONE>#  </a><span class=name>NONE</span></div><div class=docstring><p>Disables the cache.</div></div><div id=CacheComponents.PRESENCES><div class="attr variable"><a class=headerlink href=#CacheComponents.PRESENCES>#  </a><span class=name>PRESENCES</span></div><div class=docstring><p>Enables the presences cache.</div></div><div id=CacheComponents.ROLES><div class="attr variable"><a class=headerlink href=#CacheComponents.ROLES>#  </a><span class=name>ROLES</span></div><div class=docstring><p>Enables the roles cache.</div></div><div id=CacheComponents.VOICE_STATES><div class="attr variable"><a class=headerlink href=#CacheComponents.VOICE_STATES>#  </a><span class=name>VOICE_STATES</span></div><div class=docstring><p>Enables the voice states cache.</div></div><div id=CacheComponents.denominator><div class="attr variable"><a class=headerlink href=#CacheComponents.denominator>#  </a><span class=name>denominator</span></div><div class=docstring><p>the denominator of a rational number in lowest terms</div></div><div id=CacheComponents.imag><div class="attr variable"><a class=headerlink href=#CacheComponents.imag>#  </a><span class=name>imag</span></div><div class=docstring><p>the imaginary part of a complex number</div></div><div id=CacheComponents.name><div class="attr variable"><a class=headerlink href=#CacheComponents.name>#  </a><span class=name>name</span><span class=annotation>: str</span></div><div class=docstring><p>Return the name of the flag combination as a <code>str</code>.</div></div><div id=CacheComponents.numerator><div class="attr variable"><a class=headerlink href=#CacheComponents.numerator>#  </a><span class=name>numerator</span></div><div class=docstring><p>the numerator of a rational number in lowest terms</div></div><div id=CacheComponents.real><div class="attr variable"><a class=headerlink href=#CacheComponents.real>#  </a><span class=name>real</span></div><div class=docstring><p>the real part of a complex number</div></div><div id=CacheComponents.value><div class="attr variable"><a class=headerlink href=#CacheComponents.value>#  </a><span class=name>value</span><span class=annotation>: int</span></div><div class=docstring><p>Return the <code>int</code> value of the flag.</div></div></section><section class=member_divisor><h5>Methods</h5><div id=CacheComponents.__init__><div class="attr function"><a class=headerlink href=#CacheComponents.__init__>#  </a><span class=def>def </span><span class=name>__init__</span><span class=signature>(cls, value: int = 0):</span></div><details><summary>View Source</summary> <div class=codehilite><pre><span></span>    <span class=k>def</span> <span class=fm>__call__</span><span class=p>(</span><span class=bp>cls</span><span class=p>,</span> <span class=n>value</span><span class=p>:</span> <span class=nb>int</span> <span class=o>=</span> <span class=mi>0</span><span class=p>)</span> <span class=o>-></span> <span class=n>typing</span><span class=o>.</span><span class=n>Any</span><span class=p>:</span>
+        <span class=sd>"""Cast a value to the flag enum, returning the raw value that was passed if values not found."""</span>
+        <span class=c1># We want to handle value invariantly to avoid issues brought in by different behaviours from sub-classed ints</span>
+        <span class=c1># and floats. This also ensures that .__int__ only returns an invariant int.</span>
+        <span class=n>value</span> <span class=o>=</span> <span class=nb>int</span><span class=p>(</span><span class=n>value</span><span class=p>)</span>
+        <span class=k>try</span><span class=p>:</span>
+            <span class=k>return</span> <span class=bp>cls</span><span class=o>.</span><span class=n>_value_to_member_map_</span><span class=p>[</span><span class=n>value</span><span class=p>]</span>
+        <span class=k>except</span> <span class=ne>KeyError</span><span class=p>:</span>
+            <span class=c1># We only need this ability here usually, so overloading operators</span>
+            <span class=c1># is an overkill and would add more overhead.</span>
+
+            <span class=k>if</span> <span class=n>value</span> <span class=o><</span> <span class=mi>0</span><span class=p>:</span>
+                <span class=c1># Convert to a positive value instead.</span>
+                <span class=k>return</span> <span class=bp>cls</span><span class=o>.</span><span class=n>__everything__</span> <span class=o>-</span> <span class=o>~</span><span class=n>value</span>
+
+            <span class=n>temp_members</span> <span class=o>=</span> <span class=bp>cls</span><span class=o>.</span><span class=n>_temp_members_</span>
+            <span class=c1># For huge enums, don't ever cache anything. We could consume masses of memory otherwise</span>
+            <span class=c1># (e.g. Permissions)</span>
+            <span class=k>try</span><span class=p>:</span>
+                <span class=c1># Try to get a cached value.</span>
+                <span class=k>return</span> <span class=n>temp_members</span><span class=p>[</span><span class=n>value</span><span class=p>]</span>
+            <span class=k>except</span> <span class=ne>KeyError</span><span class=p>:</span>
+                <span class=c1># If we can't find the value, just return what got casted in by generating a pseudomember</span>
+                <span class=c1># and caching it. We can't use weakref because int is not weak referenceable, annoyingly.</span>
+                <span class=n>pseudomember</span> <span class=o>=</span> <span class=bp>cls</span><span class=o>.</span><span class=fm>__new__</span><span class=p>(</span><span class=bp>cls</span><span class=p>,</span> <span class=n>value</span><span class=p>)</span>
+                <span class=n>pseudomember</span><span class=o>.</span><span class=n>_name_</span> <span class=o>=</span> <span class=kc>None</span>
+                <span class=n>pseudomember</span><span class=o>.</span><span class=n>_value_</span> <span class=o>=</span> <span class=n>value</span>
+                <span class=n>temp_members</span><span class=p>[</span><span class=n>value</span><span class=p>]</span> <span class=o>=</span> <span class=n>pseudomember</span>
+                <span class=k>if</span> <span class=nb>len</span><span class=p>(</span><span class=n>temp_members</span><span class=p>)</span> <span class=o>></span> <span class=n>_MAX_CACHED_MEMBERS</span><span class=p>:</span>
+                    <span class=n>temp_members</span><span class=o>.</span><span class=n>popitem</span><span class=p>()</span>
+
+                <span class=k>return</span> <span class=n>pseudomember</span>
+</pre></div></details><div class=docstring><p>Cast a value to the flag enum, returning the raw value that was passed if values not found.</div></div><div id=CacheComponents.all><div class="attr function"><a class=headerlink href=#CacheComponents.all>#  </a><span class=def>def </span><span class=name>all</span><span class=signature>(self: ~_T, *flags: ~_T) -> bool:</span></div><details><summary>View Source</summary> <div class=codehilite><pre><span></span>    <span class=k>def</span> <span class=nf>all</span><span class=p>(</span><span class=bp>self</span><span class=p>:</span> <span class=n>_T</span><span class=p>,</span> <span class=o>*</span><span class=n>flags</span><span class=p>:</span> <span class=n>_T</span><span class=p>)</span> <span class=o>-></span> <span class=nb>bool</span><span class=p>:</span>
+        <span class=sd>"""Check if all of the given flags are part of this value.</span>
+
+<span class=sd>        Returns</span>
+<span class=sd>        -------</span>
+<span class=sd>        bool</span>
+<span class=sd>            `True` if any of the given flags are part of this value.</span>
+<span class=sd>            Otherwise, return `False`.</span>
+<span class=sd>        """</span>
+        <span class=k>return</span> <span class=nb>all</span><span class=p>((</span><span class=n>flag</span> <span class=o>&</span> <span class=bp>self</span><span class=p>)</span> <span class=o>==</span> <span class=n>flag</span> <span class=k>for</span> <span class=n>flag</span> <span class=ow>in</span> <span class=n>flags</span><span class=p>)</span>
+</pre></div></details><div class=docstring><p>Check if all of the given flags are part of this value.<h6 id=returns>Returns</h6><ul><li><strong>bool</strong>: <code>True</code> if any of the given flags are part of this value. Otherwise, return <code>False</code>.</ul></div></div><div id=CacheComponents.any><div class="attr function"><a class=headerlink href=#CacheComponents.any>#  </a><span class=def>def </span><span class=name>any</span><span class=signature>(self: ~_T, *flags: ~_T) -> bool:</span></div><details><summary>View Source</summary> <div class=codehilite><pre><span></span>    <span class=k>def</span> <span class=nf>any</span><span class=p>(</span><span class=bp>self</span><span class=p>:</span> <span class=n>_T</span><span class=p>,</span> <span class=o>*</span><span class=n>flags</span><span class=p>:</span> <span class=n>_T</span><span class=p>)</span> <span class=o>-></span> <span class=nb>bool</span><span class=p>:</span>
+        <span class=sd>"""Check if any of the given flags are part of this value.</span>
+
+<span class=sd>        Returns</span>
+<span class=sd>        -------</span>
+<span class=sd>        bool</span>
+<span class=sd>            `True` if any of the given flags are part of this value.</span>
+<span class=sd>            Otherwise, return `False`.</span>
+<span class=sd>        """</span>
+        <span class=k>return</span> <span class=nb>any</span><span class=p>((</span><span class=n>flag</span> <span class=o>&</span> <span class=bp>self</span><span class=p>)</span> <span class=o>==</span> <span class=n>flag</span> <span class=k>for</span> <span class=n>flag</span> <span class=ow>in</span> <span class=n>flags</span><span class=p>)</span>
+</pre></div></details><div class=docstring><p>Check if any of the given flags are part of this value.<h6 id=returns>Returns</h6><ul><li><strong>bool</strong>: <code>True</code> if any of the given flags are part of this value. Otherwise, return <code>False</code>.</ul></div></div><div id=CacheComponents.as_integer_ratio><div class="attr function"><a class=headerlink href=#CacheComponents.as_integer_ratio>#  </a><span class=def>def </span><span class=name>as_integer_ratio</span><span class=signature>(self, /):</span></div><div class=docstring><p>Return integer ratio.<p>Return a pair of integers, whose ratio is exactly equal to the original int and with a positive denominator.<div class=codehilite><pre><span></span><code><span class=gp>>>> </span><span class=p>(</span><span class=mi>10</span><span class=p>)</span><span class=o>.</span><span class=n>as_integer_ratio</span><span class=p>()</span>
+<span class=go>(10, 1)</span>
+<span class=gp>>>> </span><span class=p>(</span><span class=o>-</span><span class=mi>10</span><span class=p>)</span><span class=o>.</span><span class=n>as_integer_ratio</span><span class=p>()</span>
+<span class=go>(-10, 1)</span>
+<span class=gp>>>> </span><span class=p>(</span><span class=mi>0</span><span class=p>)</span><span class=o>.</span><span class=n>as_integer_ratio</span><span class=p>()</span>
+<span class=go>(0, 1)</span>
+</code></pre></div></div></div><div id=CacheComponents.bit_length><div class="attr function"><a class=headerlink href=#CacheComponents.bit_length>#  </a><span class=def>def </span><span class=name>bit_length</span><span class=signature>(self, /):</span></div><div class=docstring><p>Number of bits necessary to represent self in binary.<div class=codehilite><pre><span></span><code><span class=gp>>>> </span><span class=nb>bin</span><span class=p>(</span><span class=mi>37</span><span class=p>)</span>
+<span class=go>'0b100101'</span>
+<span class=gp>>>> </span><span class=p>(</span><span class=mi>37</span><span class=p>)</span><span class=o>.</span><span class=n>bit_length</span><span class=p>()</span>
+<span class=go>6</span>
+</code></pre></div></div></div><div id=CacheComponents.conjugate><div class="attr function"><a class=headerlink href=#CacheComponents.conjugate>#  </a><span class=def>def </span><span class=name>conjugate</span><span class=signature>(unknown):</span></div><div class=docstring><p>Returns self, the complex conjugate of any int.</div></div><div id=CacheComponents.difference><div class="attr function"><a class=headerlink href=#CacheComponents.difference>#  </a><span class=def>def </span><span class=name>difference</span><span class=signature>(self: ~_T, other: Union[~_T, int]) -> ~_T:</span></div><details><summary>View Source</summary> <div class=codehilite><pre><span></span>    <span class=k>def</span> <span class=nf>difference</span><span class=p>(</span><span class=bp>self</span><span class=p>:</span> <span class=n>_T</span><span class=p>,</span> <span class=n>other</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Union</span><span class=p>[</span><span class=n>_T</span><span class=p>,</span> <span class=nb>int</span><span class=p>])</span> <span class=o>-></span> <span class=n>_T</span><span class=p>:</span>
+        <span class=sd>"""Perform a set difference with the other set.</span>
+
+<span class=sd>        This will return all flags in this set that are not in the other value.</span>
+
+<span class=sd>        Equivalent to using the subtraction `-` operator.</span>
+<span class=sd>        """</span>
+        <span class=k>return</span> <span class=bp>self</span><span class=o>.</span><span class=vm>__class__</span><span class=p>(</span><span class=bp>self</span> <span class=o>&</span> <span class=o>~</span><span class=nb>int</span><span class=p>(</span><span class=n>other</span><span class=p>))</span>
+</pre></div></details><div class=docstring><p>Perform a set difference with the other set.<p>This will return all flags in this set that are not in the other value.<p>Equivalent to using the subtraction <code>-</code> operator.</div></div><div id=CacheComponents.from_bytes><div class="attr function"><a class=headerlink href=#CacheComponents.from_bytes>#  </a><span class=def>def </span><span class=name>from_bytes</span><span class=signature>(type, /, bytes, byteorder, *, signed=False):</span></div><div class=docstring><p>Return the integer represented by the given array of bytes.<p>bytes Holds the array of bytes to convert. The argument must either support the buffer protocol or be an iterable object producing bytes. Bytes and bytearray are examples of built-in objects that support the buffer protocol. byteorder The byte order used to represent the integer. If byteorder is 'big', the most significant byte is at the beginning of the byte array. If byteorder is 'little', the most significant byte is at the end of the byte array. To request the native byte order of the host system, use `sys.byteorder' as the byte order value. signed Indicates whether two's complement is used to represent the integer.</div></div><div id=CacheComponents.intersection><div class="attr function"><a class=headerlink href=#CacheComponents.intersection>#  </a><span class=def>def </span><span class=name>intersection</span><span class=signature>(self: ~_T, other: Union[~_T, int]) -> ~_T:</span></div><details><summary>View Source</summary> <div class=codehilite><pre><span></span>    <span class=k>def</span> <span class=nf>intersection</span><span class=p>(</span><span class=bp>self</span><span class=p>:</span> <span class=n>_T</span><span class=p>,</span> <span class=n>other</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Union</span><span class=p>[</span><span class=n>_T</span><span class=p>,</span> <span class=nb>int</span><span class=p>])</span> <span class=o>-></span> <span class=n>_T</span><span class=p>:</span>
+        <span class=sd>"""Return a combination of flags that are set for both given values.</span>
+
+<span class=sd>        Equivalent to using the "AND" `&` operator.</span>
+<span class=sd>        """</span>
+        <span class=k>return</span> <span class=bp>self</span><span class=o>.</span><span class=vm>__class__</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>_value_</span> <span class=o>&</span> <span class=nb>int</span><span class=p>(</span><span class=n>other</span><span class=p>))</span>
+</pre></div></details><div class=docstring><p>Return a combination of flags that are set for both given values.<p>Equivalent to using the "AND" <code>&</code> operator.</div></div><div id=CacheComponents.invert><div class="attr function"><a class=headerlink href=#CacheComponents.invert>#  </a><span class=def>def </span><span class=name>invert</span><span class=signature>(self: ~_T) -> ~_T:</span></div><details><summary>View Source</summary> <div class=codehilite><pre><span></span>    <span class=k>def</span> <span class=nf>invert</span><span class=p>(</span><span class=bp>self</span><span class=p>:</span> <span class=n>_T</span><span class=p>)</span> <span class=o>-></span> <span class=n>_T</span><span class=p>:</span>
+        <span class=sd>"""Return a set of all flags not in the current set."""</span>
+        <span class=k>return</span> <span class=bp>self</span><span class=o>.</span><span class=vm>__class__</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=vm>__class__</span><span class=o>.</span><span class=n>__everything__</span><span class=o>.</span><span class=n>_value_</span> <span class=o>&</span> <span class=o>~</span><span class=bp>self</span><span class=o>.</span><span class=n>_value_</span><span class=p>)</span>
+</pre></div></details><div class=docstring><p>Return a set of all flags not in the current set.</div></div><div id=CacheComponents.is_disjoint><div class="attr function"><a class=headerlink href=#CacheComponents.is_disjoint>#  </a><span class=def>def </span><span class=name>is_disjoint</span><span class=signature>(self: ~_T, other: Union[~_T, int]) -> bool:</span></div><details><summary>View Source</summary> <div class=codehilite><pre><span></span>    <span class=k>def</span> <span class=nf>is_disjoint</span><span class=p>(</span><span class=bp>self</span><span class=p>:</span> <span class=n>_T</span><span class=p>,</span> <span class=n>other</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Union</span><span class=p>[</span><span class=n>_T</span><span class=p>,</span> <span class=nb>int</span><span class=p>])</span> <span class=o>-></span> <span class=nb>bool</span><span class=p>:</span>
+        <span class=sd>"""Return whether two sets have a intersection or not.</span>
+
+<span class=sd>        If the two sets have an intersection, then this returns</span>
+<span class=sd>        `False`. If no common flag values exist between them, then</span>
+<span class=sd>        this returns `True`.</span>
+<span class=sd>        """</span>
+        <span class=k>return</span> <span class=ow>not</span> <span class=p>(</span><span class=bp>self</span> <span class=o>&</span> <span class=n>other</span><span class=p>)</span>
+</pre></div></details><div class=docstring><p>Return whether two sets have a intersection or not.<p>If the two sets have an intersection, then this returns <code>False</code>. If no common flag values exist between them, then this returns <code>True</code>.</div></div><div id=CacheComponents.is_subset><div class="attr function"><a class=headerlink href=#CacheComponents.is_subset>#  </a><span class=def>def </span><span class=name>is_subset</span><span class=signature>(self: ~_T, other: Union[~_T, int]) -> bool:</span></div><details><summary>View Source</summary> <div class=codehilite><pre><span></span>    <span class=k>def</span> <span class=nf>is_subset</span><span class=p>(</span><span class=bp>self</span><span class=p>:</span> <span class=n>_T</span><span class=p>,</span> <span class=n>other</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Union</span><span class=p>[</span><span class=n>_T</span><span class=p>,</span> <span class=nb>int</span><span class=p>])</span> <span class=o>-></span> <span class=nb>bool</span><span class=p>:</span>
+        <span class=sd>"""Return whether another set contains this set or not.</span>
+
+<span class=sd>        Equivalent to using the "in" operator.</span>
+<span class=sd>        """</span>
+        <span class=k>return</span> <span class=p>(</span><span class=bp>self</span> <span class=o>&</span> <span class=n>other</span><span class=p>)</span> <span class=o>==</span> <span class=n>other</span>
+</pre></div></details><div class=docstring><p>Return whether another set contains this set or not.<p>Equivalent to using the "in" operator.</div></div><div id=CacheComponents.is_superset><div class="attr function"><a class=headerlink href=#CacheComponents.is_superset>#  </a><span class=def>def </span><span class=name>is_superset</span><span class=signature>(self: ~_T, other: Union[~_T, int]) -> bool:</span></div><details><summary>View Source</summary> <div class=codehilite><pre><span></span>    <span class=k>def</span> <span class=nf>is_superset</span><span class=p>(</span><span class=bp>self</span><span class=p>:</span> <span class=n>_T</span><span class=p>,</span> <span class=n>other</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Union</span><span class=p>[</span><span class=n>_T</span><span class=p>,</span> <span class=nb>int</span><span class=p>])</span> <span class=o>-></span> <span class=nb>bool</span><span class=p>:</span>
+        <span class=sd>"""Return whether this set contains another set or not."""</span>
+        <span class=k>return</span> <span class=p>(</span><span class=bp>self</span> <span class=o>&</span> <span class=n>other</span><span class=p>)</span> <span class=o>==</span> <span class=bp>self</span>
+</pre></div></details><div class=docstring><p>Return whether this set contains another set or not.</div></div><div id=CacheComponents.isdisjoint><div class="attr function"><a class=headerlink href=#CacheComponents.isdisjoint>#  </a><span class=def>def </span><span class=name>isdisjoint</span><span class=signature>(self: ~_T, other: Union[~_T, int]) -> bool:</span></div><details><summary>View Source</summary> <div class=codehilite><pre><span></span>    <span class=k>def</span> <span class=nf>is_disjoint</span><span class=p>(</span><span class=bp>self</span><span class=p>:</span> <span class=n>_T</span><span class=p>,</span> <span class=n>other</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Union</span><span class=p>[</span><span class=n>_T</span><span class=p>,</span> <span class=nb>int</span><span class=p>])</span> <span class=o>-></span> <span class=nb>bool</span><span class=p>:</span>
+        <span class=sd>"""Return whether two sets have a intersection or not.</span>
+
+<span class=sd>        If the two sets have an intersection, then this returns</span>
+<span class=sd>        `False`. If no common flag values exist between them, then</span>
+<span class=sd>        this returns `True`.</span>
+<span class=sd>        """</span>
+        <span class=k>return</span> <span class=ow>not</span> <span class=p>(</span><span class=bp>self</span> <span class=o>&</span> <span class=n>other</span><span class=p>)</span>
+</pre></div></details><div class=docstring><p>Return whether two sets have a intersection or not.<p>If the two sets have an intersection, then this returns <code>False</code>. If no common flag values exist between them, then this returns <code>True</code>.</div></div><div id=CacheComponents.issubset><div class="attr function"><a class=headerlink href=#CacheComponents.issubset>#  </a><span class=def>def </span><span class=name>issubset</span><span class=signature>(self: ~_T, other: Union[~_T, int]) -> bool:</span></div><details><summary>View Source</summary> <div class=codehilite><pre><span></span>    <span class=k>def</span> <span class=nf>is_subset</span><span class=p>(</span><span class=bp>self</span><span class=p>:</span> <span class=n>_T</span><span class=p>,</span> <span class=n>other</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Union</span><span class=p>[</span><span class=n>_T</span><span class=p>,</span> <span class=nb>int</span><span class=p>])</span> <span class=o>-></span> <span class=nb>bool</span><span class=p>:</span>
+        <span class=sd>"""Return whether another set contains this set or not.</span>
+
+<span class=sd>        Equivalent to using the "in" operator.</span>
+<span class=sd>        """</span>
+        <span class=k>return</span> <span class=p>(</span><span class=bp>self</span> <span class=o>&</span> <span class=n>other</span><span class=p>)</span> <span class=o>==</span> <span class=n>other</span>
+</pre></div></details><div class=docstring><p>Return whether another set contains this set or not.<p>Equivalent to using the "in" operator.</div></div><div id=CacheComponents.issuperset><div class="attr function"><a class=headerlink href=#CacheComponents.issuperset>#  </a><span class=def>def </span><span class=name>issuperset</span><span class=signature>(self: ~_T, other: Union[~_T, int]) -> bool:</span></div><details><summary>View Source</summary> <div class=codehilite><pre><span></span>    <span class=k>def</span> <span class=nf>is_superset</span><span class=p>(</span><span class=bp>self</span><span class=p>:</span> <span class=n>_T</span><span class=p>,</span> <span class=n>other</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Union</span><span class=p>[</span><span class=n>_T</span><span class=p>,</span> <span class=nb>int</span><span class=p>])</span> <span class=o>-></span> <span class=nb>bool</span><span class=p>:</span>
+        <span class=sd>"""Return whether this set contains another set or not."""</span>
+        <span class=k>return</span> <span class=p>(</span><span class=bp>self</span> <span class=o>&</span> <span class=n>other</span><span class=p>)</span> <span class=o>==</span> <span class=bp>self</span>
+</pre></div></details><div class=docstring><p>Return whether this set contains another set or not.</div></div><div id=CacheComponents.none><div class="attr function"><a class=headerlink href=#CacheComponents.none>#  </a><span class=def>def </span><span class=name>none</span><span class=signature>(self: ~_T, *flags: ~_T) -> bool:</span></div><details><summary>View Source</summary> <div class=codehilite><pre><span></span>    <span class=k>def</span> <span class=nf>none</span><span class=p>(</span><span class=bp>self</span><span class=p>:</span> <span class=n>_T</span><span class=p>,</span> <span class=o>*</span><span class=n>flags</span><span class=p>:</span> <span class=n>_T</span><span class=p>)</span> <span class=o>-></span> <span class=nb>bool</span><span class=p>:</span>
+        <span class=sd>"""Check if none of the given flags are part of this value.</span>
+
+<span class=sd>        .. note::</span>
+<span class=sd>            This is essentially the opposite of `Flag.any`.</span>
+
+<span class=sd>        Returns</span>
+<span class=sd>        -------</span>
+<span class=sd>        bool</span>
+<span class=sd>            `True` if none of the given flags are part of this value.</span>
+<span class=sd>            Otherwise, return `False`.</span>
+<span class=sd>        """</span>
+        <span class=k>return</span> <span class=ow>not</span> <span class=bp>self</span><span class=o>.</span><span class=n>any</span><span class=p>(</span><span class=o>*</span><span class=n>flags</span><span class=p>)</span>
+</pre></div></details><div class=docstring><p>Check if none of the given flags are part of this value.<p><em>Note:</em> This is essentially the opposite of <code>Flag.any</code>.<h6 id=returns>Returns</h6><ul><li><strong>bool</strong>: <code>True</code> if none of the given flags are part of this value. Otherwise, return <code>False</code>.</ul></div></div><div id=CacheComponents.split><div class="attr function"><a class=headerlink href=#CacheComponents.split>#  </a><span class=def>def </span><span class=name>split</span><span class=signature>(self: ~_T) -> Sequence[~_T]:</span></div><details><summary>View Source</summary> <div class=codehilite><pre><span></span>    <span class=k>def</span> <span class=nf>split</span><span class=p>(</span><span class=bp>self</span><span class=p>:</span> <span class=n>_T</span><span class=p>)</span> <span class=o>-></span> <span class=n>typing</span><span class=o>.</span><span class=n>Sequence</span><span class=p>[</span><span class=n>_T</span><span class=p>]:</span>
+        <span class=sd>"""Return a list of all defined atomic values for this flag.</span>
+
+<span class=sd>        Any unrecognised bits will be omitted for brevity.</span>
+
+<span class=sd>        The result will be a name-sorted `typing.Sequence` of each membe</span>
+<span class=sd>        """</span>
+        <span class=k>return</span> <span class=nb>sorted</span><span class=p>(</span>
+            <span class=p>(</span><span class=n>member</span> <span class=k>for</span> <span class=n>member</span> <span class=ow>in</span> <span class=bp>self</span><span class=o>.</span><span class=vm>__class__</span><span class=o>.</span><span class=n>_powers_of_2_to_member_map_</span><span class=o>.</span><span class=n>values</span><span class=p>()</span> <span class=k>if</span> <span class=n>member</span><span class=o>.</span><span class=n>value</span> <span class=o>&</span> <span class=bp>self</span><span class=p>),</span>
+            <span class=c1># Assumption: powers of 2 already have a cached value.</span>
+            <span class=n>key</span><span class=o>=</span><span class=k>lambda</span> <span class=n>m</span><span class=p>:</span> <span class=n>m</span><span class=o>.</span><span class=n>_name_</span><span class=p>,</span>
+        <span class=p>)</span>
+</pre></div></details><div class=docstring><p>Return a list of all defined atomic values for this flag.<p>Any unrecognised bits will be omitted for brevity.<p>The result will be a name-sorted <code>typing.Sequence</code> of each membe</div></div><div id=CacheComponents.symmetric_difference><div class="attr function"><a class=headerlink href=#CacheComponents.symmetric_difference>#  </a><span class=def>def </span><span class=name>symmetric_difference</span><span class=signature>(self: ~_T, other: Union[~_T, int]) -> ~_T:</span></div><details><summary>View Source</summary> <div class=codehilite><pre><span></span>    <span class=k>def</span> <span class=nf>symmetric_difference</span><span class=p>(</span><span class=bp>self</span><span class=p>:</span> <span class=n>_T</span><span class=p>,</span> <span class=n>other</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Union</span><span class=p>[</span><span class=n>_T</span><span class=p>,</span> <span class=nb>int</span><span class=p>])</span> <span class=o>-></span> <span class=n>_T</span><span class=p>:</span>
+        <span class=sd>"""Return a set with the symmetric differences of two flag sets.</span>
+
+<span class=sd>        Equivalent to using the "XOR" `^` operator.</span>
+
+<span class=sd>        For `a ^ b`, this can be considered the same as `(a - b) | (b - a)`.</span>
+<span class=sd>        """</span>
+        <span class=k>return</span> <span class=bp>self</span><span class=o>.</span><span class=vm>__class__</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>_value_</span> <span class=o>^</span> <span class=nb>int</span><span class=p>(</span><span class=n>other</span><span class=p>))</span>
+</pre></div></details><div class=docstring><p>Return a set with the symmetric differences of two flag sets.<p>Equivalent to using the "XOR" <code>^</code> operator.<p>For <code>a ^ b</code>, this can be considered the same as <code>(a - b) | (b - a)</code>.</div></div><div id=CacheComponents.symmetricdifference><div class="attr function"><a class=headerlink href=#CacheComponents.symmetricdifference>#  </a><span class=def>def </span><span class=name>symmetricdifference</span><span class=signature>(self: ~_T, other: Union[~_T, int]) -> ~_T:</span></div><details><summary>View Source</summary> <div class=codehilite><pre><span></span>    <span class=k>def</span> <span class=nf>symmetric_difference</span><span class=p>(</span><span class=bp>self</span><span class=p>:</span> <span class=n>_T</span><span class=p>,</span> <span class=n>other</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Union</span><span class=p>[</span><span class=n>_T</span><span class=p>,</span> <span class=nb>int</span><span class=p>])</span> <span class=o>-></span> <span class=n>_T</span><span class=p>:</span>
+        <span class=sd>"""Return a set with the symmetric differences of two flag sets.</span>
+
+<span class=sd>        Equivalent to using the "XOR" `^` operator.</span>
+
+<span class=sd>        For `a ^ b`, this can be considered the same as `(a - b) | (b - a)`.</span>
+<span class=sd>        """</span>
+        <span class=k>return</span> <span class=bp>self</span><span class=o>.</span><span class=vm>__class__</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>_value_</span> <span class=o>^</span> <span class=nb>int</span><span class=p>(</span><span class=n>other</span><span class=p>))</span>
+</pre></div></details><div class=docstring><p>Return a set with the symmetric differences of two flag sets.<p>Equivalent to using the "XOR" <code>^</code> operator.<p>For <code>a ^ b</code>, this can be considered the same as <code>(a - b) | (b - a)</code>.</div></div><div id=CacheComponents.to_bytes><div class="attr function"><a class=headerlink href=#CacheComponents.to_bytes>#  </a><span class=def>def </span><span class=name>to_bytes</span><span class=signature>(self, /, length, byteorder, *, signed=False):</span></div><div class=docstring><p>Return an array of bytes representing an integer.<p>length Length of bytes object to use. An OverflowError is raised if the integer is not representable with the given number of bytes. byteorder The byte order used to represent the integer. If byteorder is 'big', the most significant byte is at the beginning of the byte array. If byteorder is 'little', the most significant byte is at the end of the byte array. To request the native byte order of the host system, use `sys.byteorder' as the byte order value. signed Determines whether two's complement is used to represent the integer. If signed is False and a negative integer is given, an OverflowError is raised.</div></div><div id=CacheComponents.union><div class="attr function"><a class=headerlink href=#CacheComponents.union>#  </a><span class=def>def </span><span class=name>union</span><span class=signature>(self: ~_T, other: Union[~_T, int]) -> ~_T:</span></div><details><summary>View Source</summary> <div class=codehilite><pre><span></span>    <span class=k>def</span> <span class=nf>union</span><span class=p>(</span><span class=bp>self</span><span class=p>:</span> <span class=n>_T</span><span class=p>,</span> <span class=n>other</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Union</span><span class=p>[</span><span class=n>_T</span><span class=p>,</span> <span class=nb>int</span><span class=p>])</span> <span class=o>-></span> <span class=n>_T</span><span class=p>:</span>
+        <span class=sd>"""Return a combination of all flags in this set and the other set.</span>
+
+<span class=sd>        Equivalent to using the "OR" `~` operator.</span>
+<span class=sd>        """</span>
+        <span class=k>return</span> <span class=bp>self</span><span class=o>.</span><span class=vm>__class__</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>_value_</span> <span class=o>|</span> <span class=nb>int</span><span class=p>(</span><span class=n>other</span><span class=p>))</span>
+</pre></div></details><div class=docstring><p>Return a combination of all flags in this set and the other set.<p>Equivalent to using the "OR" <code>~</code> operator.</div></div></section></section><section id=CacheSettings><div class="attr class"><a class=headerlink href=#CacheSettings>#  </a><div class=decorator>@attr_extensions.with_copy</div><div class=decorator>@attr.define(kw_only=True, weakref_slot=False)</div><span class=def>class </span><span class=name>CacheSettings</span>:</div><details><summary>View Source</summary> <div class=codehilite><pre><span></span><span class=nd>@attr_extensions</span><span class=o>.</span><span class=n>with_copy</span>
+<span class=nd>@attr</span><span class=o>.</span><span class=n>define</span><span class=p>(</span><span class=n>kw_only</span><span class=o>=</span><span class=kc>True</span><span class=p>,</span> <span class=n>weakref_slot</span><span class=o>=</span><span class=kc>False</span><span class=p>)</span>
+<span class=k>class</span> <span class=nc>CacheSettings</span><span class=p>:</span>
+    <span class=sd>"""Settings to control the cache."""</span>
+
+    <span class=n>components</span><span class=p>:</span> <span class=n>CacheComponents</span> <span class=o>=</span> <span class=n>attr</span><span class=o>.</span><span class=n>field</span><span class=p>(</span><span class=n>default</span><span class=o>=</span><span class=n>CacheComponents</span><span class=o>.</span><span class=n>ALL</span><span class=p>)</span>
+    <span class=sd>"""The cache components to use.</span>
+
+<span class=sd>    Defaults to `CacheComponents.ALL`.</span>
+<span class=sd>    """</span>
+
+    <span class=n>max_messages</span><span class=p>:</span> <span class=nb>int</span> <span class=o>=</span> <span class=n>attr</span><span class=o>.</span><span class=n>field</span><span class=p>(</span><span class=n>default</span><span class=o>=</span><span class=mi>300</span><span class=p>)</span>
+    <span class=sd>"""The maximum number of messages to store in the cache at once.</span>
+
+<span class=sd>    This will have no effect if the messages cache is not enabled.</span>
+
+<span class=sd>    Defaults to `300`.</span>
+<span class=sd>    """</span>
+
+    <span class=n>max_dm_channel_ids</span><span class=p>:</span> <span class=nb>int</span> <span class=o>=</span> <span class=n>attr</span><span class=o>.</span><span class=n>field</span><span class=p>(</span><span class=n>default</span><span class=o>=</span><span class=mi>50</span><span class=p>)</span>
+    <span class=sd>"""The maximum number of channel IDs to store in the cache at once.</span>
+
+<span class=sd>    This will have no effect if the channel IDs cache is not enabled.</span>
+
+<span class=sd>    Defaults to `50`.</span>
+<span class=sd>    """</span>
+</pre></div></details><div class=docstring><p>Settings to control the cache.</div><section class=member_divisor><h5>Variables and properties</h5><div id=CacheSettings.components><div class="attr variable"><a class=headerlink href=#CacheSettings.components>#  </a><span class=name>components</span><span class=annotation>: <a href=#CacheComponents>hikari.config.CacheComponents</a></span></div><div class=docstring><p>The cache components to use.<p>Defaults to <code><a href=#CacheComponents.ALL>CacheComponents.ALL</a></code>.</div></div><div id=CacheSettings.max_dm_channel_ids><div class="attr variable"><a class=headerlink href=#CacheSettings.max_dm_channel_ids>#  </a><span class=name>max_dm_channel_ids</span><span class=annotation>: int</span></div><div class=docstring><p>The maximum number of channel IDs to store in the cache at once.<p>This will have no effect if the channel IDs cache is not enabled.<p>Defaults to <code>50</code>.</div></div><div id=CacheSettings.max_messages><div class="attr variable"><a class=headerlink href=#CacheSettings.max_messages>#  </a><span class=name>max_messages</span><span class=annotation>: int</span></div><div class=docstring><p>The maximum number of messages to store in the cache at once.<p>This will have no effect if the messages cache is not enabled.<p>Defaults to <code>300</code>.</div></div></section><section class=member_divisor><h5>Methods</h5><div id=CacheSettings.__init__><div class="attr function"><a class=headerlink href=#CacheSettings.__init__>#  </a><span class=def>def </span><span class=name>__init__</span><span class=signature>(<br>   self,<br>   *,<br>   components: <a href=#CacheComponents>hikari.config.CacheComponents</a> = <<a href=#CacheComponents.ALL>CacheComponents.ALL</a>: 1535>,<br>   max_messages: int = 300,<br>   max_dm_channel_ids: int = 50<br>):</span></div><details><summary>View Source</summary> <div class=codehilite><pre><span></span><span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=o>*</span><span class=p>,</span> <span class=n>components</span><span class=o>=</span><span class=n>attr_dict</span><span class=p>[</span><span class=s1>'components'</span><span class=p>]</span><span class=o>.</span><span class=n>default</span><span class=p>,</span> <span class=n>max_messages</span><span class=o>=</span><span class=n>attr_dict</span><span class=p>[</span><span class=s1>'max_messages'</span><span class=p>]</span><span class=o>.</span><span class=n>default</span><span class=p>,</span> <span class=n>max_dm_channel_ids</span><span class=o>=</span><span class=n>attr_dict</span><span class=p>[</span><span class=s1>'max_dm_channel_ids'</span><span class=p>]</span><span class=o>.</span><span class=n>default</span><span class=p>):</span>
+    <span class=bp>self</span><span class=o>.</span><span class=n>components</span> <span class=o>=</span> <span class=n>components</span>
+    <span class=bp>self</span><span class=o>.</span><span class=n>max_messages</span> <span class=o>=</span> <span class=n>max_messages</span>
+    <span class=bp>self</span><span class=o>.</span><span class=n>max_dm_channel_ids</span> <span class=o>=</span> <span class=n>max_dm_channel_ids</span>
+</pre></div></details><div class=docstring><p>Method generated by attrs for class CacheSettings.</div></div></section></section><section id=HTTPSettings><div class="attr class"><a class=headerlink href=#HTTPSettings>#  </a><div class=decorator>@attr_extensions.with_copy</div><div class=decorator>@attr.define(kw_only=True, weakref_slot=False)</div><span class=def>class </span><span class=name>HTTPSettings</span>:</div><details><summary>View Source</summary> <div class=codehilite><pre><span></span><span class=nd>@attr_extensions</span><span class=o>.</span><span class=n>with_copy</span>
+<span class=nd>@attr</span><span class=o>.</span><span class=n>define</span><span class=p>(</span><span class=n>kw_only</span><span class=o>=</span><span class=kc>True</span><span class=p>,</span> <span class=n>weakref_slot</span><span class=o>=</span><span class=kc>False</span><span class=p>)</span>
+<span class=k>class</span> <span class=nc>HTTPSettings</span><span class=p>:</span>
+    <span class=sd>"""Settings to control HTTP clients."""</span>
+
+    <span class=n>enable_cleanup_closed</span><span class=p>:</span> <span class=nb>bool</span> <span class=o>=</span> <span class=n>attr</span><span class=o>.</span><span class=n>field</span><span class=p>(</span><span class=n>default</span><span class=o>=</span><span class=kc>True</span><span class=p>,</span> <span class=n>validator</span><span class=o>=</span><span class=n>attr</span><span class=o>.</span><span class=n>validators</span><span class=o>.</span><span class=n>instance_of</span><span class=p>(</span><span class=nb>bool</span><span class=p>))</span>
+    <span class=sd>"""Toggle whether to clean up closed transports.</span>
+
+<span class=sd>    This defaults to `True` to combat various protocol and asyncio</span>
+<span class=sd>    issues present when using Microsoft Windows. If you are sure you know</span>
+<span class=sd>    what you are doing, you may instead set this to `False` to disable this</span>
+<span class=sd>    behavior internally.</span>
+<span class=sd>    """</span>
+
+    <span class=n>force_close_transports</span><span class=p>:</span> <span class=nb>bool</span> <span class=o>=</span> <span class=n>attr</span><span class=o>.</span><span class=n>field</span><span class=p>(</span><span class=n>default</span><span class=o>=</span><span class=kc>True</span><span class=p>,</span> <span class=n>validator</span><span class=o>=</span><span class=n>attr</span><span class=o>.</span><span class=n>validators</span><span class=o>.</span><span class=n>instance_of</span><span class=p>(</span><span class=nb>bool</span><span class=p>))</span>
+    <span class=sd>"""Toggle whether to force close transports on shutdown.</span>
+
+<span class=sd>    This defaults to `True` to combat various protocol and asyncio</span>
+<span class=sd>    issues present when using Microsoft Windows. If you are sure you know</span>
+<span class=sd>    what you are doing, you may instead set this to `False` to disable this</span>
+<span class=sd>    behavior internally.</span>
+<span class=sd>    """</span>
+
+    <span class=n>max_redirects</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Optional</span><span class=p>[</span><span class=nb>int</span><span class=p>]</span> <span class=o>=</span> <span class=n>attr</span><span class=o>.</span><span class=n>field</span><span class=p>(</span><span class=n>default</span><span class=o>=</span><span class=mi>10</span><span class=p>)</span>
+    <span class=sd>"""Behavior for handling redirect HTTP responses.</span>
+
+<span class=sd>    If a `int`, allow following redirects from `3xx` HTTP responses</span>
+<span class=sd>    for up to this many redirects. Exceeding this value will raise an</span>
+<span class=sd>    exception.</span>
+
+<span class=sd>    If `None`, then disallow any redirects.</span>
+
+<span class=sd>    The default is to disallow this behavior for security reasons.</span>
+
+<span class=sd>    Generally, it is safer to keep this disabled. You may find a case in the</span>
+<span class=sd>    future where you need to enable this if Discord change their URL without</span>
+<span class=sd>    warning.</span>
+
+<span class=sd>    .. note::</span>
+<span class=sd>        This will only apply to the REST API. WebSockets remain unaffected</span>
+<span class=sd>        by any value set here.</span>
+<span class=sd>    """</span>
+
+    <span class=nd>@max_redirects</span><span class=o>.</span><span class=n>validator</span>
+    <span class=k>def</span> <span class=nf>_</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>_</span><span class=p>:</span> <span class=n>attr</span><span class=o>.</span><span class=n>Attribute</span><span class=p>[</span><span class=n>typing</span><span class=o>.</span><span class=n>Optional</span><span class=p>[</span><span class=nb>int</span><span class=p>]],</span> <span class=n>value</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Optional</span><span class=p>[</span><span class=nb>int</span><span class=p>])</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+        <span class=c1># This error won't occur until some time in the future where it will be annoying to</span>
+        <span class=c1># try and determine the root cause, so validate it NOW.</span>
+        <span class=k>if</span> <span class=n>value</span> <span class=ow>is</span> <span class=ow>not</span> <span class=kc>None</span> <span class=ow>and</span> <span class=p>(</span><span class=ow>not</span> <span class=nb>isinstance</span><span class=p>(</span><span class=n>value</span><span class=p>,</span> <span class=nb>int</span><span class=p>)</span> <span class=ow>or</span> <span class=n>value</span> <span class=o><=</span> <span class=mi>0</span><span class=p>):</span>
+            <span class=k>raise</span> <span class=ne>ValueError</span><span class=p>(</span><span class=s2>"http_settings.max_redirects must be None or a POSITIVE integer"</span><span class=p>)</span>
+
+    <span class=n>ssl</span><span class=p>:</span> <span class=n>ssl_</span><span class=o>.</span><span class=n>SSLContext</span> <span class=o>=</span> <span class=n>attr</span><span class=o>.</span><span class=n>field</span><span class=p>(</span>
+        <span class=n>factory</span><span class=o>=</span><span class=k>lambda</span><span class=p>:</span> <span class=n>_ssl_factory</span><span class=p>(</span><span class=kc>True</span><span class=p>),</span>
+        <span class=n>converter</span><span class=o>=</span><span class=n>_ssl_factory</span><span class=p>,</span>
+        <span class=n>validator</span><span class=o>=</span><span class=n>attr</span><span class=o>.</span><span class=n>validators</span><span class=o>.</span><span class=n>instance_of</span><span class=p>(</span><span class=n>ssl_</span><span class=o>.</span><span class=n>SSLContext</span><span class=p>),</span>
+    <span class=p>)</span>
+    <span class=sd>"""SSL context to use.</span>
+
+<span class=sd>    This may be __assigned__ a `bool` or an `ssl.SSLContext` object.</span>
+
+<span class=sd>    If assigned to `True`, a default SSL context is generated by</span>
+<span class=sd>    this class that will enforce SSL verification. This is then stored in</span>
+<span class=sd>    this field.</span>
+
+<span class=sd>    If `False`, then a default SSL context is generated by this</span>
+<span class=sd>    class that will **NOT** enforce SSL verification. This is then stored</span>
+<span class=sd>    in this field.</span>
+
+<span class=sd>    If an instance of `ssl.SSLContext`, then this context will be used.</span>
+
+<span class=sd>    .. warning::</span>
+<span class=sd>        Setting a custom value here may have security implications, or</span>
+<span class=sd>        may result in the application being unable to connect to Discord</span>
+<span class=sd>        at all.</span>
+
+<span class=sd>    .. warning::</span>
+<span class=sd>        Disabling SSL verification is almost always unadvised. This</span>
+<span class=sd>        is because your application will no longer check whether you are</span>
+<span class=sd>        connecting to Discord, or to some third party spoof designed</span>
+<span class=sd>        to steal personal credentials such as your application token.</span>
+
+<span class=sd>        There may be cases where SSL certificates do not get updated,</span>
+<span class=sd>        and in this case, you may find that disabling this explicitly</span>
+<span class=sd>        allows you to work around any issues that are occurring, but</span>
+<span class=sd>        you should immediately seek a better solution where possible</span>
+<span class=sd>        if any form of personal security is in your interest.</span>
+<span class=sd>    """</span>
+
+    <span class=n>timeouts</span><span class=p>:</span> <span class=n>HTTPTimeoutSettings</span> <span class=o>=</span> <span class=n>attr</span><span class=o>.</span><span class=n>field</span><span class=p>(</span>
+        <span class=n>factory</span><span class=o>=</span><span class=n>HTTPTimeoutSettings</span><span class=p>,</span> <span class=n>validator</span><span class=o>=</span><span class=n>attr</span><span class=o>.</span><span class=n>validators</span><span class=o>.</span><span class=n>instance_of</span><span class=p>(</span><span class=n>HTTPTimeoutSettings</span><span class=p>)</span>
+    <span class=p>)</span>
+    <span class=sd>"""Settings to control HTTP request timeouts.</span>
+
+<span class=sd>    The behaviour if this is not explicitly defined is to use sane</span>
+<span class=sd>    defaults that are most efficient for optimal use of this library.</span>
+<span class=sd>    """</span>
+</pre></div></details><div class=docstring><p>Settings to control HTTP clients.</div><section class=member_divisor><h5>Variables and properties</h5><div id=HTTPSettings.enable_cleanup_closed><div class="attr variable"><a class=headerlink href=#HTTPSettings.enable_cleanup_closed>#  </a><span class=name>enable_cleanup_closed</span><span class=annotation>: bool</span></div><div class=docstring><p>Toggle whether to clean up closed transports.<p>This defaults to <code>True</code> to combat various protocol and asyncio issues present when using Microsoft Windows. If you are sure you know what you are doing, you may instead set this to <code>False</code> to disable this behavior internally.</div></div><div id=HTTPSettings.force_close_transports><div class="attr variable"><a class=headerlink href=#HTTPSettings.force_close_transports>#  </a><span class=name>force_close_transports</span><span class=annotation>: bool</span></div><div class=docstring><p>Toggle whether to force close transports on shutdown.<p>This defaults to <code>True</code> to combat various protocol and asyncio issues present when using Microsoft Windows. If you are sure you know what you are doing, you may instead set this to <code>False</code> to disable this behavior internally.</div></div><div id=HTTPSettings.max_redirects><div class="attr variable"><a class=headerlink href=#HTTPSettings.max_redirects>#  </a><span class=name>max_redirects</span><span class=annotation>: Optional[int]</span></div><div class=docstring><p>Behavior for handling redirect HTTP responses.<p>If a <code>int</code>, allow following redirects from <code>3xx</code> HTTP responses for up to this many redirects. Exceeding this value will raise an exception.<p>If <code>None</code>, then disallow any redirects.<p>The default is to disallow this behavior for security reasons.<p>Generally, it is safer to keep this disabled. You may find a case in the future where you need to enable this if Discord change their URL without warning.<p><em>Note:</em> This will only apply to the REST API. WebSockets remain unaffected by any value set here.</div></div><div id=HTTPSettings.ssl><div class="attr variable"><a class=headerlink href=#HTTPSettings.ssl>#  </a><span class=name>ssl</span><span class=annotation>: ssl.SSLContext</span></div><div class=docstring><p>SSL context to use.<p>This may be __assigned__ a <code>bool</code> or an <code>ssl.SSLContext</code> object.<p>If assigned to <code>True</code>, a default SSL context is generated by this class that will enforce SSL verification. This is then stored in this field.<p>If <code>False</code>, then a default SSL context is generated by this class that will <strong>NOT</strong> enforce SSL verification. This is then stored in this field.<p>If an instance of <code>ssl.SSLContext</code>, then this context will be used.<p><em>Warning:</em> Setting a custom value here may have security implications, or may result in the application being unable to connect to Discord at all.<p><em>Warning:</em> Disabling SSL verification is almost always unadvised. This is because your application will no longer check whether you are connecting to Discord, or to some third party spoof designed to steal personal credentials such as your application token.<p>There may be cases where SSL certificates do not get updated, and in this case, you may find that disabling this explicitly allows you to work around any issues that are occurring, but you should immediately seek a better solution where possible if any form of personal security is in your interest.</div></div><div id=HTTPSettings.timeouts><div class="attr variable"><a class=headerlink href=#HTTPSettings.timeouts>#  </a><span class=name>timeouts</span><span class=annotation>: <a href=#HTTPTimeoutSettings>hikari.config.HTTPTimeoutSettings</a></span></div><div class=docstring><p>Settings to control HTTP request timeouts.<p>The behaviour if this is not explicitly defined is to use sane defaults that are most efficient for optimal use of this library.</div></div></section><section class=member_divisor><h5>Methods</h5><div id=HTTPSettings.__init__><div class="attr function"><a class=headerlink href=#HTTPSettings.__init__>#  </a><span class=def>def </span><span class=name>__init__</span><span class=signature>(<br>   self,<br>   *,<br>   enable_cleanup_closed: bool = True,<br>   force_close_transports: bool = True,<br>   max_redirects: Optional[int] = 10,<br>   ssl: Union[bool, ssl.SSLContext] = NOTHING,<br>   timeouts: <a href=#HTTPTimeoutSettings>hikari.config.HTTPTimeoutSettings</a> = NOTHING<br>):</span></div><details><summary>View Source</summary> <div class=codehilite><pre><span></span><span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=o>*</span><span class=p>,</span> <span class=n>enable_cleanup_closed</span><span class=o>=</span><span class=n>attr_dict</span><span class=p>[</span><span class=s1>'enable_cleanup_closed'</span><span class=p>]</span><span class=o>.</span><span class=n>default</span><span class=p>,</span> <span class=n>force_close_transports</span><span class=o>=</span><span class=n>attr_dict</span><span class=p>[</span><span class=s1>'force_close_transports'</span><span class=p>]</span><span class=o>.</span><span class=n>default</span><span class=p>,</span> <span class=n>max_redirects</span><span class=o>=</span><span class=n>attr_dict</span><span class=p>[</span><span class=s1>'max_redirects'</span><span class=p>]</span><span class=o>.</span><span class=n>default</span><span class=p>,</span> <span class=n>ssl</span><span class=o>=</span><span class=n>NOTHING</span><span class=p>,</span> <span class=n>timeouts</span><span class=o>=</span><span class=n>NOTHING</span><span class=p>):</span>
+    <span class=n>_setattr</span> <span class=o>=</span> <span class=n>_cached_setattr</span><span class=o>.</span><span class=fm>__get__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=bp>self</span><span class=o>.</span><span class=vm>__class__</span><span class=p>)</span>
+    <span class=n>_setattr</span><span class=p>(</span><span class=s1>'enable_cleanup_closed'</span><span class=p>,</span> <span class=n>enable_cleanup_closed</span><span class=p>)</span>
+    <span class=n>_setattr</span><span class=p>(</span><span class=s1>'force_close_transports'</span><span class=p>,</span> <span class=n>force_close_transports</span><span class=p>)</span>
+    <span class=n>_setattr</span><span class=p>(</span><span class=s1>'max_redirects'</span><span class=p>,</span> <span class=n>max_redirects</span><span class=p>)</span>
+    <span class=k>if</span> <span class=n>ssl</span> <span class=ow>is</span> <span class=ow>not</span> <span class=n>NOTHING</span><span class=p>:</span>
+        <span class=n>_setattr</span><span class=p>(</span><span class=s1>'ssl'</span><span class=p>,</span> <span class=n>__attr_converter_ssl</span><span class=p>(</span><span class=n>ssl</span><span class=p>))</span>
+    <span class=k>else</span><span class=p>:</span>
+        <span class=n>_setattr</span><span class=p>(</span><span class=s1>'ssl'</span><span class=p>,</span> <span class=n>__attr_converter_ssl</span><span class=p>(</span><span class=n>__attr_factory_ssl</span><span class=p>()))</span>
+    <span class=k>if</span> <span class=n>timeouts</span> <span class=ow>is</span> <span class=ow>not</span> <span class=n>NOTHING</span><span class=p>:</span>
+        <span class=n>_setattr</span><span class=p>(</span><span class=s1>'timeouts'</span><span class=p>,</span> <span class=n>timeouts</span><span class=p>)</span>
+    <span class=k>else</span><span class=p>:</span>
+        <span class=n>_setattr</span><span class=p>(</span><span class=s1>'timeouts'</span><span class=p>,</span> <span class=n>__attr_factory_timeouts</span><span class=p>())</span>
+    <span class=k>if</span> <span class=n>_config</span><span class=o>.</span><span class=n>_run_validators</span> <span class=ow>is</span> <span class=kc>True</span><span class=p>:</span>
+        <span class=n>__attr_validator_enable_cleanup_closed</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>__attr_enable_cleanup_closed</span><span class=p>,</span> <span class=bp>self</span><span class=o>.</span><span class=n>enable_cleanup_closed</span><span class=p>)</span>
+        <span class=n>__attr_validator_force_close_transports</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>__attr_force_close_transports</span><span class=p>,</span> <span class=bp>self</span><span class=o>.</span><span class=n>force_close_transports</span><span class=p>)</span>
+        <span class=n>__attr_validator_max_redirects</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>__attr_max_redirects</span><span class=p>,</span> <span class=bp>self</span><span class=o>.</span><span class=n>max_redirects</span><span class=p>)</span>
+        <span class=n>__attr_validator_ssl</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>__attr_ssl</span><span class=p>,</span> <span class=bp>self</span><span class=o>.</span><span class=n>ssl</span><span class=p>)</span>
+        <span class=n>__attr_validator_timeouts</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>__attr_timeouts</span><span class=p>,</span> <span class=bp>self</span><span class=o>.</span><span class=n>timeouts</span><span class=p>)</span>
+</pre></div></details><div class=docstring><p>Method generated by attrs for class HTTPSettings.</div></div></section></section><section id=HTTPTimeoutSettings><div class="attr class"><a class=headerlink href=#HTTPTimeoutSettings>#  </a><div class=decorator>@attr_extensions.with_copy</div><div class=decorator>@attr.define(kw_only=True, weakref_slot=False)</div><span class=def>class </span><span class=name>HTTPTimeoutSettings</span>:</div><details><summary>View Source</summary> <div class=codehilite><pre><span></span><span class=nd>@attr_extensions</span><span class=o>.</span><span class=n>with_copy</span>
+<span class=nd>@attr</span><span class=o>.</span><span class=n>define</span><span class=p>(</span><span class=n>kw_only</span><span class=o>=</span><span class=kc>True</span><span class=p>,</span> <span class=n>weakref_slot</span><span class=o>=</span><span class=kc>False</span><span class=p>)</span>
+<span class=k>class</span> <span class=nc>HTTPTimeoutSettings</span><span class=p>:</span>
+    <span class=sd>"""Settings to control HTTP request timeouts."""</span>
+
+    <span class=n>acquire_and_connect</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Optional</span><span class=p>[</span><span class=nb>float</span><span class=p>]</span> <span class=o>=</span> <span class=n>attr</span><span class=o>.</span><span class=n>field</span><span class=p>(</span><span class=n>default</span><span class=o>=</span><span class=kc>None</span><span class=p>)</span>
+    <span class=sd>"""Timeout for `request_socket_connect` PLUS connection acquisition.</span>
+
+<span class=sd>    By default, this has no timeout allocated. Setting it to `None`</span>
+<span class=sd>    will disable it.</span>
+<span class=sd>    """</span>
+
+    <span class=n>request_socket_connect</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Optional</span><span class=p>[</span><span class=nb>float</span><span class=p>]</span> <span class=o>=</span> <span class=n>attr</span><span class=o>.</span><span class=n>field</span><span class=p>(</span><span class=n>default</span><span class=o>=</span><span class=kc>None</span><span class=p>)</span>
+    <span class=sd>"""Timeout for connecting a socket.</span>
+
+<span class=sd>    By default, this has no timeout allocated. Setting it to `None`</span>
+<span class=sd>    will disable it.</span>
+<span class=sd>    """</span>
+
+    <span class=n>request_socket_read</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Optional</span><span class=p>[</span><span class=nb>float</span><span class=p>]</span> <span class=o>=</span> <span class=n>attr</span><span class=o>.</span><span class=n>field</span><span class=p>(</span><span class=n>default</span><span class=o>=</span><span class=kc>None</span><span class=p>)</span>
+    <span class=sd>"""Timeout for reading a socket.</span>
+
+<span class=sd>    By default, this has no timeout allocated. Setting it to `None`</span>
+<span class=sd>    will disable it.</span>
+<span class=sd>    """</span>
+
+    <span class=n>total</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Optional</span><span class=p>[</span><span class=nb>float</span><span class=p>]</span> <span class=o>=</span> <span class=n>attr</span><span class=o>.</span><span class=n>field</span><span class=p>(</span><span class=n>default</span><span class=o>=</span><span class=mf>30.0</span><span class=p>)</span>
+    <span class=sd>"""Total timeout for entire request.</span>
+
+<span class=sd>    By default, this has a 30 second timeout allocated. Setting it to `None`</span>
+<span class=sd>    will disable it.</span>
+<span class=sd>    """</span>
+
+    <span class=nd>@acquire_and_connect</span><span class=o>.</span><span class=n>validator</span>
+    <span class=nd>@request_socket_connect</span><span class=o>.</span><span class=n>validator</span>
+    <span class=nd>@request_socket_read</span><span class=o>.</span><span class=n>validator</span>
+    <span class=nd>@total</span><span class=o>.</span><span class=n>validator</span>
+    <span class=k>def</span> <span class=nf>_</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>attrib</span><span class=p>:</span> <span class=n>attr</span><span class=o>.</span><span class=n>Attribute</span><span class=p>[</span><span class=n>typing</span><span class=o>.</span><span class=n>Optional</span><span class=p>[</span><span class=nb>float</span><span class=p>]],</span> <span class=n>value</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Optional</span><span class=p>[</span><span class=nb>float</span><span class=p>])</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+        <span class=c1># This error won't occur until some time in the future where it will be annoying to</span>
+        <span class=c1># try and determine the root cause, so validate it NOW.</span>
+        <span class=k>if</span> <span class=n>value</span> <span class=ow>is</span> <span class=ow>not</span> <span class=kc>None</span> <span class=ow>and</span> <span class=p>(</span><span class=ow>not</span> <span class=nb>isinstance</span><span class=p>(</span><span class=n>value</span><span class=p>,</span> <span class=p>(</span><span class=nb>float</span><span class=p>,</span> <span class=nb>int</span><span class=p>))</span> <span class=ow>or</span> <span class=n>value</span> <span class=o><=</span> <span class=mi>0</span><span class=p>):</span>
+            <span class=k>raise</span> <span class=ne>ValueError</span><span class=p>(</span><span class=sa>f</span><span class=s2>"HTTPTimeoutSettings.</span><span class=si>{</span><span class=n>attrib</span><span class=o>.</span><span class=n>name</span><span class=si>}</span><span class=s2> must be None, or a POSITIVE float/int"</span><span class=p>)</span>
+</pre></div></details><div class=docstring><p>Settings to control HTTP request timeouts.</div><section class=member_divisor><h5>Variables and properties</h5><div id=HTTPTimeoutSettings.acquire_and_connect><div class="attr variable"><a class=headerlink href=#HTTPTimeoutSettings.acquire_and_connect>#  </a><span class=name>acquire_and_connect</span><span class=annotation>: Optional[float]</span></div><div class=docstring><p>Timeout for <code><a href=#HTTPTimeoutSettings.request_socket_connect>request_socket_connect</a></code> PLUS connection acquisition.<p>By default, this has no timeout allocated. Setting it to <code>None</code> will disable it.</div></div><div id=HTTPTimeoutSettings.request_socket_connect><div class="attr variable"><a class=headerlink href=#HTTPTimeoutSettings.request_socket_connect>#  </a><span class=name>request_socket_connect</span><span class=annotation>: Optional[float]</span></div><div class=docstring><p>Timeout for connecting a socket.<p>By default, this has no timeout allocated. Setting it to <code>None</code> will disable it.</div></div><div id=HTTPTimeoutSettings.request_socket_read><div class="attr variable"><a class=headerlink href=#HTTPTimeoutSettings.request_socket_read>#  </a><span class=name>request_socket_read</span><span class=annotation>: Optional[float]</span></div><div class=docstring><p>Timeout for reading a socket.<p>By default, this has no timeout allocated. Setting it to <code>None</code> will disable it.</div></div><div id=HTTPTimeoutSettings.total><div class="attr variable"><a class=headerlink href=#HTTPTimeoutSettings.total>#  </a><span class=name>total</span><span class=annotation>: Optional[float]</span></div><div class=docstring><p>Total timeout for entire request.<p>By default, this has a 30 second timeout allocated. Setting it to <code>None</code> will disable it.</div></div></section><section class=member_divisor><h5>Methods</h5><div id=HTTPTimeoutSettings.__init__><div class="attr function"><a class=headerlink href=#HTTPTimeoutSettings.__init__>#  </a><span class=def>def </span><span class=name>__init__</span><span class=signature>(<br>   self,<br>   *,<br>   acquire_and_connect: Optional[float] = None,<br>   request_socket_connect: Optional[float] = None,<br>   request_socket_read: Optional[float] = None,<br>   total: Optional[float] = 30.0<br>):</span></div><details><summary>View Source</summary> <div class=codehilite><pre><span></span><span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=o>*</span><span class=p>,</span> <span class=n>acquire_and_connect</span><span class=o>=</span><span class=n>attr_dict</span><span class=p>[</span><span class=s1>'acquire_and_connect'</span><span class=p>]</span><span class=o>.</span><span class=n>default</span><span class=p>,</span> <span class=n>request_socket_connect</span><span class=o>=</span><span class=n>attr_dict</span><span class=p>[</span><span class=s1>'request_socket_connect'</span><span class=p>]</span><span class=o>.</span><span class=n>default</span><span class=p>,</span> <span class=n>request_socket_read</span><span class=o>=</span><span class=n>attr_dict</span><span class=p>[</span><span class=s1>'request_socket_read'</span><span class=p>]</span><span class=o>.</span><span class=n>default</span><span class=p>,</span> <span class=n>total</span><span class=o>=</span><span class=n>attr_dict</span><span class=p>[</span><span class=s1>'total'</span><span class=p>]</span><span class=o>.</span><span class=n>default</span><span class=p>):</span>
+    <span class=n>_setattr</span> <span class=o>=</span> <span class=n>_cached_setattr</span><span class=o>.</span><span class=fm>__get__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=bp>self</span><span class=o>.</span><span class=vm>__class__</span><span class=p>)</span>
+    <span class=n>_setattr</span><span class=p>(</span><span class=s1>'acquire_and_connect'</span><span class=p>,</span> <span class=n>acquire_and_connect</span><span class=p>)</span>
+    <span class=n>_setattr</span><span class=p>(</span><span class=s1>'request_socket_connect'</span><span class=p>,</span> <span class=n>request_socket_connect</span><span class=p>)</span>
+    <span class=n>_setattr</span><span class=p>(</span><span class=s1>'request_socket_read'</span><span class=p>,</span> <span class=n>request_socket_read</span><span class=p>)</span>
+    <span class=n>_setattr</span><span class=p>(</span><span class=s1>'total'</span><span class=p>,</span> <span class=n>total</span><span class=p>)</span>
+    <span class=k>if</span> <span class=n>_config</span><span class=o>.</span><span class=n>_run_validators</span> <span class=ow>is</span> <span class=kc>True</span><span class=p>:</span>
+        <span class=n>__attr_validator_acquire_and_connect</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>__attr_acquire_and_connect</span><span class=p>,</span> <span class=bp>self</span><span class=o>.</span><span class=n>acquire_and_connect</span><span class=p>)</span>
+        <span class=n>__attr_validator_request_socket_connect</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>__attr_request_socket_connect</span><span class=p>,</span> <span class=bp>self</span><span class=o>.</span><span class=n>request_socket_connect</span><span class=p>)</span>
+        <span class=n>__attr_validator_request_socket_read</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>__attr_request_socket_read</span><span class=p>,</span> <span class=bp>self</span><span class=o>.</span><span class=n>request_socket_read</span><span class=p>)</span>
+        <span class=n>__attr_validator_total</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>__attr_total</span><span class=p>,</span> <span class=bp>self</span><span class=o>.</span><span class=n>total</span><span class=p>)</span>
+</pre></div></details><div class=docstring><p>Method generated by attrs for class HTTPTimeoutSettings.</div></div></section></section><section id=ProxySettings><div class="attr class"><a class=headerlink href=#ProxySettings>#  </a><div class=decorator>@attr_extensions.with_copy</div><div class=decorator>@attr.define(kw_only=True, weakref_slot=False)</div><span class=def>class </span><span class=name>ProxySettings</span>:</div><details><summary>View Source</summary> <div class=codehilite><pre><span></span><span class=nd>@attr_extensions</span><span class=o>.</span><span class=n>with_copy</span>
+<span class=nd>@attr</span><span class=o>.</span><span class=n>define</span><span class=p>(</span><span class=n>kw_only</span><span class=o>=</span><span class=kc>True</span><span class=p>,</span> <span class=n>weakref_slot</span><span class=o>=</span><span class=kc>False</span><span class=p>)</span>
+<span class=k>class</span> <span class=nc>ProxySettings</span><span class=p>:</span>
+    <span class=sd>"""Settings for configuring an HTTP-based proxy."""</span>
+
+    <span class=n>auth</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Any</span> <span class=o>=</span> <span class=n>attr</span><span class=o>.</span><span class=n>field</span><span class=p>(</span><span class=n>default</span><span class=o>=</span><span class=kc>None</span><span class=p>)</span>
+    <span class=sd>"""Authentication header value to use.</span>
+
+<span class=sd>    When cast to a `str`, this should provide the full value</span>
+<span class=sd>    for the authentication header.</span>
+
+<span class=sd>    If you are using basic auth, you should consider using the</span>
+<span class=sd>    `BasicAuthHeader` helper object here, as this will provide any</span>
+<span class=sd>    transformations you may require into a base64 string.</span>
+
+<span class=sd>    The default is to have this set to `None`, which will</span>
+<span class=sd>    result in no authentication being provided.</span>
+
+<span class=sd>    Returns</span>
+<span class=sd>    -------</span>
+<span class=sd>    typing.Any</span>
+<span class=sd>        The value for the `Authentication` header, or `None`</span>
+<span class=sd>        to disable.</span>
+<span class=sd>    """</span>
+
+    <span class=n>headers</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Optional</span><span class=p>[</span><span class=n>data_binding</span><span class=o>.</span><span class=n>Headers</span><span class=p>]</span> <span class=o>=</span> <span class=n>attr</span><span class=o>.</span><span class=n>field</span><span class=p>(</span><span class=n>default</span><span class=o>=</span><span class=kc>None</span><span class=p>)</span>
+    <span class=sd>"""Additional headers to use for requests via a proxy, if required."""</span>
+
+    <span class=n>url</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Union</span><span class=p>[</span><span class=kc>None</span><span class=p>,</span> <span class=nb>str</span><span class=p>,</span> <span class=n>yarl</span><span class=o>.</span><span class=n>URL</span><span class=p>]</span> <span class=o>=</span> <span class=n>attr</span><span class=o>.</span><span class=n>field</span><span class=p>(</span><span class=n>default</span><span class=o>=</span><span class=kc>None</span><span class=p>)</span>
+    <span class=sd>"""Proxy URL to use.</span>
+
+<span class=sd>    Defaults to `None` which disables the use of an explicit proxy.</span>
+
+<span class=sd>    Returns</span>
+<span class=sd>    -------</span>
+<span class=sd>    typing.Union[None, str, yarl.URL]</span>
+<span class=sd>        The proxy URL to use, or `None` to disable it.</span>
+<span class=sd>    """</span>
+
+    <span class=nd>@url</span><span class=o>.</span><span class=n>validator</span>
+    <span class=k>def</span> <span class=nf>_</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>_</span><span class=p>:</span> <span class=n>attr</span><span class=o>.</span><span class=n>Attribute</span><span class=p>[</span><span class=n>typing</span><span class=o>.</span><span class=n>Union</span><span class=p>[</span><span class=kc>None</span><span class=p>,</span> <span class=nb>str</span><span class=p>,</span> <span class=n>yarl</span><span class=o>.</span><span class=n>URL</span><span class=p>]],</span> <span class=n>value</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Union</span><span class=p>[</span><span class=kc>None</span><span class=p>,</span> <span class=nb>str</span><span class=p>,</span> <span class=n>yarl</span><span class=o>.</span><span class=n>URL</span><span class=p>])</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+        <span class=k>if</span> <span class=n>value</span> <span class=ow>is</span> <span class=ow>not</span> <span class=kc>None</span> <span class=ow>and</span> <span class=ow>not</span> <span class=nb>isinstance</span><span class=p>(</span><span class=n>value</span><span class=p>,</span> <span class=p>(</span><span class=nb>str</span><span class=p>,</span> <span class=n>yarl</span><span class=o>.</span><span class=n>URL</span><span class=p>)):</span>
+            <span class=k>raise</span> <span class=ne>ValueError</span><span class=p>(</span><span class=s2>"ProxySettings.url must be None, a str, or a yarl.URL instance"</span><span class=p>)</span>
+
+    <span class=n>trust_env</span><span class=p>:</span> <span class=nb>bool</span> <span class=o>=</span> <span class=n>attr</span><span class=o>.</span><span class=n>field</span><span class=p>(</span><span class=n>default</span><span class=o>=</span><span class=kc>False</span><span class=p>,</span> <span class=n>validator</span><span class=o>=</span><span class=n>attr</span><span class=o>.</span><span class=n>validators</span><span class=o>.</span><span class=n>instance_of</span><span class=p>(</span><span class=nb>bool</span><span class=p>))</span>
+    <span class=sd>"""Toggle whether to look for a `netrc` file or environment variables.</span>
+
+<span class=sd>    If `True`, and no `url` is given on this object, then</span>
+<span class=sd>    `HTTP_PROXY` and `HTTPS_PROXY` will be used from the environment</span>
+<span class=sd>    variables, or a `netrc` file may be read to determine credentials.</span>
+
+<span class=sd>    If `False`, then this information is instead ignored.</span>
+
+<span class=sd>    Defaults to `False` to prevent potentially unwanted behavior.</span>
+
+<span class=sd>    .. note::</span>
+<span class=sd>        For more details of using `netrc`, visit:</span>
+<span class=sd>        &LThttps://www.gnu.org/software/inetutils/manual/html_node/The-_002enetrc-file.html></span>
+
+<span class=sd>    Returns</span>
+<span class=sd>    -------</span>
+<span class=sd>    bool</span>
+<span class=sd>        `True` if allowing the use of environment variables</span>
+<span class=sd>        and/or `netrc` to determine proxy settings; `False`</span>
+<span class=sd>        if this should be disabled explicitly.</span>
+<span class=sd>    """</span>
+
+    <span class=nd>@property</span>
+    <span class=k>def</span> <span class=nf>all_headers</span><span class=p>(</span><span class=bp>self</span><span class=p>)</span> <span class=o>-></span> <span class=n>typing</span><span class=o>.</span><span class=n>Optional</span><span class=p>[</span><span class=n>data_binding</span><span class=o>.</span><span class=n>Headers</span><span class=p>]:</span>
+        <span class=sd>"""Return all proxy headers.</span>
+
+<span class=sd>        Will be `None` if no headers are to be send with any request.</span>
+<span class=sd>        """</span>
+        <span class=k>if</span> <span class=bp>self</span><span class=o>.</span><span class=n>headers</span> <span class=ow>is</span> <span class=kc>None</span><span class=p>:</span>
+            <span class=k>if</span> <span class=bp>self</span><span class=o>.</span><span class=n>auth</span> <span class=ow>is</span> <span class=kc>None</span><span class=p>:</span>
+                <span class=k>return</span> <span class=kc>None</span>
+            <span class=k>return</span> <span class=p>{</span><span class=n>_PROXY_AUTHENTICATION_HEADER</span><span class=p>:</span> <span class=bp>self</span><span class=o>.</span><span class=n>auth</span><span class=p>}</span>
+
+        <span class=k>if</span> <span class=bp>self</span><span class=o>.</span><span class=n>auth</span> <span class=ow>is</span> <span class=kc>None</span><span class=p>:</span>
+            <span class=k>return</span> <span class=bp>self</span><span class=o>.</span><span class=n>headers</span>
+        <span class=k>return</span> <span class=p>{</span><span class=o>**</span><span class=bp>self</span><span class=o>.</span><span class=n>headers</span><span class=p>,</span> <span class=n>_PROXY_AUTHENTICATION_HEADER</span><span class=p>:</span> <span class=bp>self</span><span class=o>.</span><span class=n>auth</span><span class=p>}</span>
+</pre></div></details><div class=docstring><p>Settings for configuring an HTTP-based proxy.</div><section class=member_divisor><h5>Variables and properties</h5><div id=ProxySettings.all_headers><div class="attr variable"><a class=headerlink href=#ProxySettings.all_headers>#  </a><span class=name>all_headers</span><span class=annotation>: Optional[Mapping[str, str]]</span></div><div class=docstring><p>Return all proxy headers.<p>Will be <code>None</code> if no headers are to be send with any request.</div></div><div id=ProxySettings.auth><div class="attr variable"><a class=headerlink href=#ProxySettings.auth>#  </a><span class=name>auth</span><span class=annotation>: Any</span></div><div class=docstring><p>Authentication header value to use.<p>When cast to a <code>str</code>, this should provide the full value for the authentication header.<p>If you are using basic auth, you should consider using the <code><a href=#BasicAuthHeader>BasicAuthHeader</a></code> helper object here, as this will provide any transformations you may require into a base64 string.<p>The default is to have this set to <code>None</code>, which will result in no authentication being provided.<h6 id=returns>Returns</h6><ul><li><strong>typing.Any</strong>: The value for the <code>Authentication</code> header, or <code>None</code> to disable.</ul></div></div><div id=ProxySettings.headers><div class="attr variable"><a class=headerlink href=#ProxySettings.headers>#  </a><span class=name>headers</span><span class=annotation>: Optional[Mapping[str, str]]</span></div><div class=docstring><p>Additional headers to use for requests via a proxy, if required.</div></div><div id=ProxySettings.trust_env><div class="attr variable"><a class=headerlink href=#ProxySettings.trust_env>#  </a><span class=name>trust_env</span><span class=annotation>: bool</span></div><div class=docstring><p>Toggle whether to look for a <code>netrc</code> file or environment variables.<p>If <code>True</code>, and no <code><a href=#ProxySettings.url>url</a></code> is given on this object, then <code>HTTP_PROXY</code> and <code>HTTPS_PROXY</code> will be used from the environment variables, or a <code>netrc</code> file may be read to determine credentials.<p>If <code>False</code>, then this information is instead ignored.<p>Defaults to <code>False</code> to prevent potentially unwanted behavior.<p><em>Note:</em> For more details of using <code>netrc</code>, visit: <a href=https://www.gnu.org/software/inetutils/manual/html_node/The-_002enetrc-file.html>https://www.gnu.org/software/inetutils/manual/html_node/The-_002enetrc-file.html</a><h6 id=returns>Returns</h6><ul><li><strong>bool</strong>: <code>True</code> if allowing the use of environment variables and/or <code>netrc</code> to determine proxy settings; <code>False</code> if this should be disabled explicitly.</ul></div></div><div id=ProxySettings.url><div class="attr variable"><a class=headerlink href=#ProxySettings.url>#  </a><span class=name>url</span><span class=annotation>: Union[NoneType, str, yarl.URL]</span></div><div class=docstring><p>Proxy URL to use.<p>Defaults to <code>None</code> which disables the use of an explicit proxy.<h6 id=returns>Returns</h6><ul><li><strong>typing.Union[None, str, yarl.URL]</strong>: The proxy URL to use, or <code>None</code> to disable it.</ul></div></div></section><section class=member_divisor><h5>Methods</h5><div id=ProxySettings.__init__><div class="attr function"><a class=headerlink href=#ProxySettings.__init__>#  </a><span class=def>def </span><span class=name>__init__</span><span class=signature>(<br>   self,<br>   *,<br>   auth: Any = None,<br>   headers: Optional[Mapping[str, str]] = None,<br>   url: Union[NoneType, str, yarl.URL] = None,<br>   trust_env: bool = False<br>):</span></div><details><summary>View Source</summary> <div class=codehilite><pre><span></span><span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=o>*</span><span class=p>,</span> <span class=n>auth</span><span class=o>=</span><span class=n>attr_dict</span><span class=p>[</span><span class=s1>'auth'</span><span class=p>]</span><span class=o>.</span><span class=n>default</span><span class=p>,</span> <span class=n>headers</span><span class=o>=</span><span class=n>attr_dict</span><span class=p>[</span><span class=s1>'headers'</span><span class=p>]</span><span class=o>.</span><span class=n>default</span><span class=p>,</span> <span class=n>url</span><span class=o>=</span><span class=n>attr_dict</span><span class=p>[</span><span class=s1>'url'</span><span class=p>]</span><span class=o>.</span><span class=n>default</span><span class=p>,</span> <span class=n>trust_env</span><span class=o>=</span><span class=n>attr_dict</span><span class=p>[</span><span class=s1>'trust_env'</span><span class=p>]</span><span class=o>.</span><span class=n>default</span><span class=p>):</span>
+    <span class=n>_setattr</span> <span class=o>=</span> <span class=n>_cached_setattr</span><span class=o>.</span><span class=fm>__get__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=bp>self</span><span class=o>.</span><span class=vm>__class__</span><span class=p>)</span>
+    <span class=n>_setattr</span><span class=p>(</span><span class=s1>'auth'</span><span class=p>,</span> <span class=n>auth</span><span class=p>)</span>
+    <span class=n>_setattr</span><span class=p>(</span><span class=s1>'headers'</span><span class=p>,</span> <span class=n>headers</span><span class=p>)</span>
+    <span class=n>_setattr</span><span class=p>(</span><span class=s1>'url'</span><span class=p>,</span> <span class=n>url</span><span class=p>)</span>
+    <span class=n>_setattr</span><span class=p>(</span><span class=s1>'trust_env'</span><span class=p>,</span> <span class=n>trust_env</span><span class=p>)</span>
+    <span class=k>if</span> <span class=n>_config</span><span class=o>.</span><span class=n>_run_validators</span> <span class=ow>is</span> <span class=kc>True</span><span class=p>:</span>
+        <span class=n>__attr_validator_url</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>__attr_url</span><span class=p>,</span> <span class=bp>self</span><span class=o>.</span><span class=n>url</span><span class=p>)</span>
+        <span class=n>__attr_validator_trust_env</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>__attr_trust_env</span><span class=p>,</span> <span class=bp>self</span><span class=o>.</span><span class=n>trust_env</span><span class=p>)</span>
+</pre></div></details><div class=docstring><p>Method generated by attrs for class ProxySettings.</div></div></section></section></main><script src=../../version_switcher.js></script><script>"use strict";const html=document.querySelector("html"),sidebarToggle=document.getElementById("sidebar-toggle");sidebarToggle.addEventListener("click",function(){html.classList.contains("sidebar-hidden")?html.classList.remove("sidebar-hidden"):html.classList.add("sidebar-hidden")});let firstContact=null;document.addEventListener("touchstart",function(e){firstContact={x:e.touches[0].clientX,time:Date.now()}},{passive:!0}),document.addEventListener("touchmove",function(e){if(!firstContact)return;let i=e.touches[0].clientX,t=i-firstContact.x;Date.now()-firstContact.time<300&&Math.abs(t)>=100&&(t>=0&&firstContact.x<Math.min(document.body.clientWidth,450)?(html.classList.remove("sidebar-hidden"),firstContact=null):t<0&&i<250&&(html.classList.add("sidebar-hidden"),firstContact=null))},{passive:!0});</script><script>function escapeHTML(n){return document.createElement("div").appendChild(document.createTextNode(n)).parentNode.innerHTML}const originalContent=document.querySelector("main.pdoc");let currentContent=originalContent;function setContent(n){let e;n?(e=document.createElement("main"),e.classList.add("pdoc"),e.innerHTML=n):e=originalContent,currentContent!==e&&(currentContent.replaceWith(e),currentContent=e)}function getSearchTerm(){return new URL(window.location).searchParams.get("search")}const searchBox=document.querySelector(".pdoc input[type=search]");searchBox.addEventListener("input",function(){let n=new URL(window.location);searchBox.value.trim()?(n.hash="",n.searchParams.set("search",searchBox.value)):n.searchParams.delete("search"),history.replaceState("","",n.toString()),onInput()}),window.addEventListener("popstate",onInput);let search,searchErr;async function initialize(){try{search=await new Promise((n,e)=>{const t=document.createElement("script");t.type="text/javascript",t.async=!0,t.onload=()=>n(window.pdocSearch),t.onerror=r=>e(r),t.src="../search.js",document.getElementsByTagName("head")[0].appendChild(t)})}catch{console.error("Cannot fetch pdoc search index"),searchErr="Cannot fetch search index."}onInput(),document.querySelector("nav.pdoc").addEventListener("click",n=>{n.target.hash&&(searchBox.value="",searchBox.dispatchEvent(new Event("input")))})}function onInput(){setContent((()=>{const n=getSearchTerm();if(!n)return null;if(searchErr)return`<h3>Error: ${searchErr}</h3>`;if(!search)return"<h3>Searching...</h3>";window.scrollTo({top:0,left:0,behavior:"auto"});const e=search(n);let t;e.length===0?t=`No search results for '${escapeHTML(n)}'.`:t=`<h4>${e.length} search result${e.length>1?"s":""} for '${escapeHTML(n)}'.</h4>`;for(let r of e.slice(0,10)){let s=r.doc,l=`../${s.modulename.replaceAll(".","/")}.html`;s.qualname&&(l+=`#${s.qualname}`);let a;switch(r.doc.type){case"function":a=`<span class="def">${s.funcdef}</span> <span class="name">${s.fullname}</span><span class="signature">${s.signature}:</span>`;break;case"class":a=`<span class="def">class</span> <span class="name">${s.fullname}</span>`,s.bases&&(a+=`<wbr>(<span class="base">${s.bases}</span>)`),a+=":";break;case"variable":a=`<span class="name">${s.fullname}</span>`,s.annotation&&(a+=`<span class="annotation">${s.annotation}</span>`),s.default_value&&(a+=`<span class="default_value">${s.default_value}</span>`);break;default:a=`<span class="name">${s.fullname}</span>`;break}t+=`
+                        <section class="search-result">
+                        <a href="${l}" class="attr ${s.type}">${a}</a>
+                        <div class="docstring">${s.doc}</div>
+                        </section>
+                    `}return t})())}getSearchTerm()?(initialize(),searchBox.value=getSearchTerm(),onInput()):searchBox.addEventListener("focus",initialize,{once:!0}),searchBox.addEventListener("keydown",n=>{if(["ArrowDown","ArrowUp","Enter"].includes(n.key)){let e=currentContent.querySelector(".search-result.focused");e?n.key==="ArrowDown"&&e.nextElementSibling&&e.nextElementSibling.classList.contains("search-result")?(e.classList.remove("focused"),e.nextElementSibling.classList.add("focused"),e.nextElementSibling.scrollIntoView({behavior:"smooth",block:"nearest",inline:"nearest"})):n.key==="ArrowUp"&&e.previousElementSibling&&e.previousElementSibling.classList.contains("search-result")?(e.classList.remove("focused"),e.previousElementSibling.classList.add("focused"),e.previousElementSibling.scrollIntoView({behavior:"smooth",block:"nearest",inline:"nearest"})):n.key==="Enter"&&e.querySelector("a").click():currentContent.querySelector(".search-result").classList.add("focused")}});</script>

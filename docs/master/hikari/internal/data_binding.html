@@ -1,0 +1,1016 @@
+<!doctypehtml><html class=sidebar-hidden lang=en><meta charset=utf-8><meta content=width=device-width,initial-scale=1 name=viewport><meta content="pdoc 9.0.1"name=generator><title>hikari.internal.data_binding API documentation</title><meta content=website property=og:type><meta content=https://www.hikari-py.dev/logo.png property=og:image><meta content="hikari.internal.data_binding API documentation"property=og:title><meta content="A Discord Bot framework for modern Python and asyncio built on good intentions"property=og:description><meta content=#ff029a property=theme-color><link rel="shortcut icon"href=https://www.hikari-py.dev/logo.png type=image/png><link crossorigin=anonymous href=https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap-reboot.css integrity=sha512-MiwRA9Okl+Pah06DKec2BuhcKl6RnH8dFrlmosZPAvUuHAx2grCGHC35eXHrQwSIsDOPvwRteRZzRwFU6Qoj7w== referrerpolicy=no-referrer rel=stylesheet><style>:root{--pdoc-background: #212529;--text: #f7f7f7;--muted: #9d9d9d;--link: #DB61D9 ;--link-hover: #3989ff;--code: #333;--accent: #343434;--accent2: #555;--nav-hover: rgba(0, 0, 0, .1);--def: #ff79c6;--name: #61aeee;--annotation: #DE4F91}body{background-color:var(--pdoc-background)}html,body{width:100%;height:100%;overflow-wrap:break-word;scroll-behavior:smooth;font-family:SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace}@media (max-width: 1079px){:root{--sidebar-width: 25rem}html{font-size:3.5vw}main,header{padding:2rem 3vw 0 1.5rem}html:not(.sidebar-hidden) body{overflow:hidden!important}html:not(.sidebar-hidden) main{pointer-events:none!important}.sidebar-hidden nav{transform:translate(calc(0px - var(--sidebar-width)))}nav{transition:transform .2s}.sidebar-toggle{position:fixed;top:0;bottom:calc(100% - 6rem);left:var(--sidebar-width);border-left:10px solid grey;border-top:5px solid rgba(0,0,0,0);border-bottom:5px solid rgba(0,0,0,0)}}@media (min-width: 1080px){:root{--sidebar-width: clamp(12.5rem, 37vw, 30rem)}html{font-size:1rem}main,header{padding:3rem 4rem 3rem calc(var(--sidebar-width) + 3rem)}}nav{position:fixed;left:0;top:0;bottom:0;height:100vh;width:var(--sidebar-width);z-index:1}.sidebar{height:100vh;overflow:auto;padding:.5rem 1.5rem 0 1rem;background-color:var(--accent);border-right:1px solid var(--accent2);scrollbar-color:var(--accent2) transparent}::-webkit-scrollbar{width:10px;background:var(--accent) transparent}::-webkit-scrollbar-thumb{-webkit-border-radius:1ex;background:var(--accent2)}.sidebar input[type=search]{display:block;outline-offset:0;width:102%}.sidebar ul{list-style:none;padding-left:1rem}.sidebar li{display:block;margin:0;padding:.2rem 0 .2rem .5rem;transition:all .1s}.sidebar>ul>li{padding-left:0}.sidebar li:hover{background-color:var(--nav-hover)}.sidebar a:hover{color:var(--text)}.sidebar a{display:block}.sidebar a.function,.sidebar a.variable{color:#bd93f9}.sidebar>h2:first-of-type{margin-top:1rem}.sidebar .class:before{content:"class ";color:var(--muted)}.sidebar .function:after{content:"()";color:var(--muted)}.sidebar .sidebar-buttons{display:flex;width:103%;margin-bottom:.5rem;align-items:center}.sidebar .sidebar-buttons .push{margin-left:auto}.svg-button>svg{width:1.7rem;margin:0 .3rem;cursor:pointer}.version-selector{background-color:var(--accent);color:var(--text);border:hidden}.version-selector:disabled{-webkit-appearance:none}.version-warning{background-color:#520000;padding:1rem;margin-right:3rem;text-align:center}.version-warning:empty{display:none}.version-warning a{color:#81d9ff}.version-warning a:hover{color:#00b2ff}nav,main{color:var(--text);box-sizing:border-box;line-height:1.5;background:none}h1,h2,h3{font-weight:300;margin:.3em 0;padding:.2em 0}a{text-decoration:none;color:var(--link)}a:hover{color:var(--link-hover)}blockquote{margin-left:2rem}p{font-weight:300;margin-bottom:.5rem}pre{background-color:var(--code);border-top:1px solid var(--accent2);border-bottom:1px solid var(--accent2);margin-bottom:1em;padding:.5rem 0 .5rem .5rem;overflow-x:auto}code{color:var(--text);padding:.2em .4em;margin:0;font-size:85%;background-color:var(--code);border-radius:6px}a>code{color:inherit}pre>code{display:inline-block;font-size:inherit;background:none;border:none;padding:0}.modulename{color:var(--annotation);font-weight:bold}.modulename a{color:var(--link);transition:.1s all}.modulename a:hover{filter:brightness(80%)}.git-button{float:right;border:solid var(--link) 1px}.git-button:hover{background-color:var(--link);color:var(--pdoc-background)}details{--shift: -2.4rem;text-align:right;margin-top:var(--shift);margin-bottom:calc(0px - var(--shift));clear:both;filter:opacity(1)}details:not([open]){height:0;overflow:visible}details>summary{font-size:.75rem;cursor:pointer;color:var(--muted);border-width:0;padding:0 1rem;display:inline-block;display:inline list-item;user-select:none}details>summary:focus{outline:0}details>div{margin-top:calc(0px - var(--shift) / 2);text-align:left}.docstring{margin:0 0 2rem 2rem}.docstring pre{margin-left:1em;margin-right:1em}.docstring li{margin-bottom:15px}.docstring li:last-child{margin-bottom:0}span.name{color:#61aeee}span.base{color:#8be9fd}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background-color:var(--accent2);box-shadow:-1rem 0 0 0 var(--accent2)}li strong{color:var(--def)}b,strong{font-weight:bold}em{color:orange}h6{padding-top:1rem;font-size:1.7rem;color:#fff}h6#notes{color:orange}h6#raises{color:#f66}div.decorator{color:#61aeee}div:target>.attr,section:target>.attr,dd:target>a{background-color:var(--accent2)}.inherited dt,.inherited dt:before{color:#61aeee}.attr:hover{filter:contrast(.95)}.headerlink{position:absolute;margin-left:-2.5rem;line-height:1.4rem;font-size:1.5rem;font-weight:normal;transition:all .1s ease-in-out;opacity:0}*:hover>.headerlink,*:target>.attr>.headerlink{opacity:1}.attr{display:block;color:var(--text);margin:2rem 0 .5rem 1rem;padding:.4rem 5rem .4rem 1rem;background-color:var(--accent)}.attr:first-of-type{margin-left:0}.member_divisor{margin-left:3rem}.member_divisor>h5{margin-left:-1rem;font-size:1.5rem;color:#a9a9a9}.member_divisor .attr:first-of-type{margin-top:0}.name{color:var(--name);font-weight:bold}.def{color:var(--def);font-weight:bold}.signature{white-space:pre-wrap}.annotation{color:var(--annotation)}.inherited{margin-left:4rem}.inherited div{margin-left:2rem}.inherited dt{font-weight:700}.inherited dt,.inherited dd{display:inline;margin-left:0;margin-bottom:.5rem}.inherited dd:not(:last-child):after{content:", "}.inherited .class:before{content:"class "}.inherited .function a:after{content:"()"}.search-result .docstring{overflow:auto;max-height:25vh}.search-result.focused>.attr{background-color:var(--accent2)}.attribution{margin-top:2rem;display:block;opacity:.5;transition:all .2s;filter:grayscale(100%)}.attribution:hover{opacity:1;color:#fff}.c{color:#6a7aaa}.err{color:#f55;background-color:#1e0010}.k{color:#ff79c6}.l{color:#ae81ff}.n{color:#f8f8f2}.o{color:#ff79c6}.p{color:#f8f8f2}.ch{color:#6a7aaa}.cm{color:#6a7aaa}.cp{color:#6a7aaa}.cpf{color:#6a7aaa}.c1{color:#6a7aaa}.cs{color:#6a7aaa}.gd{color:#6a7aaa}.ge{font-style:italic}.gi{color:#a6e22e}.go{color:#ff79c6}.gp{color:#f92672;font-weight:bold}.gs{font-weight:bold}.gu{color:#75715e}.kc{color:#ff79c6}.kd{color:#bd93f9}.kn{color:#ff79c6}.kp{color:#bd93f9}.kr{color:#ff79c6}.kt{color:#ff79c6}.ld{color:#e6db74}.m{color:#ae81ff}.s{color:#e6db74}.na{color:#a6e22e}.nb{color:#8be9fd}.nc{color:#e6c07b}.no{color:#ff79c6}.ni{color:#ff79c6}.ne{color:#8be9fd}.nf{color:#61aeee}.nl{color:#f8f8f2}.nn{color:#f8f8f2}.nx{color:#a6e22e}.py{color:#f8f8f2}.nt{color:#f92672}.nv{color:#f8f8f2}.ow{color:#ff79c6}.w{color:#f8f8f2}.mb{color:#ae81ff}.mf{color:#ae81ff}.mh{color:#ae81ff}.mi{color:#ae81ff}.mo{color:#ae81ff}.sa{color:#ff79c6}.sb{color:#e6db74}.sc{color:#e6db74}.dl{color:#e6db74}.sd{color:#6272a4}.s2{color:#e6db74}.se{color:#ae81ff}.sh{color:#e6db74}.si{color:#bd93f9}.sx{color:#e6db74}.sr{color:#e6db74}.s1{color:#e6db74}.ss{color:#e6db74}.bp{color:#bd93f9}.fm{color:#bd93f9}.vc{color:#bd93f9}.vg{color:#f8f8f2}.vi{color:#fff}.vm{color:#bd93f9}.il{color:#ae81ff}.nd{color:#61aeee}.kc{color:#bd93f9}</style><body><nav class=pdoc><div class=sidebar id=sidebar><div class=sidebar-buttons><label>Hikari (<select class=version-selector disabled id=version-selector><option>master</select>)</label><div class=push></div><a class=svg-button href=../../index.html><svg viewbox="0 0 576 512"height=32 width=32 xmlns=http://www.w3.org/2000/svg><path d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"fill=#ffffff /></svg></a><a class=svg-button href=https://discord.gg/Jx4cNGG><svg viewbox="0 0 71 55"height=32 width=32 xmlns=http://www.w3.org/2000/svg><path d="M60.1045 4.8978C55.5792 2.8214 50.7265 1.2916 45.6527 0.41542C45.5603 0.39851 45.468 0.440769 45.4204 0.525289C44.7963 1.6353 44.105 3.0834 43.6209 4.2216C38.1637 3.4046 32.7345 3.4046 27.3892 4.2216C26.905 3.0581 26.1886 1.6353 25.5617 0.525289C25.5141 0.443589 25.4218 0.40133 25.3294 0.41542C20.2584 1.2888 15.4057 2.8186 10.8776 4.8978C10.8384 4.9147 10.8048 4.9429 10.7825 4.9795C1.57795 18.7309 -0.943561 32.1443 0.293408 45.3914C0.299005 45.4562 0.335386 45.5182 0.385761 45.5576C6.45866 50.0174 12.3413 52.7249 18.1147 54.5195C18.2071 54.5477 18.305 54.5139 18.3638 54.4378C19.7295 52.5728 20.9469 50.6063 21.9907 48.5383C22.0523 48.4172 21.9935 48.2735 21.8676 48.2256C19.9366 47.4931 18.0979 46.6 16.3292 45.5858C16.1893 45.5041 16.1781 45.304 16.3068 45.2082C16.679 44.9293 17.0513 44.6391 17.4067 44.3461C17.471 44.2926 17.5606 44.2813 17.6362 44.3151C29.2558 49.6202 41.8354 49.6202 53.3179 44.3151C53.3935 44.2785 53.4831 44.2898 53.5502 44.3433C53.9057 44.6363 54.2779 44.9293 54.6529 45.2082C54.7816 45.304 54.7732 45.5041 54.6333 45.5858C52.8646 46.6197 51.0259 47.4931 49.0921 48.2228C48.9662 48.2707 48.9102 48.4172 48.9718 48.5383C50.038 50.6034 51.2554 52.5699 52.5959 54.435C52.6519 54.5139 52.7526 54.5477 52.845 54.5195C58.6464 52.7249 64.529 50.0174 70.6019 45.5576C70.6551 45.5182 70.6887 45.459 70.6943 45.3942C72.1747 30.0791 68.2147 16.7757 60.1968 4.9823C60.1772 4.9429 60.1437 4.9147 60.1045 4.8978ZM23.7259 37.3253C20.2276 37.3253 17.3451 34.1136 17.3451 30.1693C17.3451 26.225 20.1717 23.0133 23.7259 23.0133C27.308 23.0133 30.1626 26.2532 30.1066 30.1693C30.1066 34.1136 27.28 37.3253 23.7259 37.3253ZM47.3178 37.3253C43.8196 37.3253 40.9371 34.1136 40.9371 30.1693C40.9371 26.225 43.7636 23.0133 47.3178 23.0133C50.9 23.0133 53.7545 26.2532 53.6986 30.1693C53.6986 34.1136 50.9 37.3253 47.3178 37.3253Z"fill=#ffffff /></svg></a><a class=svg-button href=https://github.com/hikari-py/hikari><svg viewbox="0 0 16 16"height=32 width=32 xmlns=http://www.w3.org/2000/svg><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"fill=#ffffff></path></svg></a><a class=svg-button href=https://pypi.org/project/hikari><svg viewbox="0 0 512 512"height=32 width=32 xmlns=http://www.w3.org/2000/svg><path d="M488.6 250.2L392 214V105.5c0-15-9.3-28.4-23.4-33.7l-100-37.5c-8.1-3.1-17.1-3.1-25.3 0l-100 37.5c-14.1 5.3-23.4 18.7-23.4 33.7V214l-96.6 36.2C9.3 255.5 0 268.9 0 283.9V394c0 13.6 7.7 26.1 19.9 32.2l100 50c10.1 5.1 22.1 5.1 32.2 0l103.9-52 103.9 52c10.1 5.1 22.1 5.1 32.2 0l100-50c12.2-6.1 19.9-18.6 19.9-32.2V283.9c0-15-9.3-28.4-23.4-33.7zM358 214.8l-85 31.9v-68.2l85-37v73.3zM154 104.1l102-38.2 102 38.2v.6l-102 41.4-102-41.4v-.6zm84 291.1l-85 42.5v-79.1l85-38.8v75.4zm0-112l-102 41.4-102-41.4v-.6l102-38.2 102 38.2v.6zm240 112l-85 42.5v-79.1l85-38.8v75.4zm0-112l-102 41.4-102-41.4v-.6l102-38.2 102 38.2v.6z"fill=#ffffff /></svg></a></div><input title="Search the documentation"pattern=.+ placeholder=Search... role=searchbox type=search><h2>API Documentation</h2><ul class=memberlist><li><a class=variable href=#Headers>Headers</a><li><a class=variable href=#JSONArray>JSONArray</a><li><a class=class href=#JSONDecodeError>JSONDecodeError</a> <ul class=memberlist><li><a class=function href=#JSONDecodeError.__init__>__init__</a><li><a class=variable href=#JSONDecodeError.args>args</a><li><a class=function href=#JSONDecodeError.with_traceback>with_traceback</a></ul><li><a class=variable href=#JSONObject>JSONObject</a><li><a class=class href=#JSONObjectBuilder>JSONObjectBuilder</a> <ul class=memberlist><li><a class=function href=#JSONObjectBuilder.__init__>__init__</a><li><a class=function href=#JSONObjectBuilder.clear>clear</a><li><a class=function href=#JSONObjectBuilder.copy>copy</a><li><a class=function href=#JSONObjectBuilder.fromkeys>fromkeys</a><li><a class=function href=#JSONObjectBuilder.get>get</a><li><a class=function href=#JSONObjectBuilder.items>items</a><li><a class=function href=#JSONObjectBuilder.keys>keys</a><li><a class=function href=#JSONObjectBuilder.pop>pop</a><li><a class=function href=#JSONObjectBuilder.popitem>popitem</a><li><a class=function href=#JSONObjectBuilder.put>put</a><li><a class=function href=#JSONObjectBuilder.put_array>put_array</a><li><a class=function href=#JSONObjectBuilder.put_snowflake>put_snowflake</a><li><a class=function href=#JSONObjectBuilder.put_snowflake_array>put_snowflake_array</a><li><a class=function href=#JSONObjectBuilder.setdefault>setdefault</a><li><a class=function href=#JSONObjectBuilder.update>update</a><li><a class=function href=#JSONObjectBuilder.values>values</a></ul><li><a class=variable href=#JSONish>JSONish</a><li><a class=variable href=#Query>Query</a><li><a class=class href=#StringMapBuilder>StringMapBuilder</a> <ul class=memberlist><li><a class=function href=#StringMapBuilder.__init__>__init__</a><li><a class=function href=#StringMapBuilder.add>add</a><li><a class=function href=#StringMapBuilder.clear>clear</a><li><a class=function href=#StringMapBuilder.copy>copy</a><li><a class=function href=#StringMapBuilder.extend>extend</a><li><a class=function href=#StringMapBuilder.get>get</a><li><a class=function href=#StringMapBuilder.getall>getall</a><li><a class=function href=#StringMapBuilder.getone>getone</a><li><a class=function href=#StringMapBuilder.items>items</a><li><a class=function href=#StringMapBuilder.keys>keys</a><li><a class=function href=#StringMapBuilder.pop>pop</a><li><a class=function href=#StringMapBuilder.popall>popall</a><li><a class=function href=#StringMapBuilder.popitem>popitem</a><li><a class=function href=#StringMapBuilder.popone>popone</a><li><a class=function href=#StringMapBuilder.put>put</a><li><a class=function href=#StringMapBuilder.setdefault>setdefault</a><li><a class=function href=#StringMapBuilder.update>update</a><li><a class=function href=#StringMapBuilder.values>values</a></ul><li><a class=class href=#URLEncodedFormBuilder>URLEncodedFormBuilder</a> <ul class=memberlist><li><a class=function href=#URLEncodedFormBuilder.__init__>__init__</a><li><a class=function href=#URLEncodedFormBuilder.add_field>add_field</a><li><a class=function href=#URLEncodedFormBuilder.add_resource>add_resource</a><li><a class=function href=#URLEncodedFormBuilder.build>build</a></ul><li><a class=function href=#dump_json>dump_json</a><li><a class=function href=#load_json>load_json</a></ul><a class=attribution href=https://pdoc.dev>built with pdoc v9.0.1</a></div><div class=sidebar-toggle id=sidebar-toggle></div></nav><main class=pdoc><div class=version-warning id=version-warning></div><section><h1 class=modulename><a href=./../../index.html>hikari</a><wbr>.<a href=./../internal.html>internal</a><wbr>.data_binding</h1><div class=docstring><p>Data binding utilities.</div><details><summary>View Source</summary> <div class=codehilite><pre><span></span><span class=c1># -*- coding: utf-8 -*-</span>
+<span class=c1># cython: language_level=3</span>
+<span class=c1># Copyright (c) 2020 Nekokatt</span>
+<span class=c1># Copyright (c) 2021-present davfsa</span>
+<span class=c1>#</span>
+<span class=c1># Permission is hereby granted, free of charge, to any person obtaining a copy</span>
+<span class=c1># of this software and associated documentation files (the "Software"), to deal</span>
+<span class=c1># in the Software without restriction, including without limitation the rights</span>
+<span class=c1># to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</span>
+<span class=c1># copies of the Software, and to permit persons to whom the Software is</span>
+<span class=c1># furnished to do so, subject to the following conditions:</span>
+<span class=c1>#</span>
+<span class=c1># The above copyright notice and this permission notice shall be included in all</span>
+<span class=c1># copies or substantial portions of the Software.</span>
+<span class=c1>#</span>
+<span class=c1># THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
+<span class=c1># IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
+<span class=c1># FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span>
+<span class=c1># AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
+<span class=c1># LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</span>
+<span class=c1># OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</span>
+<span class=c1># SOFTWARE.</span>
+<span class=sd>"""Data binding utilities."""</span>
+<span class=kn>from</span> <span class=nn>__future__</span> <span class=kn>import</span> <span class=n>annotations</span>
+
+<span class=n>__all__</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>List</span><span class=p>[</span><span class=nb>str</span><span class=p>]</span> <span class=o>=</span> <span class=p>[</span>
+    <span class=s2>"Headers"</span><span class=p>,</span>
+    <span class=s2>"Query"</span><span class=p>,</span>
+    <span class=s2>"JSONObject"</span><span class=p>,</span>
+    <span class=s2>"JSONArray"</span><span class=p>,</span>
+    <span class=s2>"JSONish"</span><span class=p>,</span>
+    <span class=s2>"dump_json"</span><span class=p>,</span>
+    <span class=s2>"load_json"</span><span class=p>,</span>
+    <span class=s2>"JSONDecodeError"</span><span class=p>,</span>
+    <span class=s2>"JSONObjectBuilder"</span><span class=p>,</span>
+    <span class=s2>"StringMapBuilder"</span><span class=p>,</span>
+    <span class=s2>"URLEncodedFormBuilder"</span><span class=p>,</span>
+<span class=p>]</span>
+
+<span class=kn>import</span> <span class=nn>typing</span>
+
+<span class=kn>import</span> <span class=nn>aiohttp</span>
+<span class=kn>import</span> <span class=nn>multidict</span>
+
+<span class=kn>from</span> <span class=nn>hikari</span> <span class=kn>import</span> <span class=n>files</span>
+<span class=kn>from</span> <span class=nn>hikari</span> <span class=kn>import</span> <span class=n>snowflakes</span>
+<span class=kn>from</span> <span class=nn>hikari</span> <span class=kn>import</span> <span class=n>undefined</span>
+
+<span class=k>if</span> <span class=n>typing</span><span class=o>.</span><span class=n>TYPE_CHECKING</span><span class=p>:</span>
+    <span class=kn>import</span> <span class=nn>concurrent</span>
+    <span class=kn>import</span> <span class=nn>contextlib</span>
+
+    <span class=n>T</span> <span class=o>=</span> <span class=n>typing</span><span class=o>.</span><span class=n>TypeVar</span><span class=p>(</span><span class=s2>"T"</span><span class=p>,</span> <span class=n>covariant</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
+
+<span class=n>Headers</span> <span class=o>=</span> <span class=n>typing</span><span class=o>.</span><span class=n>Mapping</span><span class=p>[</span><span class=nb>str</span><span class=p>,</span> <span class=nb>str</span><span class=p>]</span>
+<span class=sd>"""Type hint for HTTP headers."""</span>
+
+<span class=n>Query</span> <span class=o>=</span> <span class=n>typing</span><span class=o>.</span><span class=n>Union</span><span class=p>[</span><span class=n>typing</span><span class=o>.</span><span class=n>Dict</span><span class=p>[</span><span class=nb>str</span><span class=p>,</span> <span class=nb>str</span><span class=p>],</span> <span class=n>multidict</span><span class=o>.</span><span class=n>MultiDict</span><span class=p>[</span><span class=nb>str</span><span class=p>]]</span>
+<span class=sd>"""Type hint for HTTP query string."""</span>
+
+<span class=c1># MyPy does not support recursive types yet. This has been ongoing for a long time, unfortunately.</span>
+<span class=c1># See https://github.com/python/typing/issues/182</span>
+
+<span class=n>JSONObject</span> <span class=o>=</span> <span class=n>typing</span><span class=o>.</span><span class=n>Dict</span><span class=p>[</span><span class=nb>str</span><span class=p>,</span> <span class=n>typing</span><span class=o>.</span><span class=n>Any</span><span class=p>]</span>
+<span class=sd>"""Type hint for a JSON-decoded object representation as a mapping."""</span>
+
+<span class=n>JSONArray</span> <span class=o>=</span> <span class=n>typing</span><span class=o>.</span><span class=n>List</span><span class=p>[</span><span class=n>typing</span><span class=o>.</span><span class=n>Any</span><span class=p>]</span>
+<span class=sd>"""Type hint for a JSON-decoded array representation as a sequence."""</span>
+
+<span class=n>JSONish</span> <span class=o>=</span> <span class=n>typing</span><span class=o>.</span><span class=n>Union</span><span class=p>[</span><span class=nb>str</span><span class=p>,</span> <span class=nb>int</span><span class=p>,</span> <span class=nb>float</span><span class=p>,</span> <span class=nb>bool</span><span class=p>,</span> <span class=kc>None</span><span class=p>,</span> <span class=n>JSONArray</span><span class=p>,</span> <span class=n>JSONObject</span><span class=p>]</span>
+<span class=sd>"""Type hint for any valid JSON-decoded type."""</span>
+
+<span class=n>Stringish</span> <span class=o>=</span> <span class=n>typing</span><span class=o>.</span><span class=n>Union</span><span class=p>[</span><span class=nb>str</span><span class=p>,</span> <span class=nb>int</span><span class=p>,</span> <span class=nb>bool</span><span class=p>,</span> <span class=n>undefined</span><span class=o>.</span><span class=n>UndefinedType</span><span class=p>,</span> <span class=kc>None</span><span class=p>,</span> <span class=n>snowflakes</span><span class=o>.</span><span class=n>Unique</span><span class=p>]</span>
+<span class=sd>"""Type hint for any valid that can be put in a StringMapBuilder"""</span>
+
+<span class=n>_StringMapBuilderArg</span> <span class=o>=</span> <span class=n>typing</span><span class=o>.</span><span class=n>Union</span><span class=p>[</span>
+    <span class=n>typing</span><span class=o>.</span><span class=n>Mapping</span><span class=p>[</span><span class=nb>str</span><span class=p>,</span> <span class=nb>str</span><span class=p>],</span>
+    <span class=n>typing</span><span class=o>.</span><span class=n>Dict</span><span class=p>[</span><span class=nb>str</span><span class=p>,</span> <span class=nb>str</span><span class=p>],</span>
+    <span class=n>multidict</span><span class=o>.</span><span class=n>MultiMapping</span><span class=p>[</span><span class=nb>str</span><span class=p>],</span>
+    <span class=n>typing</span><span class=o>.</span><span class=n>Iterable</span><span class=p>[</span><span class=n>typing</span><span class=o>.</span><span class=n>Tuple</span><span class=p>[</span><span class=nb>str</span><span class=p>,</span> <span class=nb>str</span><span class=p>]],</span>
+<span class=p>]</span>
+
+<span class=n>_APPLICATION_OCTET_STREAM</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Final</span><span class=p>[</span><span class=nb>str</span><span class=p>]</span> <span class=o>=</span> <span class=s2>"application/octet-stream"</span>
+
+<span class=k>if</span> <span class=n>typing</span><span class=o>.</span><span class=n>TYPE_CHECKING</span><span class=p>:</span>
+    <span class=n>JSONDecodeError</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Type</span><span class=p>[</span><span class=ne>Exception</span><span class=p>]</span> <span class=o>=</span> <span class=ne>Exception</span>
+    <span class=sd>"""Exception raised when loading an invalid JSON string"""</span>
+
+    <span class=k>def</span> <span class=nf>dump_json</span><span class=p>(</span><span class=n>_</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Union</span><span class=p>[</span><span class=n>JSONArray</span><span class=p>,</span> <span class=n>JSONObject</span><span class=p>],</span> <span class=o>/</span><span class=p>,</span> <span class=o>*</span><span class=p>,</span> <span class=n>indent</span><span class=p>:</span> <span class=nb>int</span> <span class=o>=</span> <span class=o>...</span><span class=p>)</span> <span class=o>-></span> <span class=nb>str</span><span class=p>:</span>
+        <span class=sd>"""Convert a Python type to a JSON string."""</span>
+
+    <span class=k>def</span> <span class=nf>load_json</span><span class=p>(</span><span class=n>_</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>AnyStr</span><span class=p>,</span> <span class=o>/</span><span class=p>)</span> <span class=o>-></span> <span class=n>typing</span><span class=o>.</span><span class=n>Union</span><span class=p>[</span><span class=n>JSONArray</span><span class=p>,</span> <span class=n>JSONObject</span><span class=p>]:</span>
+        <span class=sd>"""Convert a JSON string to a Python type."""</span>
+
+<span class=k>else</span><span class=p>:</span>
+    <span class=kn>import</span> <span class=nn>json</span>
+
+    <span class=n>dump_json</span> <span class=o>=</span> <span class=n>json</span><span class=o>.</span><span class=n>dumps</span>
+    <span class=sd>"""Convert a Python type to a JSON string."""</span>
+
+    <span class=n>load_json</span> <span class=o>=</span> <span class=n>json</span><span class=o>.</span><span class=n>loads</span>
+    <span class=sd>"""Convert a JSON string to a Python type."""</span>
+
+    <span class=n>JSONDecodeError</span> <span class=o>=</span> <span class=n>json</span><span class=o>.</span><span class=n>JSONDecodeError</span>
+    <span class=sd>"""Exception raised when loading an invalid JSON string"""</span>
+
+
+<span class=nd>@typing</span><span class=o>.</span><span class=n>final</span>
+<span class=k>class</span> <span class=nc>URLEncodedFormBuilder</span><span class=p>:</span>
+    <span class=sd>"""Helper class to generate `aiohttp.FormData`."""</span>
+
+    <span class=vm>__slots__</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Sequence</span><span class=p>[</span><span class=nb>str</span><span class=p>]</span> <span class=o>=</span> <span class=p>(</span><span class=s2>"_executor"</span><span class=p>,</span> <span class=s2>"_fields"</span><span class=p>,</span> <span class=s2>"_resources"</span><span class=p>)</span>
+
+    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>executor</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Optional</span><span class=p>[</span><span class=n>concurrent</span><span class=o>.</span><span class=n>futures</span><span class=o>.</span><span class=n>Executor</span><span class=p>]</span> <span class=o>=</span> <span class=kc>None</span><span class=p>)</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>_executor</span> <span class=o>=</span> <span class=n>executor</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>_fields</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>List</span><span class=p>[</span><span class=n>typing</span><span class=o>.</span><span class=n>Tuple</span><span class=p>[</span><span class=nb>str</span><span class=p>,</span> <span class=nb>str</span><span class=p>,</span> <span class=n>typing</span><span class=o>.</span><span class=n>Optional</span><span class=p>[</span><span class=nb>str</span><span class=p>]]]</span> <span class=o>=</span> <span class=p>[]</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>_resources</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>List</span><span class=p>[</span><span class=n>typing</span><span class=o>.</span><span class=n>Tuple</span><span class=p>[</span><span class=nb>str</span><span class=p>,</span> <span class=n>files</span><span class=o>.</span><span class=n>Resource</span><span class=p>[</span><span class=n>files</span><span class=o>.</span><span class=n>AsyncReader</span><span class=p>]]]</span> <span class=o>=</span> <span class=p>[]</span>
+
+    <span class=k>def</span> <span class=nf>add_field</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>name</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span> <span class=n>data</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span> <span class=o>*</span><span class=p>,</span> <span class=n>content_type</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Optional</span><span class=p>[</span><span class=nb>str</span><span class=p>]</span> <span class=o>=</span> <span class=kc>None</span><span class=p>)</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>_fields</span><span class=o>.</span><span class=n>append</span><span class=p>((</span><span class=n>name</span><span class=p>,</span> <span class=n>data</span><span class=p>,</span> <span class=n>content_type</span><span class=p>))</span>
+
+    <span class=k>def</span> <span class=nf>add_resource</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>name</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span> <span class=n>resource</span><span class=p>:</span> <span class=n>files</span><span class=o>.</span><span class=n>Resource</span><span class=p>[</span><span class=n>files</span><span class=o>.</span><span class=n>AsyncReader</span><span class=p>])</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>_resources</span><span class=o>.</span><span class=n>append</span><span class=p>((</span><span class=n>name</span><span class=p>,</span> <span class=n>resource</span><span class=p>))</span>
+
+    <span class=k>async</span> <span class=k>def</span> <span class=nf>build</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>stack</span><span class=p>:</span> <span class=n>contextlib</span><span class=o>.</span><span class=n>AsyncExitStack</span><span class=p>)</span> <span class=o>-></span> <span class=n>aiohttp</span><span class=o>.</span><span class=n>FormData</span><span class=p>:</span>
+        <span class=n>form</span> <span class=o>=</span> <span class=n>aiohttp</span><span class=o>.</span><span class=n>FormData</span><span class=p>()</span>
+
+        <span class=k>for</span> <span class=n>field</span> <span class=ow>in</span> <span class=bp>self</span><span class=o>.</span><span class=n>_fields</span><span class=p>:</span>
+            <span class=n>form</span><span class=o>.</span><span class=n>add_field</span><span class=p>(</span><span class=n>field</span><span class=p>[</span><span class=mi>0</span><span class=p>],</span> <span class=n>field</span><span class=p>[</span><span class=mi>1</span><span class=p>],</span> <span class=n>content_type</span><span class=o>=</span><span class=n>field</span><span class=p>[</span><span class=mi>2</span><span class=p>])</span>
+
+        <span class=k>for</span> <span class=n>name</span><span class=p>,</span> <span class=n>resource</span> <span class=ow>in</span> <span class=bp>self</span><span class=o>.</span><span class=n>_resources</span><span class=p>:</span>
+            <span class=n>stream</span> <span class=o>=</span> <span class=k>await</span> <span class=n>stack</span><span class=o>.</span><span class=n>enter_async_context</span><span class=p>(</span><span class=n>resource</span><span class=o>.</span><span class=n>stream</span><span class=p>(</span><span class=n>executor</span><span class=o>=</span><span class=bp>self</span><span class=o>.</span><span class=n>_executor</span><span class=p>))</span>
+            <span class=n>mimetype</span> <span class=o>=</span> <span class=n>stream</span><span class=o>.</span><span class=n>mimetype</span> <span class=ow>or</span> <span class=n>_APPLICATION_OCTET_STREAM</span>
+            <span class=n>form</span><span class=o>.</span><span class=n>add_field</span><span class=p>(</span><span class=n>name</span><span class=p>,</span> <span class=n>stream</span><span class=p>,</span> <span class=n>filename</span><span class=o>=</span><span class=n>stream</span><span class=o>.</span><span class=n>filename</span><span class=p>,</span> <span class=n>content_type</span><span class=o>=</span><span class=n>mimetype</span><span class=p>)</span>
+
+        <span class=k>return</span> <span class=n>form</span>
+
+
+<span class=nd>@typing</span><span class=o>.</span><span class=n>final</span>
+<span class=k>class</span> <span class=nc>StringMapBuilder</span><span class=p>(</span><span class=n>multidict</span><span class=o>.</span><span class=n>MultiDict</span><span class=p>[</span><span class=nb>str</span><span class=p>]):</span>
+    <span class=sd>"""Helper class used to quickly build query strings or header maps.</span>
+
+<span class=sd>    This will consume any items that are not `hikari.undefined.UNDEFINED`.</span>
+<span class=sd>    If a value _is_ unspecified, it will be ignored when inserting it. This reduces</span>
+<span class=sd>    the amount of boilerplate needed for generating the headers and query strings for</span>
+<span class=sd>    low-level HTTP API interaction, amongst other things.</span>
+
+<span class=sd>    .. warning::</span>
+<span class=sd>        Because this subclasses `dict`, you should not use the</span>
+<span class=sd>        index operator to set items on this object. Doing so will skip any</span>
+<span class=sd>        form of validation on the type. Use the `put*` methods instead.</span>
+<span class=sd>    """</span>
+
+    <span class=vm>__slots__</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Sequence</span><span class=p>[</span><span class=nb>str</span><span class=p>]</span> <span class=o>=</span> <span class=p>()</span>
+
+    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>arg</span><span class=p>:</span> <span class=n>_StringMapBuilderArg</span> <span class=o>=</span> <span class=p>(),</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>:</span> <span class=nb>str</span><span class=p>)</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+        <span class=c1># We have to allow arguments to be passed to the init here otherwise the inherited copy behaviour from</span>
+        <span class=c1># multidict.MultiDict fails.</span>
+        <span class=nb>super</span><span class=p>()</span><span class=o>.</span><span class=fm>__init__</span><span class=p>(</span><span class=n>arg</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>)</span>
+
+    <span class=nd>@typing</span><span class=o>.</span><span class=n>overload</span>
+    <span class=k>def</span> <span class=nf>put</span><span class=p>(</span>
+        <span class=bp>self</span><span class=p>,</span>
+        <span class=n>key</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span>
+        <span class=n>value</span><span class=p>:</span> <span class=n>Stringish</span><span class=p>,</span>
+        <span class=o>/</span><span class=p>,</span>
+    <span class=p>)</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+        <span class=o>...</span>
+
+    <span class=nd>@typing</span><span class=o>.</span><span class=n>overload</span>
+    <span class=k>def</span> <span class=nf>put</span><span class=p>(</span>
+        <span class=bp>self</span><span class=p>,</span>
+        <span class=n>key</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span>
+        <span class=n>value</span><span class=p>:</span> <span class=n>undefined</span><span class=o>.</span><span class=n>UndefinedOr</span><span class=p>[</span><span class=n>T</span><span class=p>],</span>
+        <span class=o>/</span><span class=p>,</span>
+        <span class=o>*</span><span class=p>,</span>
+        <span class=n>conversion</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Callable</span><span class=p>[[</span><span class=n>T</span><span class=p>],</span> <span class=n>Stringish</span><span class=p>],</span>
+    <span class=p>)</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+        <span class=o>...</span>
+
+    <span class=k>def</span> <span class=nf>put</span><span class=p>(</span>
+        <span class=bp>self</span><span class=p>,</span>
+        <span class=n>key</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span>
+        <span class=n>value</span><span class=p>:</span> <span class=n>undefined</span><span class=o>.</span><span class=n>UndefinedOr</span><span class=p>[</span><span class=n>typing</span><span class=o>.</span><span class=n>Any</span><span class=p>],</span>
+        <span class=o>/</span><span class=p>,</span>
+        <span class=o>*</span><span class=p>,</span>
+        <span class=n>conversion</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Optional</span><span class=p>[</span><span class=n>typing</span><span class=o>.</span><span class=n>Callable</span><span class=p>[[</span><span class=n>typing</span><span class=o>.</span><span class=n>Any</span><span class=p>],</span> <span class=n>typing</span><span class=o>.</span><span class=n>Any</span><span class=p>]]</span> <span class=o>=</span> <span class=kc>None</span><span class=p>,</span>
+    <span class=p>)</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+        <span class=sd>"""Add a key and value to the string map.</span>
+
+<span class=sd>        .. note::</span>
+<span class=sd>            The value will always be cast to a `str` before inserting it.</span>
+<span class=sd>            `True` will be translated to `"true"`, `False` will be</span>
+<span class=sd>            translated to `"false"`, and `None` will be translated to</span>
+<span class=sd>            `"null"`.</span>
+
+<span class=sd>        Parameters</span>
+<span class=sd>        ----------</span>
+<span class=sd>        key : str</span>
+<span class=sd>            The string key.</span>
+<span class=sd>        value : hikari.undefined.UndefinedOr[typing.Any]</span>
+<span class=sd>            The value to set.</span>
+
+<span class=sd>        Other Parameters</span>
+<span class=sd>        ----------------</span>
+<span class=sd>        conversion : typing.Optional[typing.Callable[[typing.Any], typing.Any]]</span>
+<span class=sd>            An optional conversion to perform.</span>
+<span class=sd>        """</span>
+        <span class=k>if</span> <span class=n>value</span> <span class=ow>is</span> <span class=ow>not</span> <span class=n>undefined</span><span class=o>.</span><span class=n>UNDEFINED</span><span class=p>:</span>
+            <span class=k>if</span> <span class=n>conversion</span> <span class=ow>is</span> <span class=ow>not</span> <span class=kc>None</span><span class=p>:</span>
+                <span class=n>value</span> <span class=o>=</span> <span class=n>conversion</span><span class=p>(</span><span class=n>value</span><span class=p>)</span>
+
+            <span class=k>if</span> <span class=n>value</span> <span class=ow>is</span> <span class=kc>True</span><span class=p>:</span>
+                <span class=n>value</span> <span class=o>=</span> <span class=s2>"true"</span>
+            <span class=k>elif</span> <span class=n>value</span> <span class=ow>is</span> <span class=kc>False</span><span class=p>:</span>
+                <span class=n>value</span> <span class=o>=</span> <span class=s2>"false"</span>
+            <span class=k>elif</span> <span class=n>value</span> <span class=ow>is</span> <span class=kc>None</span><span class=p>:</span>
+                <span class=n>value</span> <span class=o>=</span> <span class=s2>"null"</span>
+            <span class=k>elif</span> <span class=nb>isinstance</span><span class=p>(</span><span class=n>value</span><span class=p>,</span> <span class=n>snowflakes</span><span class=o>.</span><span class=n>Unique</span><span class=p>):</span>
+                <span class=n>value</span> <span class=o>=</span> <span class=nb>str</span><span class=p>(</span><span class=n>value</span><span class=o>.</span><span class=n>id</span><span class=p>)</span>
+            <span class=k>else</span><span class=p>:</span>
+                <span class=n>value</span> <span class=o>=</span> <span class=nb>str</span><span class=p>(</span><span class=n>value</span><span class=p>)</span>
+
+            <span class=c1># __setitem__ just overwrites the previous value.</span>
+            <span class=bp>self</span><span class=o>.</span><span class=n>add</span><span class=p>(</span><span class=n>key</span><span class=p>,</span> <span class=n>value</span><span class=p>)</span>
+
+
+<span class=nd>@typing</span><span class=o>.</span><span class=n>final</span>
+<span class=k>class</span> <span class=nc>JSONObjectBuilder</span><span class=p>(</span><span class=n>typing</span><span class=o>.</span><span class=n>Dict</span><span class=p>[</span><span class=nb>str</span><span class=p>,</span> <span class=n>JSONish</span><span class=p>]):</span>
+    <span class=sd>"""Helper class used to quickly build JSON objects from various values.</span>
+
+<span class=sd>    If provided with any values that are `hikari.undefined.UNDEFINED`,</span>
+<span class=sd>    then these values will be ignored.</span>
+
+<span class=sd>    This speeds up generation of JSON payloads for low level HTTP and websocket</span>
+<span class=sd>    API interaction.</span>
+
+<span class=sd>    .. warning::</span>
+<span class=sd>        Because this subclasses `dict`, you should not use the</span>
+<span class=sd>        index operator to set items on this object. Doing so will skip any</span>
+<span class=sd>        form of validation on the type. Use the `put*` methods instead.</span>
+<span class=sd>    """</span>
+
+    <span class=vm>__slots__</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Sequence</span><span class=p>[</span><span class=nb>str</span><span class=p>]</span> <span class=o>=</span> <span class=p>()</span>
+
+    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>)</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+        <span class=c1># Only allow use of empty constructor here.</span>
+        <span class=nb>super</span><span class=p>()</span><span class=o>.</span><span class=fm>__init__</span><span class=p>()</span>
+
+    <span class=nd>@typing</span><span class=o>.</span><span class=n>overload</span>
+    <span class=k>def</span> <span class=nf>put</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>key</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span> <span class=n>value</span><span class=p>:</span> <span class=n>undefined</span><span class=o>.</span><span class=n>UndefinedNoneOr</span><span class=p>[</span><span class=n>JSONish</span><span class=p>],</span> <span class=o>/</span><span class=p>)</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+        <span class=o>...</span>
+
+    <span class=nd>@typing</span><span class=o>.</span><span class=n>overload</span>
+    <span class=k>def</span> <span class=nf>put</span><span class=p>(</span>
+        <span class=bp>self</span><span class=p>,</span>
+        <span class=n>key</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span>
+        <span class=n>value</span><span class=p>:</span> <span class=n>undefined</span><span class=o>.</span><span class=n>UndefinedNoneOr</span><span class=p>[</span><span class=n>T</span><span class=p>],</span>
+        <span class=o>/</span><span class=p>,</span>
+        <span class=o>*</span><span class=p>,</span>
+        <span class=n>conversion</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Callable</span><span class=p>[[</span><span class=n>T</span><span class=p>],</span> <span class=n>JSONish</span><span class=p>],</span>
+    <span class=p>)</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+        <span class=o>...</span>
+
+    <span class=k>def</span> <span class=nf>put</span><span class=p>(</span>
+        <span class=bp>self</span><span class=p>,</span>
+        <span class=n>key</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span>
+        <span class=n>value</span><span class=p>:</span> <span class=n>undefined</span><span class=o>.</span><span class=n>UndefinedNoneOr</span><span class=p>[</span><span class=n>typing</span><span class=o>.</span><span class=n>Any</span><span class=p>],</span>
+        <span class=o>/</span><span class=p>,</span>
+        <span class=o>*</span><span class=p>,</span>
+        <span class=n>conversion</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Optional</span><span class=p>[</span><span class=n>typing</span><span class=o>.</span><span class=n>Callable</span><span class=p>[[</span><span class=n>typing</span><span class=o>.</span><span class=n>Any</span><span class=p>],</span> <span class=n>JSONish</span><span class=p>]]</span> <span class=o>=</span> <span class=kc>None</span><span class=p>,</span>
+    <span class=p>)</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+        <span class=sd>"""Put a JSON value.</span>
+
+<span class=sd>        If the value is `hikari.undefined.UNDEFINED` it will not be stored.</span>
+
+<span class=sd>        Parameters</span>
+<span class=sd>        ----------</span>
+<span class=sd>        key : str</span>
+<span class=sd>            The key to give the element.</span>
+<span class=sd>        value : hikari.undefined.UndefinedOr[typing.Any]</span>
+<span class=sd>            The JSON type to put. This may be a non-JSON type if a conversion</span>
+<span class=sd>            is also specified. This may alternatively be undefined. In the latter</span>
+<span class=sd>            case, nothing is performed.</span>
+
+<span class=sd>        Other Parameters</span>
+<span class=sd>        ----------------</span>
+<span class=sd>        conversion : typing.Optional[typing.Callable[[typing.Any], JSONish]]</span>
+<span class=sd>            The optional conversion to apply.</span>
+<span class=sd>        """</span>
+        <span class=k>if</span> <span class=n>value</span> <span class=ow>is</span> <span class=n>undefined</span><span class=o>.</span><span class=n>UNDEFINED</span><span class=p>:</span>
+            <span class=k>return</span>
+
+        <span class=k>if</span> <span class=n>conversion</span> <span class=ow>is</span> <span class=ow>not</span> <span class=kc>None</span><span class=p>:</span>
+            <span class=bp>self</span><span class=p>[</span><span class=n>key</span><span class=p>]</span> <span class=o>=</span> <span class=n>conversion</span><span class=p>(</span><span class=n>value</span><span class=p>)</span>
+        <span class=k>else</span><span class=p>:</span>
+            <span class=bp>self</span><span class=p>[</span><span class=n>key</span><span class=p>]</span> <span class=o>=</span> <span class=n>value</span>
+
+    <span class=nd>@typing</span><span class=o>.</span><span class=n>overload</span>
+    <span class=k>def</span> <span class=nf>put_array</span><span class=p>(</span>
+        <span class=bp>self</span><span class=p>,</span>
+        <span class=n>key</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span>
+        <span class=n>values</span><span class=p>:</span> <span class=n>undefined</span><span class=o>.</span><span class=n>UndefinedOr</span><span class=p>[</span><span class=n>typing</span><span class=o>.</span><span class=n>Iterable</span><span class=p>[</span><span class=n>JSONish</span><span class=p>]],</span>
+        <span class=o>/</span><span class=p>,</span>
+    <span class=p>)</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+        <span class=o>...</span>
+
+    <span class=nd>@typing</span><span class=o>.</span><span class=n>overload</span>
+    <span class=k>def</span> <span class=nf>put_array</span><span class=p>(</span>
+        <span class=bp>self</span><span class=p>,</span>
+        <span class=n>key</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span>
+        <span class=n>values</span><span class=p>:</span> <span class=n>undefined</span><span class=o>.</span><span class=n>UndefinedOr</span><span class=p>[</span><span class=n>typing</span><span class=o>.</span><span class=n>Iterable</span><span class=p>[</span><span class=n>T</span><span class=p>]],</span>
+        <span class=o>/</span><span class=p>,</span>
+        <span class=o>*</span><span class=p>,</span>
+        <span class=n>conversion</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Callable</span><span class=p>[[</span><span class=n>T</span><span class=p>],</span> <span class=n>JSONish</span><span class=p>],</span>
+    <span class=p>)</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+        <span class=o>...</span>
+
+    <span class=k>def</span> <span class=nf>put_array</span><span class=p>(</span>
+        <span class=bp>self</span><span class=p>,</span>
+        <span class=n>key</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span>
+        <span class=n>values</span><span class=p>:</span> <span class=n>undefined</span><span class=o>.</span><span class=n>UndefinedOr</span><span class=p>[</span><span class=n>typing</span><span class=o>.</span><span class=n>Iterable</span><span class=p>[</span><span class=n>typing</span><span class=o>.</span><span class=n>Any</span><span class=p>]],</span>
+        <span class=o>/</span><span class=p>,</span>
+        <span class=o>*</span><span class=p>,</span>
+        <span class=n>conversion</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Optional</span><span class=p>[</span><span class=n>typing</span><span class=o>.</span><span class=n>Callable</span><span class=p>[[</span><span class=n>typing</span><span class=o>.</span><span class=n>Any</span><span class=p>],</span> <span class=n>JSONish</span><span class=p>]]</span> <span class=o>=</span> <span class=kc>None</span><span class=p>,</span>
+    <span class=p>)</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+        <span class=sd>"""Put a JSON array.</span>
+
+<span class=sd>        If the value is `hikari.undefined.UNDEFINED` it will not be stored.</span>
+
+<span class=sd>        If provided, a conversion will be applied to each item.</span>
+
+<span class=sd>        Parameters</span>
+<span class=sd>        ----------</span>
+<span class=sd>        key : str</span>
+<span class=sd>            The key to give the element.</span>
+<span class=sd>        values : hikari.undefined.UndefinedOr[typing.Iterable[T]]</span>
+<span class=sd>            The JSON types to put. This may be an iterable of non-JSON types if</span>
+<span class=sd>            a conversion is also specified. This may alternatively be undefined.</span>
+<span class=sd>            In the latter case, nothing is performed.</span>
+
+<span class=sd>        Other Parameters</span>
+<span class=sd>        ----------------</span>
+<span class=sd>        conversion : typing.Optional[typing.Callable[[typing.Any], JSONType]]</span>
+<span class=sd>            The optional conversion to apply.</span>
+<span class=sd>        """</span>
+        <span class=k>if</span> <span class=n>values</span> <span class=ow>is</span> <span class=ow>not</span> <span class=n>undefined</span><span class=o>.</span><span class=n>UNDEFINED</span><span class=p>:</span>
+            <span class=k>if</span> <span class=n>conversion</span> <span class=ow>is</span> <span class=ow>not</span> <span class=kc>None</span><span class=p>:</span>
+                <span class=bp>self</span><span class=p>[</span><span class=n>key</span><span class=p>]</span> <span class=o>=</span> <span class=p>[</span><span class=n>conversion</span><span class=p>(</span><span class=n>value</span><span class=p>)</span> <span class=k>for</span> <span class=n>value</span> <span class=ow>in</span> <span class=n>values</span><span class=p>]</span>
+            <span class=k>else</span><span class=p>:</span>
+                <span class=bp>self</span><span class=p>[</span><span class=n>key</span><span class=p>]</span> <span class=o>=</span> <span class=nb>list</span><span class=p>(</span><span class=n>values</span><span class=p>)</span>
+
+    <span class=k>def</span> <span class=nf>put_snowflake</span><span class=p>(</span>
+        <span class=bp>self</span><span class=p>,</span> <span class=n>key</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span> <span class=n>value</span><span class=p>:</span> <span class=n>undefined</span><span class=o>.</span><span class=n>UndefinedNoneOr</span><span class=p>[</span><span class=n>snowflakes</span><span class=o>.</span><span class=n>SnowflakeishOr</span><span class=p>[</span><span class=n>snowflakes</span><span class=o>.</span><span class=n>Unique</span><span class=p>]],</span> <span class=o>/</span>
+    <span class=p>)</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+        <span class=sd>"""Put a key with a snowflake value into the builder.</span>
+
+<span class=sd>        If the value is `hikari.undefined.UNDEFINED` it will not be stored.</span>
+
+<span class=sd>        Parameters</span>
+<span class=sd>        ----------</span>
+<span class=sd>        key : str</span>
+<span class=sd>            The key to give the element.</span>
+<span class=sd>        value : hikari.undefined.UndefinedNoneOr[hikari.snowflakes.SnowflakeishOr[hikari.snowflakes.Unique]]</span>
+<span class=sd>            The JSON type to put. This may alternatively be undefined, in this</span>
+<span class=sd>            case, nothing is performed. This may also be `None`, in this</span>
+<span class=sd>            case the value isn't cast.</span>
+<span class=sd>        """</span>
+        <span class=k>if</span> <span class=n>value</span> <span class=ow>is</span> <span class=ow>not</span> <span class=n>undefined</span><span class=o>.</span><span class=n>UNDEFINED</span> <span class=ow>and</span> <span class=n>value</span> <span class=ow>is</span> <span class=ow>not</span> <span class=kc>None</span><span class=p>:</span>
+            <span class=bp>self</span><span class=p>[</span><span class=n>key</span><span class=p>]</span> <span class=o>=</span> <span class=nb>str</span><span class=p>(</span><span class=nb>int</span><span class=p>(</span><span class=n>value</span><span class=p>))</span>
+        <span class=k>elif</span> <span class=n>value</span> <span class=ow>is</span> <span class=kc>None</span><span class=p>:</span>
+            <span class=bp>self</span><span class=p>[</span><span class=n>key</span><span class=p>]</span> <span class=o>=</span> <span class=n>value</span>
+
+    <span class=k>def</span> <span class=nf>put_snowflake_array</span><span class=p>(</span>
+        <span class=bp>self</span><span class=p>,</span>
+        <span class=n>key</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span>
+        <span class=n>values</span><span class=p>:</span> <span class=n>undefined</span><span class=o>.</span><span class=n>UndefinedOr</span><span class=p>[</span><span class=n>typing</span><span class=o>.</span><span class=n>Iterable</span><span class=p>[</span><span class=n>snowflakes</span><span class=o>.</span><span class=n>SnowflakeishOr</span><span class=p>[</span><span class=n>snowflakes</span><span class=o>.</span><span class=n>Unique</span><span class=p>]]],</span>
+        <span class=o>/</span><span class=p>,</span>
+    <span class=p>)</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+        <span class=sd>"""Put an array of snowflakes with the given key into this builder.</span>
+
+<span class=sd>        If the value is `hikari.undefined.UNDEFINED` it will not be stored.</span>
+
+<span class=sd>        Each snowflake should be castable to an `int`.</span>
+
+<span class=sd>        Parameters</span>
+<span class=sd>        ----------</span>
+<span class=sd>        key : str</span>
+<span class=sd>            The key to give the element.</span>
+<span class=sd>        values : hikari.undefined.UndefinedOr[typing.Iterable[hikari.snowflakes.SnowflakeishOr[hikari.snowflakes.Unique]]]</span>
+<span class=sd>            The JSON snowflakes to put. This may alternatively be undefined.</span>
+<span class=sd>            In the latter case, nothing is performed.</span>
+<span class=sd>        """</span>  <span class=c1># noqa: E501 - Line too long</span>
+        <span class=k>if</span> <span class=n>values</span> <span class=ow>is</span> <span class=ow>not</span> <span class=n>undefined</span><span class=o>.</span><span class=n>UNDEFINED</span><span class=p>:</span>
+            <span class=bp>self</span><span class=p>[</span><span class=n>key</span><span class=p>]</span> <span class=o>=</span> <span class=p>[</span><span class=nb>str</span><span class=p>(</span><span class=nb>int</span><span class=p>(</span><span class=n>value</span><span class=p>))</span> <span class=k>for</span> <span class=n>value</span> <span class=ow>in</span> <span class=n>values</span><span class=p>]</span>
+</pre></div></details></section><section id=Headers><div class="attr variable"><a class=headerlink href=#Headers>#  </a><span class=name>Headers</span></div><div class=docstring><p>Type hint for HTTP headers.</div></section><section id=JSONArray><div class="attr variable"><a class=headerlink href=#JSONArray>#  </a><span class=name>JSONArray</span></div><div class=docstring><p>Type hint for a JSON-decoded array representation as a sequence.</div></section><section id=JSONDecodeError><div class="attr class"><a class=headerlink href=#JSONDecodeError>#  </a><span class=def>class </span><span class=name>JSONDecodeError</span><wbr>(<span class=base>builtins.ValueError</span>):</div><details><summary>View Source</summary> <div class=codehilite><pre><span></span><span class=k>class</span> <span class=nc>JSONDecodeError</span><span class=p>(</span><span class=ne>ValueError</span><span class=p>):</span>
+    <span class=sd>"""Subclass of ValueError with the following additional properties:</span>
+
+<span class=sd>    msg: The unformatted error message</span>
+<span class=sd>    doc: The JSON document being parsed</span>
+<span class=sd>    pos: The start index of doc where parsing failed</span>
+<span class=sd>    lineno: The line corresponding to pos</span>
+<span class=sd>    colno: The column corresponding to pos</span>
+
+<span class=sd>    """</span>
+    <span class=c1># Note that this exception is used from _json</span>
+    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>msg</span><span class=p>,</span> <span class=n>doc</span><span class=p>,</span> <span class=n>pos</span><span class=p>):</span>
+        <span class=n>lineno</span> <span class=o>=</span> <span class=n>doc</span><span class=o>.</span><span class=n>count</span><span class=p>(</span><span class=s1>'</span><span class=se>\n</span><span class=s1>'</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=n>pos</span><span class=p>)</span> <span class=o>+</span> <span class=mi>1</span>
+        <span class=n>colno</span> <span class=o>=</span> <span class=n>pos</span> <span class=o>-</span> <span class=n>doc</span><span class=o>.</span><span class=n>rfind</span><span class=p>(</span><span class=s1>'</span><span class=se>\n</span><span class=s1>'</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=n>pos</span><span class=p>)</span>
+        <span class=n>errmsg</span> <span class=o>=</span> <span class=s1>'</span><span class=si>%s</span><span class=s1>: line </span><span class=si>%d</span><span class=s1> column </span><span class=si>%d</span><span class=s1> (char </span><span class=si>%d</span><span class=s1>)'</span> <span class=o>%</span> <span class=p>(</span><span class=n>msg</span><span class=p>,</span> <span class=n>lineno</span><span class=p>,</span> <span class=n>colno</span><span class=p>,</span> <span class=n>pos</span><span class=p>)</span>
+        <span class=ne>ValueError</span><span class=o>.</span><span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>errmsg</span><span class=p>)</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>msg</span> <span class=o>=</span> <span class=n>msg</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>doc</span> <span class=o>=</span> <span class=n>doc</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>pos</span> <span class=o>=</span> <span class=n>pos</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>lineno</span> <span class=o>=</span> <span class=n>lineno</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>colno</span> <span class=o>=</span> <span class=n>colno</span>
+
+    <span class=k>def</span> <span class=nf>__reduce__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+        <span class=k>return</span> <span class=bp>self</span><span class=o>.</span><span class=vm>__class__</span><span class=p>,</span> <span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>msg</span><span class=p>,</span> <span class=bp>self</span><span class=o>.</span><span class=n>doc</span><span class=p>,</span> <span class=bp>self</span><span class=o>.</span><span class=n>pos</span><span class=p>)</span>
+</pre></div></details><div class=docstring><p>Subclass of ValueError with the following additional properties:<p>msg: The unformatted error message doc: The JSON document being parsed pos: The start index of doc where parsing failed lineno: The line corresponding to pos colno: The column corresponding to pos</div><section class=member_divisor><h5>Variables and properties</h5><div id=JSONDecodeError.args><div class="attr variable"><a class=headerlink href=#JSONDecodeError.args>#  </a><span class=name>args</span></div></div></section><section class=member_divisor><h5>Methods</h5><div id=JSONDecodeError.__init__><div class="attr function"><a class=headerlink href=#JSONDecodeError.__init__>#  </a><span class=def>def </span><span class=name>__init__</span><span class=signature>(self, msg, doc, pos):</span></div><details><summary>View Source</summary> <div class=codehilite><pre><span></span>    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>msg</span><span class=p>,</span> <span class=n>doc</span><span class=p>,</span> <span class=n>pos</span><span class=p>):</span>
+        <span class=n>lineno</span> <span class=o>=</span> <span class=n>doc</span><span class=o>.</span><span class=n>count</span><span class=p>(</span><span class=s1>'</span><span class=se>\n</span><span class=s1>'</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=n>pos</span><span class=p>)</span> <span class=o>+</span> <span class=mi>1</span>
+        <span class=n>colno</span> <span class=o>=</span> <span class=n>pos</span> <span class=o>-</span> <span class=n>doc</span><span class=o>.</span><span class=n>rfind</span><span class=p>(</span><span class=s1>'</span><span class=se>\n</span><span class=s1>'</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=n>pos</span><span class=p>)</span>
+        <span class=n>errmsg</span> <span class=o>=</span> <span class=s1>'</span><span class=si>%s</span><span class=s1>: line </span><span class=si>%d</span><span class=s1> column </span><span class=si>%d</span><span class=s1> (char </span><span class=si>%d</span><span class=s1>)'</span> <span class=o>%</span> <span class=p>(</span><span class=n>msg</span><span class=p>,</span> <span class=n>lineno</span><span class=p>,</span> <span class=n>colno</span><span class=p>,</span> <span class=n>pos</span><span class=p>)</span>
+        <span class=ne>ValueError</span><span class=o>.</span><span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>errmsg</span><span class=p>)</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>msg</span> <span class=o>=</span> <span class=n>msg</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>doc</span> <span class=o>=</span> <span class=n>doc</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>pos</span> <span class=o>=</span> <span class=n>pos</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>lineno</span> <span class=o>=</span> <span class=n>lineno</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>colno</span> <span class=o>=</span> <span class=n>colno</span>
+</pre></div></details></div><div id=JSONDecodeError.with_traceback><div class="attr function"><a class=headerlink href=#JSONDecodeError.with_traceback>#  </a><span class=def>def </span><span class=name>with_traceback</span><span class=signature>(unknown):</span></div><div class=docstring><p>Exception.with_traceback(tb) -- set self.__traceback__ to tb and return self.</div></div></section></section><section id=JSONObject><div class="attr variable"><a class=headerlink href=#JSONObject>#  </a><span class=name>JSONObject</span></div><div class=docstring><p>Type hint for a JSON-decoded object representation as a mapping.</div></section><section id=JSONObjectBuilder><div class="attr class"><a class=headerlink href=#JSONObjectBuilder>#  </a><div class=decorator>@typing.final</div><span class=def>class </span><span class=name>JSONObjectBuilder</span><wbr>(<span class=base>typing.Dict[str, typing.Union[str, int, float, bool, NoneType, typing.List[typing.Any], typing.Dict[str, typing.Any]]]</span>):</div><details><summary>View Source</summary> <div class=codehilite><pre><span></span><span class=nd>@typing</span><span class=o>.</span><span class=n>final</span>
+<span class=k>class</span> <span class=nc>JSONObjectBuilder</span><span class=p>(</span><span class=n>typing</span><span class=o>.</span><span class=n>Dict</span><span class=p>[</span><span class=nb>str</span><span class=p>,</span> <span class=n>JSONish</span><span class=p>]):</span>
+    <span class=sd>"""Helper class used to quickly build JSON objects from various values.</span>
+
+<span class=sd>    If provided with any values that are `hikari.undefined.UNDEFINED`,</span>
+<span class=sd>    then these values will be ignored.</span>
+
+<span class=sd>    This speeds up generation of JSON payloads for low level HTTP and websocket</span>
+<span class=sd>    API interaction.</span>
+
+<span class=sd>    .. warning::</span>
+<span class=sd>        Because this subclasses `dict`, you should not use the</span>
+<span class=sd>        index operator to set items on this object. Doing so will skip any</span>
+<span class=sd>        form of validation on the type. Use the `put*` methods instead.</span>
+<span class=sd>    """</span>
+
+    <span class=vm>__slots__</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Sequence</span><span class=p>[</span><span class=nb>str</span><span class=p>]</span> <span class=o>=</span> <span class=p>()</span>
+
+    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>)</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+        <span class=c1># Only allow use of empty constructor here.</span>
+        <span class=nb>super</span><span class=p>()</span><span class=o>.</span><span class=fm>__init__</span><span class=p>()</span>
+
+    <span class=nd>@typing</span><span class=o>.</span><span class=n>overload</span>
+    <span class=k>def</span> <span class=nf>put</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>key</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span> <span class=n>value</span><span class=p>:</span> <span class=n>undefined</span><span class=o>.</span><span class=n>UndefinedNoneOr</span><span class=p>[</span><span class=n>JSONish</span><span class=p>],</span> <span class=o>/</span><span class=p>)</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+        <span class=o>...</span>
+
+    <span class=nd>@typing</span><span class=o>.</span><span class=n>overload</span>
+    <span class=k>def</span> <span class=nf>put</span><span class=p>(</span>
+        <span class=bp>self</span><span class=p>,</span>
+        <span class=n>key</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span>
+        <span class=n>value</span><span class=p>:</span> <span class=n>undefined</span><span class=o>.</span><span class=n>UndefinedNoneOr</span><span class=p>[</span><span class=n>T</span><span class=p>],</span>
+        <span class=o>/</span><span class=p>,</span>
+        <span class=o>*</span><span class=p>,</span>
+        <span class=n>conversion</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Callable</span><span class=p>[[</span><span class=n>T</span><span class=p>],</span> <span class=n>JSONish</span><span class=p>],</span>
+    <span class=p>)</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+        <span class=o>...</span>
+
+    <span class=k>def</span> <span class=nf>put</span><span class=p>(</span>
+        <span class=bp>self</span><span class=p>,</span>
+        <span class=n>key</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span>
+        <span class=n>value</span><span class=p>:</span> <span class=n>undefined</span><span class=o>.</span><span class=n>UndefinedNoneOr</span><span class=p>[</span><span class=n>typing</span><span class=o>.</span><span class=n>Any</span><span class=p>],</span>
+        <span class=o>/</span><span class=p>,</span>
+        <span class=o>*</span><span class=p>,</span>
+        <span class=n>conversion</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Optional</span><span class=p>[</span><span class=n>typing</span><span class=o>.</span><span class=n>Callable</span><span class=p>[[</span><span class=n>typing</span><span class=o>.</span><span class=n>Any</span><span class=p>],</span> <span class=n>JSONish</span><span class=p>]]</span> <span class=o>=</span> <span class=kc>None</span><span class=p>,</span>
+    <span class=p>)</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+        <span class=sd>"""Put a JSON value.</span>
+
+<span class=sd>        If the value is `hikari.undefined.UNDEFINED` it will not be stored.</span>
+
+<span class=sd>        Parameters</span>
+<span class=sd>        ----------</span>
+<span class=sd>        key : str</span>
+<span class=sd>            The key to give the element.</span>
+<span class=sd>        value : hikari.undefined.UndefinedOr[typing.Any]</span>
+<span class=sd>            The JSON type to put. This may be a non-JSON type if a conversion</span>
+<span class=sd>            is also specified. This may alternatively be undefined. In the latter</span>
+<span class=sd>            case, nothing is performed.</span>
+
+<span class=sd>        Other Parameters</span>
+<span class=sd>        ----------------</span>
+<span class=sd>        conversion : typing.Optional[typing.Callable[[typing.Any], JSONish]]</span>
+<span class=sd>            The optional conversion to apply.</span>
+<span class=sd>        """</span>
+        <span class=k>if</span> <span class=n>value</span> <span class=ow>is</span> <span class=n>undefined</span><span class=o>.</span><span class=n>UNDEFINED</span><span class=p>:</span>
+            <span class=k>return</span>
+
+        <span class=k>if</span> <span class=n>conversion</span> <span class=ow>is</span> <span class=ow>not</span> <span class=kc>None</span><span class=p>:</span>
+            <span class=bp>self</span><span class=p>[</span><span class=n>key</span><span class=p>]</span> <span class=o>=</span> <span class=n>conversion</span><span class=p>(</span><span class=n>value</span><span class=p>)</span>
+        <span class=k>else</span><span class=p>:</span>
+            <span class=bp>self</span><span class=p>[</span><span class=n>key</span><span class=p>]</span> <span class=o>=</span> <span class=n>value</span>
+
+    <span class=nd>@typing</span><span class=o>.</span><span class=n>overload</span>
+    <span class=k>def</span> <span class=nf>put_array</span><span class=p>(</span>
+        <span class=bp>self</span><span class=p>,</span>
+        <span class=n>key</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span>
+        <span class=n>values</span><span class=p>:</span> <span class=n>undefined</span><span class=o>.</span><span class=n>UndefinedOr</span><span class=p>[</span><span class=n>typing</span><span class=o>.</span><span class=n>Iterable</span><span class=p>[</span><span class=n>JSONish</span><span class=p>]],</span>
+        <span class=o>/</span><span class=p>,</span>
+    <span class=p>)</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+        <span class=o>...</span>
+
+    <span class=nd>@typing</span><span class=o>.</span><span class=n>overload</span>
+    <span class=k>def</span> <span class=nf>put_array</span><span class=p>(</span>
+        <span class=bp>self</span><span class=p>,</span>
+        <span class=n>key</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span>
+        <span class=n>values</span><span class=p>:</span> <span class=n>undefined</span><span class=o>.</span><span class=n>UndefinedOr</span><span class=p>[</span><span class=n>typing</span><span class=o>.</span><span class=n>Iterable</span><span class=p>[</span><span class=n>T</span><span class=p>]],</span>
+        <span class=o>/</span><span class=p>,</span>
+        <span class=o>*</span><span class=p>,</span>
+        <span class=n>conversion</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Callable</span><span class=p>[[</span><span class=n>T</span><span class=p>],</span> <span class=n>JSONish</span><span class=p>],</span>
+    <span class=p>)</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+        <span class=o>...</span>
+
+    <span class=k>def</span> <span class=nf>put_array</span><span class=p>(</span>
+        <span class=bp>self</span><span class=p>,</span>
+        <span class=n>key</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span>
+        <span class=n>values</span><span class=p>:</span> <span class=n>undefined</span><span class=o>.</span><span class=n>UndefinedOr</span><span class=p>[</span><span class=n>typing</span><span class=o>.</span><span class=n>Iterable</span><span class=p>[</span><span class=n>typing</span><span class=o>.</span><span class=n>Any</span><span class=p>]],</span>
+        <span class=o>/</span><span class=p>,</span>
+        <span class=o>*</span><span class=p>,</span>
+        <span class=n>conversion</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Optional</span><span class=p>[</span><span class=n>typing</span><span class=o>.</span><span class=n>Callable</span><span class=p>[[</span><span class=n>typing</span><span class=o>.</span><span class=n>Any</span><span class=p>],</span> <span class=n>JSONish</span><span class=p>]]</span> <span class=o>=</span> <span class=kc>None</span><span class=p>,</span>
+    <span class=p>)</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+        <span class=sd>"""Put a JSON array.</span>
+
+<span class=sd>        If the value is `hikari.undefined.UNDEFINED` it will not be stored.</span>
+
+<span class=sd>        If provided, a conversion will be applied to each item.</span>
+
+<span class=sd>        Parameters</span>
+<span class=sd>        ----------</span>
+<span class=sd>        key : str</span>
+<span class=sd>            The key to give the element.</span>
+<span class=sd>        values : hikari.undefined.UndefinedOr[typing.Iterable[T]]</span>
+<span class=sd>            The JSON types to put. This may be an iterable of non-JSON types if</span>
+<span class=sd>            a conversion is also specified. This may alternatively be undefined.</span>
+<span class=sd>            In the latter case, nothing is performed.</span>
+
+<span class=sd>        Other Parameters</span>
+<span class=sd>        ----------------</span>
+<span class=sd>        conversion : typing.Optional[typing.Callable[[typing.Any], JSONType]]</span>
+<span class=sd>            The optional conversion to apply.</span>
+<span class=sd>        """</span>
+        <span class=k>if</span> <span class=n>values</span> <span class=ow>is</span> <span class=ow>not</span> <span class=n>undefined</span><span class=o>.</span><span class=n>UNDEFINED</span><span class=p>:</span>
+            <span class=k>if</span> <span class=n>conversion</span> <span class=ow>is</span> <span class=ow>not</span> <span class=kc>None</span><span class=p>:</span>
+                <span class=bp>self</span><span class=p>[</span><span class=n>key</span><span class=p>]</span> <span class=o>=</span> <span class=p>[</span><span class=n>conversion</span><span class=p>(</span><span class=n>value</span><span class=p>)</span> <span class=k>for</span> <span class=n>value</span> <span class=ow>in</span> <span class=n>values</span><span class=p>]</span>
+            <span class=k>else</span><span class=p>:</span>
+                <span class=bp>self</span><span class=p>[</span><span class=n>key</span><span class=p>]</span> <span class=o>=</span> <span class=nb>list</span><span class=p>(</span><span class=n>values</span><span class=p>)</span>
+
+    <span class=k>def</span> <span class=nf>put_snowflake</span><span class=p>(</span>
+        <span class=bp>self</span><span class=p>,</span> <span class=n>key</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span> <span class=n>value</span><span class=p>:</span> <span class=n>undefined</span><span class=o>.</span><span class=n>UndefinedNoneOr</span><span class=p>[</span><span class=n>snowflakes</span><span class=o>.</span><span class=n>SnowflakeishOr</span><span class=p>[</span><span class=n>snowflakes</span><span class=o>.</span><span class=n>Unique</span><span class=p>]],</span> <span class=o>/</span>
+    <span class=p>)</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+        <span class=sd>"""Put a key with a snowflake value into the builder.</span>
+
+<span class=sd>        If the value is `hikari.undefined.UNDEFINED` it will not be stored.</span>
+
+<span class=sd>        Parameters</span>
+<span class=sd>        ----------</span>
+<span class=sd>        key : str</span>
+<span class=sd>            The key to give the element.</span>
+<span class=sd>        value : hikari.undefined.UndefinedNoneOr[hikari.snowflakes.SnowflakeishOr[hikari.snowflakes.Unique]]</span>
+<span class=sd>            The JSON type to put. This may alternatively be undefined, in this</span>
+<span class=sd>            case, nothing is performed. This may also be `None`, in this</span>
+<span class=sd>            case the value isn't cast.</span>
+<span class=sd>        """</span>
+        <span class=k>if</span> <span class=n>value</span> <span class=ow>is</span> <span class=ow>not</span> <span class=n>undefined</span><span class=o>.</span><span class=n>UNDEFINED</span> <span class=ow>and</span> <span class=n>value</span> <span class=ow>is</span> <span class=ow>not</span> <span class=kc>None</span><span class=p>:</span>
+            <span class=bp>self</span><span class=p>[</span><span class=n>key</span><span class=p>]</span> <span class=o>=</span> <span class=nb>str</span><span class=p>(</span><span class=nb>int</span><span class=p>(</span><span class=n>value</span><span class=p>))</span>
+        <span class=k>elif</span> <span class=n>value</span> <span class=ow>is</span> <span class=kc>None</span><span class=p>:</span>
+            <span class=bp>self</span><span class=p>[</span><span class=n>key</span><span class=p>]</span> <span class=o>=</span> <span class=n>value</span>
+
+    <span class=k>def</span> <span class=nf>put_snowflake_array</span><span class=p>(</span>
+        <span class=bp>self</span><span class=p>,</span>
+        <span class=n>key</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span>
+        <span class=n>values</span><span class=p>:</span> <span class=n>undefined</span><span class=o>.</span><span class=n>UndefinedOr</span><span class=p>[</span><span class=n>typing</span><span class=o>.</span><span class=n>Iterable</span><span class=p>[</span><span class=n>snowflakes</span><span class=o>.</span><span class=n>SnowflakeishOr</span><span class=p>[</span><span class=n>snowflakes</span><span class=o>.</span><span class=n>Unique</span><span class=p>]]],</span>
+        <span class=o>/</span><span class=p>,</span>
+    <span class=p>)</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+        <span class=sd>"""Put an array of snowflakes with the given key into this builder.</span>
+
+<span class=sd>        If the value is `hikari.undefined.UNDEFINED` it will not be stored.</span>
+
+<span class=sd>        Each snowflake should be castable to an `int`.</span>
+
+<span class=sd>        Parameters</span>
+<span class=sd>        ----------</span>
+<span class=sd>        key : str</span>
+<span class=sd>            The key to give the element.</span>
+<span class=sd>        values : hikari.undefined.UndefinedOr[typing.Iterable[hikari.snowflakes.SnowflakeishOr[hikari.snowflakes.Unique]]]</span>
+<span class=sd>            The JSON snowflakes to put. This may alternatively be undefined.</span>
+<span class=sd>            In the latter case, nothing is performed.</span>
+<span class=sd>        """</span>  <span class=c1># noqa: E501 - Line too long</span>
+        <span class=k>if</span> <span class=n>values</span> <span class=ow>is</span> <span class=ow>not</span> <span class=n>undefined</span><span class=o>.</span><span class=n>UNDEFINED</span><span class=p>:</span>
+            <span class=bp>self</span><span class=p>[</span><span class=n>key</span><span class=p>]</span> <span class=o>=</span> <span class=p>[</span><span class=nb>str</span><span class=p>(</span><span class=nb>int</span><span class=p>(</span><span class=n>value</span><span class=p>))</span> <span class=k>for</span> <span class=n>value</span> <span class=ow>in</span> <span class=n>values</span><span class=p>]</span>
+</pre></div></details><div class=docstring><p>Helper class used to quickly build JSON objects from various values.<p>If provided with any values that are <code><a href=../undefined.html#UNDEFINED>hikari.undefined.UNDEFINED</a></code>, then these values will be ignored.<p>This speeds up generation of JSON payloads for low level HTTP and websocket API interaction.<p><em>Warning:</em> Because this subclasses <code>dict</code>, you should not use the index operator to set items on this object. Doing so will skip any form of validation on the type. Use the <code>put*</code> methods instead.</div><section class=member_divisor><h5>Methods</h5><div id=JSONObjectBuilder.__init__><div class="attr function"><a class=headerlink href=#JSONObjectBuilder.__init__>#  </a><span class=def>def </span><span class=name>__init__</span><span class=signature>(self):</span></div><details><summary>View Source</summary> <div class=codehilite><pre><span></span>    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>)</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+        <span class=c1># Only allow use of empty constructor here.</span>
+        <span class=nb>super</span><span class=p>()</span><span class=o>.</span><span class=fm>__init__</span><span class=p>()</span>
+</pre></div></details></div><div id=JSONObjectBuilder.clear><div class="attr function"><a class=headerlink href=#JSONObjectBuilder.clear>#  </a><span class=def>def </span><span class=name>clear</span><span class=signature>(unknown):</span></div><div class=docstring><p>D.clear() -> None. Remove all items from D.</div></div><div id=JSONObjectBuilder.copy><div class="attr function"><a class=headerlink href=#JSONObjectBuilder.copy>#  </a><span class=def>def </span><span class=name>copy</span><span class=signature>(unknown):</span></div><div class=docstring><p>D.copy() -> a shallow copy of D</div></div><div id=JSONObjectBuilder.fromkeys><div class="attr function"><a class=headerlink href=#JSONObjectBuilder.fromkeys>#  </a><span class=def>def </span><span class=name>fromkeys</span><span class=signature>(type, iterable, value=None, /):</span></div><div class=docstring><p>Create a new dictionary with keys from iterable and values set to value.</div></div><div id=JSONObjectBuilder.get><div class="attr function"><a class=headerlink href=#JSONObjectBuilder.get>#  </a><span class=def>def </span><span class=name>get</span><span class=signature>(self, key, default=None, /):</span></div><div class=docstring><p>Return the value for key if key is in the dictionary, else default.</div></div><div id=JSONObjectBuilder.items><div class="attr function"><a class=headerlink href=#JSONObjectBuilder.items>#  </a><span class=def>def </span><span class=name>items</span><span class=signature>(unknown):</span></div><div class=docstring><p>D.items() -> a set-like object providing a view on D's items</div></div><div id=JSONObjectBuilder.keys><div class="attr function"><a class=headerlink href=#JSONObjectBuilder.keys>#  </a><span class=def>def </span><span class=name>keys</span><span class=signature>(unknown):</span></div><div class=docstring><p>D.keys() -> a set-like object providing a view on D's keys</div></div><div id=JSONObjectBuilder.pop><div class="attr function"><a class=headerlink href=#JSONObjectBuilder.pop>#  </a><span class=def>def </span><span class=name>pop</span><span class=signature>(unknown):</span></div><div class=docstring><p>D.pop(k[,d]) -> v, remove specified key and return the corresponding value.<p>If key is not found, default is returned if given, otherwise KeyError is raised</div></div><div id=JSONObjectBuilder.popitem><div class="attr function"><a class=headerlink href=#JSONObjectBuilder.popitem>#  </a><span class=def>def </span><span class=name>popitem</span><span class=signature>(self, /):</span></div><div class=docstring><p>Remove and return a (key, value) pair as a 2-tuple.<p>Pairs are returned in LIFO (last-in, first-out) order. Raises KeyError if the dict is empty.</div></div><div id=JSONObjectBuilder.put><div class="attr function"><a class=headerlink href=#JSONObjectBuilder.put>#  </a><span class=def>def </span><span class=name>put</span><span class=signature>(<br>   self,<br>   key: str,<br>   value: Union[Any, <a href=../undefined.html#UndefinedType>hikari.undefined.UndefinedType</a>, NoneType],<br>   /,<br>   *,<br>   conversion: Optional[Callable[[Any], Union[str, int, float, bool, NoneType, List[Any], Dict[str, Any]]]] = None<br>) -> None:</span></div><details><summary>View Source</summary> <div class=codehilite><pre><span></span>    <span class=k>def</span> <span class=nf>put</span><span class=p>(</span>
+        <span class=bp>self</span><span class=p>,</span>
+        <span class=n>key</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span>
+        <span class=n>value</span><span class=p>:</span> <span class=n>undefined</span><span class=o>.</span><span class=n>UndefinedNoneOr</span><span class=p>[</span><span class=n>typing</span><span class=o>.</span><span class=n>Any</span><span class=p>],</span>
+        <span class=o>/</span><span class=p>,</span>
+        <span class=o>*</span><span class=p>,</span>
+        <span class=n>conversion</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Optional</span><span class=p>[</span><span class=n>typing</span><span class=o>.</span><span class=n>Callable</span><span class=p>[[</span><span class=n>typing</span><span class=o>.</span><span class=n>Any</span><span class=p>],</span> <span class=n>JSONish</span><span class=p>]]</span> <span class=o>=</span> <span class=kc>None</span><span class=p>,</span>
+    <span class=p>)</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+        <span class=sd>"""Put a JSON value.</span>
+
+<span class=sd>        If the value is `hikari.undefined.UNDEFINED` it will not be stored.</span>
+
+<span class=sd>        Parameters</span>
+<span class=sd>        ----------</span>
+<span class=sd>        key : str</span>
+<span class=sd>            The key to give the element.</span>
+<span class=sd>        value : hikari.undefined.UndefinedOr[typing.Any]</span>
+<span class=sd>            The JSON type to put. This may be a non-JSON type if a conversion</span>
+<span class=sd>            is also specified. This may alternatively be undefined. In the latter</span>
+<span class=sd>            case, nothing is performed.</span>
+
+<span class=sd>        Other Parameters</span>
+<span class=sd>        ----------------</span>
+<span class=sd>        conversion : typing.Optional[typing.Callable[[typing.Any], JSONish]]</span>
+<span class=sd>            The optional conversion to apply.</span>
+<span class=sd>        """</span>
+        <span class=k>if</span> <span class=n>value</span> <span class=ow>is</span> <span class=n>undefined</span><span class=o>.</span><span class=n>UNDEFINED</span><span class=p>:</span>
+            <span class=k>return</span>
+
+        <span class=k>if</span> <span class=n>conversion</span> <span class=ow>is</span> <span class=ow>not</span> <span class=kc>None</span><span class=p>:</span>
+            <span class=bp>self</span><span class=p>[</span><span class=n>key</span><span class=p>]</span> <span class=o>=</span> <span class=n>conversion</span><span class=p>(</span><span class=n>value</span><span class=p>)</span>
+        <span class=k>else</span><span class=p>:</span>
+            <span class=bp>self</span><span class=p>[</span><span class=n>key</span><span class=p>]</span> <span class=o>=</span> <span class=n>value</span>
+</pre></div></details><div class=docstring><p>Put a JSON value.<p>If the value is <code><a href=../undefined.html#UNDEFINED>hikari.undefined.UNDEFINED</a></code> it will not be stored.<h6 id=parameters>Parameters</h6><ul><li><strong>key</strong> (str): The key to give the element.<li><strong>value</strong> (<a href=../undefined.html#UndefinedOr>hikari.undefined.UndefinedOr</a>[typing.Any]): The JSON type to put. This may be a non-JSON type if a conversion is also specified. This may alternatively be undefined. In the latter case, nothing is performed.</ul><h6 id=other-parameters>Other Parameters</h6><ul><li><strong>conversion</strong> (typing.Optional[typing.Callable[[typing.Any], JSONish]]): The optional conversion to apply.</ul></div></div><div id=JSONObjectBuilder.put_array><div class="attr function"><a class=headerlink href=#JSONObjectBuilder.put_array>#  </a><span class=def>def </span><span class=name>put_array</span><span class=signature>(<br>   self,<br>   key: str,<br>   values: Union[Iterable[Any], <a href=../undefined.html#UndefinedType>hikari.undefined.UndefinedType</a>],<br>   /,<br>   *,<br>   conversion: Optional[Callable[[Any], Union[str, int, float, bool, NoneType, List[Any], Dict[str, Any]]]] = None<br>) -> None:</span></div><details><summary>View Source</summary> <div class=codehilite><pre><span></span>    <span class=k>def</span> <span class=nf>put_array</span><span class=p>(</span>
+        <span class=bp>self</span><span class=p>,</span>
+        <span class=n>key</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span>
+        <span class=n>values</span><span class=p>:</span> <span class=n>undefined</span><span class=o>.</span><span class=n>UndefinedOr</span><span class=p>[</span><span class=n>typing</span><span class=o>.</span><span class=n>Iterable</span><span class=p>[</span><span class=n>typing</span><span class=o>.</span><span class=n>Any</span><span class=p>]],</span>
+        <span class=o>/</span><span class=p>,</span>
+        <span class=o>*</span><span class=p>,</span>
+        <span class=n>conversion</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Optional</span><span class=p>[</span><span class=n>typing</span><span class=o>.</span><span class=n>Callable</span><span class=p>[[</span><span class=n>typing</span><span class=o>.</span><span class=n>Any</span><span class=p>],</span> <span class=n>JSONish</span><span class=p>]]</span> <span class=o>=</span> <span class=kc>None</span><span class=p>,</span>
+    <span class=p>)</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+        <span class=sd>"""Put a JSON array.</span>
+
+<span class=sd>        If the value is `hikari.undefined.UNDEFINED` it will not be stored.</span>
+
+<span class=sd>        If provided, a conversion will be applied to each item.</span>
+
+<span class=sd>        Parameters</span>
+<span class=sd>        ----------</span>
+<span class=sd>        key : str</span>
+<span class=sd>            The key to give the element.</span>
+<span class=sd>        values : hikari.undefined.UndefinedOr[typing.Iterable[T]]</span>
+<span class=sd>            The JSON types to put. This may be an iterable of non-JSON types if</span>
+<span class=sd>            a conversion is also specified. This may alternatively be undefined.</span>
+<span class=sd>            In the latter case, nothing is performed.</span>
+
+<span class=sd>        Other Parameters</span>
+<span class=sd>        ----------------</span>
+<span class=sd>        conversion : typing.Optional[typing.Callable[[typing.Any], JSONType]]</span>
+<span class=sd>            The optional conversion to apply.</span>
+<span class=sd>        """</span>
+        <span class=k>if</span> <span class=n>values</span> <span class=ow>is</span> <span class=ow>not</span> <span class=n>undefined</span><span class=o>.</span><span class=n>UNDEFINED</span><span class=p>:</span>
+            <span class=k>if</span> <span class=n>conversion</span> <span class=ow>is</span> <span class=ow>not</span> <span class=kc>None</span><span class=p>:</span>
+                <span class=bp>self</span><span class=p>[</span><span class=n>key</span><span class=p>]</span> <span class=o>=</span> <span class=p>[</span><span class=n>conversion</span><span class=p>(</span><span class=n>value</span><span class=p>)</span> <span class=k>for</span> <span class=n>value</span> <span class=ow>in</span> <span class=n>values</span><span class=p>]</span>
+            <span class=k>else</span><span class=p>:</span>
+                <span class=bp>self</span><span class=p>[</span><span class=n>key</span><span class=p>]</span> <span class=o>=</span> <span class=nb>list</span><span class=p>(</span><span class=n>values</span><span class=p>)</span>
+</pre></div></details><div class=docstring><p>Put a JSON array.<p>If the value is <code><a href=../undefined.html#UNDEFINED>hikari.undefined.UNDEFINED</a></code> it will not be stored.<p>If provided, a conversion will be applied to each item.<h6 id=parameters>Parameters</h6><ul><li><strong>key</strong> (str): The key to give the element.<li><strong>values</strong> (<a href=../undefined.html#UndefinedOr>hikari.undefined.UndefinedOr</a>[typing.Iterable[T]]): The JSON types to put. This may be an iterable of non-JSON types if a conversion is also specified. This may alternatively be undefined. In the latter case, nothing is performed.</ul><h6 id=other-parameters>Other Parameters</h6><ul><li><strong>conversion</strong> (typing.Optional[typing.Callable[[typing.Any], JSONType]]): The optional conversion to apply.</ul></div></div><div id=JSONObjectBuilder.put_snowflake><div class="attr function"><a class=headerlink href=#JSONObjectBuilder.put_snowflake>#  </a><span class=def>def </span><span class=name>put_snowflake</span><span class=signature>(<br>   self,<br>   key: str,<br>   value: Union[<a href=../snowflakes.html#Unique>hikari.snowflakes.Unique</a>, <a href=../snowflakes.html#Snowflake>hikari.snowflakes.Snowflake</a>, int, <a href=../undefined.html#UndefinedType>hikari.undefined.UndefinedType</a>, NoneType],<br>   /<br>) -> None:</span></div><details><summary>View Source</summary> <div class=codehilite><pre><span></span>    <span class=k>def</span> <span class=nf>put_snowflake</span><span class=p>(</span>
+        <span class=bp>self</span><span class=p>,</span> <span class=n>key</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span> <span class=n>value</span><span class=p>:</span> <span class=n>undefined</span><span class=o>.</span><span class=n>UndefinedNoneOr</span><span class=p>[</span><span class=n>snowflakes</span><span class=o>.</span><span class=n>SnowflakeishOr</span><span class=p>[</span><span class=n>snowflakes</span><span class=o>.</span><span class=n>Unique</span><span class=p>]],</span> <span class=o>/</span>
+    <span class=p>)</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+        <span class=sd>"""Put a key with a snowflake value into the builder.</span>
+
+<span class=sd>        If the value is `hikari.undefined.UNDEFINED` it will not be stored.</span>
+
+<span class=sd>        Parameters</span>
+<span class=sd>        ----------</span>
+<span class=sd>        key : str</span>
+<span class=sd>            The key to give the element.</span>
+<span class=sd>        value : hikari.undefined.UndefinedNoneOr[hikari.snowflakes.SnowflakeishOr[hikari.snowflakes.Unique]]</span>
+<span class=sd>            The JSON type to put. This may alternatively be undefined, in this</span>
+<span class=sd>            case, nothing is performed. This may also be `None`, in this</span>
+<span class=sd>            case the value isn't cast.</span>
+<span class=sd>        """</span>
+        <span class=k>if</span> <span class=n>value</span> <span class=ow>is</span> <span class=ow>not</span> <span class=n>undefined</span><span class=o>.</span><span class=n>UNDEFINED</span> <span class=ow>and</span> <span class=n>value</span> <span class=ow>is</span> <span class=ow>not</span> <span class=kc>None</span><span class=p>:</span>
+            <span class=bp>self</span><span class=p>[</span><span class=n>key</span><span class=p>]</span> <span class=o>=</span> <span class=nb>str</span><span class=p>(</span><span class=nb>int</span><span class=p>(</span><span class=n>value</span><span class=p>))</span>
+        <span class=k>elif</span> <span class=n>value</span> <span class=ow>is</span> <span class=kc>None</span><span class=p>:</span>
+            <span class=bp>self</span><span class=p>[</span><span class=n>key</span><span class=p>]</span> <span class=o>=</span> <span class=n>value</span>
+</pre></div></details><div class=docstring><p>Put a key with a snowflake value into the builder.<p>If the value is <code><a href=../undefined.html#UNDEFINED>hikari.undefined.UNDEFINED</a></code> it will not be stored.<h6 id=parameters>Parameters</h6><ul><li><strong>key</strong> (str): The key to give the element.<li><strong>value</strong> (<a href=../undefined.html#UndefinedNoneOr>hikari.undefined.UndefinedNoneOr</a>[<a href=../snowflakes.html#SnowflakeishOr>hikari.snowflakes.SnowflakeishOr</a>[<a href=../snowflakes.html#Unique>hikari.snowflakes.Unique</a>]]): The JSON type to put. This may alternatively be undefined, in this case, nothing is performed. This may also be <code>None</code>, in this case the value isn't cast.</ul></div></div><div id=JSONObjectBuilder.put_snowflake_array><div class="attr function"><a class=headerlink href=#JSONObjectBuilder.put_snowflake_array>#  </a><span class=def>def </span><span class=name>put_snowflake_array</span><span class=signature>(<br>   self,<br>   key: str,<br>   values: Union[Iterable[Union[<a href=../snowflakes.html#Unique>hikari.snowflakes.Unique</a>, <a href=../snowflakes.html#Snowflake>hikari.snowflakes.Snowflake</a>, int]], <a href=../undefined.html#UndefinedType>hikari.undefined.UndefinedType</a>],<br>   /<br>) -> None:</span></div><details><summary>View Source</summary> <div class=codehilite><pre><span></span>    <span class=k>def</span> <span class=nf>put_snowflake_array</span><span class=p>(</span>
+        <span class=bp>self</span><span class=p>,</span>
+        <span class=n>key</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span>
+        <span class=n>values</span><span class=p>:</span> <span class=n>undefined</span><span class=o>.</span><span class=n>UndefinedOr</span><span class=p>[</span><span class=n>typing</span><span class=o>.</span><span class=n>Iterable</span><span class=p>[</span><span class=n>snowflakes</span><span class=o>.</span><span class=n>SnowflakeishOr</span><span class=p>[</span><span class=n>snowflakes</span><span class=o>.</span><span class=n>Unique</span><span class=p>]]],</span>
+        <span class=o>/</span><span class=p>,</span>
+    <span class=p>)</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+        <span class=sd>"""Put an array of snowflakes with the given key into this builder.</span>
+
+<span class=sd>        If the value is `hikari.undefined.UNDEFINED` it will not be stored.</span>
+
+<span class=sd>        Each snowflake should be castable to an `int`.</span>
+
+<span class=sd>        Parameters</span>
+<span class=sd>        ----------</span>
+<span class=sd>        key : str</span>
+<span class=sd>            The key to give the element.</span>
+<span class=sd>        values : hikari.undefined.UndefinedOr[typing.Iterable[hikari.snowflakes.SnowflakeishOr[hikari.snowflakes.Unique]]]</span>
+<span class=sd>            The JSON snowflakes to put. This may alternatively be undefined.</span>
+<span class=sd>            In the latter case, nothing is performed.</span>
+<span class=sd>        """</span>  <span class=c1># noqa: E501 - Line too long</span>
+        <span class=k>if</span> <span class=n>values</span> <span class=ow>is</span> <span class=ow>not</span> <span class=n>undefined</span><span class=o>.</span><span class=n>UNDEFINED</span><span class=p>:</span>
+            <span class=bp>self</span><span class=p>[</span><span class=n>key</span><span class=p>]</span> <span class=o>=</span> <span class=p>[</span><span class=nb>str</span><span class=p>(</span><span class=nb>int</span><span class=p>(</span><span class=n>value</span><span class=p>))</span> <span class=k>for</span> <span class=n>value</span> <span class=ow>in</span> <span class=n>values</span><span class=p>]</span>
+</pre></div></details><div class=docstring><p>Put an array of snowflakes with the given key into this builder.<p>If the value is <code><a href=../undefined.html#UNDEFINED>hikari.undefined.UNDEFINED</a></code> it will not be stored.<p>Each snowflake should be castable to an <code>int</code>.<h6 id=parameters>Parameters</h6><ul><li><strong>key</strong> (str): The key to give the element.<li><strong>values</strong> (<a href=../undefined.html#UndefinedOr>hikari.undefined.UndefinedOr</a>[typing.Iterable[<a href=../snowflakes.html#SnowflakeishOr>hikari.snowflakes.SnowflakeishOr</a>[<a href=../snowflakes.html#Unique>hikari.snowflakes.Unique</a>]]]): The JSON snowflakes to put. This may alternatively be undefined. In the latter case, nothing is performed.</ul></div></div><div id=JSONObjectBuilder.setdefault><div class="attr function"><a class=headerlink href=#JSONObjectBuilder.setdefault>#  </a><span class=def>def </span><span class=name>setdefault</span><span class=signature>(self, key, default=None, /):</span></div><div class=docstring><p>Insert key with a value of default if key is not in the dictionary.<p>Return the value for key if key is in the dictionary, else default.</div></div><div id=JSONObjectBuilder.update><div class="attr function"><a class=headerlink href=#JSONObjectBuilder.update>#  </a><span class=def>def </span><span class=name>update</span><span class=signature>(unknown):</span></div><div class=docstring><p>D.update([E, ]**F) -> None. Update D from dict/iterable E and F. If E is present and has a .keys() method, then does: for k in E: D[k] = E[k] If E is present and lacks a .keys() method, then does: for k, v in E: D[k] = v In either case, this is followed by: for k in F: D[k] = F[k]</div></div><div id=JSONObjectBuilder.values><div class="attr function"><a class=headerlink href=#JSONObjectBuilder.values>#  </a><span class=def>def </span><span class=name>values</span><span class=signature>(unknown):</span></div><div class=docstring><p>D.values() -> an object providing a view on D's values</div></div></section></section><section id=JSONish><div class="attr variable"><a class=headerlink href=#JSONish>#  </a><span class=name>JSONish</span></div><div class=docstring><p>Type hint for any valid JSON-decoded type.</div></section><section id=Query><div class="attr variable"><a class=headerlink href=#Query>#  </a><span class=name>Query</span></div><div class=docstring><p>Type hint for HTTP query string.</div></section><section id=StringMapBuilder><div class="attr class"><a class=headerlink href=#StringMapBuilder>#  </a><div class=decorator>@typing.final</div><span class=def>class </span><span class=name>StringMapBuilder</span><wbr>(<span class=base>multidict._multidict.MultiDict[str]</span>):</div><details><summary>View Source</summary> <div class=codehilite><pre><span></span><span class=nd>@typing</span><span class=o>.</span><span class=n>final</span>
+<span class=k>class</span> <span class=nc>StringMapBuilder</span><span class=p>(</span><span class=n>multidict</span><span class=o>.</span><span class=n>MultiDict</span><span class=p>[</span><span class=nb>str</span><span class=p>]):</span>
+    <span class=sd>"""Helper class used to quickly build query strings or header maps.</span>
+
+<span class=sd>    This will consume any items that are not `hikari.undefined.UNDEFINED`.</span>
+<span class=sd>    If a value _is_ unspecified, it will be ignored when inserting it. This reduces</span>
+<span class=sd>    the amount of boilerplate needed for generating the headers and query strings for</span>
+<span class=sd>    low-level HTTP API interaction, amongst other things.</span>
+
+<span class=sd>    .. warning::</span>
+<span class=sd>        Because this subclasses `dict`, you should not use the</span>
+<span class=sd>        index operator to set items on this object. Doing so will skip any</span>
+<span class=sd>        form of validation on the type. Use the `put*` methods instead.</span>
+<span class=sd>    """</span>
+
+    <span class=vm>__slots__</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Sequence</span><span class=p>[</span><span class=nb>str</span><span class=p>]</span> <span class=o>=</span> <span class=p>()</span>
+
+    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>arg</span><span class=p>:</span> <span class=n>_StringMapBuilderArg</span> <span class=o>=</span> <span class=p>(),</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>:</span> <span class=nb>str</span><span class=p>)</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+        <span class=c1># We have to allow arguments to be passed to the init here otherwise the inherited copy behaviour from</span>
+        <span class=c1># multidict.MultiDict fails.</span>
+        <span class=nb>super</span><span class=p>()</span><span class=o>.</span><span class=fm>__init__</span><span class=p>(</span><span class=n>arg</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>)</span>
+
+    <span class=nd>@typing</span><span class=o>.</span><span class=n>overload</span>
+    <span class=k>def</span> <span class=nf>put</span><span class=p>(</span>
+        <span class=bp>self</span><span class=p>,</span>
+        <span class=n>key</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span>
+        <span class=n>value</span><span class=p>:</span> <span class=n>Stringish</span><span class=p>,</span>
+        <span class=o>/</span><span class=p>,</span>
+    <span class=p>)</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+        <span class=o>...</span>
+
+    <span class=nd>@typing</span><span class=o>.</span><span class=n>overload</span>
+    <span class=k>def</span> <span class=nf>put</span><span class=p>(</span>
+        <span class=bp>self</span><span class=p>,</span>
+        <span class=n>key</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span>
+        <span class=n>value</span><span class=p>:</span> <span class=n>undefined</span><span class=o>.</span><span class=n>UndefinedOr</span><span class=p>[</span><span class=n>T</span><span class=p>],</span>
+        <span class=o>/</span><span class=p>,</span>
+        <span class=o>*</span><span class=p>,</span>
+        <span class=n>conversion</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Callable</span><span class=p>[[</span><span class=n>T</span><span class=p>],</span> <span class=n>Stringish</span><span class=p>],</span>
+    <span class=p>)</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+        <span class=o>...</span>
+
+    <span class=k>def</span> <span class=nf>put</span><span class=p>(</span>
+        <span class=bp>self</span><span class=p>,</span>
+        <span class=n>key</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span>
+        <span class=n>value</span><span class=p>:</span> <span class=n>undefined</span><span class=o>.</span><span class=n>UndefinedOr</span><span class=p>[</span><span class=n>typing</span><span class=o>.</span><span class=n>Any</span><span class=p>],</span>
+        <span class=o>/</span><span class=p>,</span>
+        <span class=o>*</span><span class=p>,</span>
+        <span class=n>conversion</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Optional</span><span class=p>[</span><span class=n>typing</span><span class=o>.</span><span class=n>Callable</span><span class=p>[[</span><span class=n>typing</span><span class=o>.</span><span class=n>Any</span><span class=p>],</span> <span class=n>typing</span><span class=o>.</span><span class=n>Any</span><span class=p>]]</span> <span class=o>=</span> <span class=kc>None</span><span class=p>,</span>
+    <span class=p>)</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+        <span class=sd>"""Add a key and value to the string map.</span>
+
+<span class=sd>        .. note::</span>
+<span class=sd>            The value will always be cast to a `str` before inserting it.</span>
+<span class=sd>            `True` will be translated to `"true"`, `False` will be</span>
+<span class=sd>            translated to `"false"`, and `None` will be translated to</span>
+<span class=sd>            `"null"`.</span>
+
+<span class=sd>        Parameters</span>
+<span class=sd>        ----------</span>
+<span class=sd>        key : str</span>
+<span class=sd>            The string key.</span>
+<span class=sd>        value : hikari.undefined.UndefinedOr[typing.Any]</span>
+<span class=sd>            The value to set.</span>
+
+<span class=sd>        Other Parameters</span>
+<span class=sd>        ----------------</span>
+<span class=sd>        conversion : typing.Optional[typing.Callable[[typing.Any], typing.Any]]</span>
+<span class=sd>            An optional conversion to perform.</span>
+<span class=sd>        """</span>
+        <span class=k>if</span> <span class=n>value</span> <span class=ow>is</span> <span class=ow>not</span> <span class=n>undefined</span><span class=o>.</span><span class=n>UNDEFINED</span><span class=p>:</span>
+            <span class=k>if</span> <span class=n>conversion</span> <span class=ow>is</span> <span class=ow>not</span> <span class=kc>None</span><span class=p>:</span>
+                <span class=n>value</span> <span class=o>=</span> <span class=n>conversion</span><span class=p>(</span><span class=n>value</span><span class=p>)</span>
+
+            <span class=k>if</span> <span class=n>value</span> <span class=ow>is</span> <span class=kc>True</span><span class=p>:</span>
+                <span class=n>value</span> <span class=o>=</span> <span class=s2>"true"</span>
+            <span class=k>elif</span> <span class=n>value</span> <span class=ow>is</span> <span class=kc>False</span><span class=p>:</span>
+                <span class=n>value</span> <span class=o>=</span> <span class=s2>"false"</span>
+            <span class=k>elif</span> <span class=n>value</span> <span class=ow>is</span> <span class=kc>None</span><span class=p>:</span>
+                <span class=n>value</span> <span class=o>=</span> <span class=s2>"null"</span>
+            <span class=k>elif</span> <span class=nb>isinstance</span><span class=p>(</span><span class=n>value</span><span class=p>,</span> <span class=n>snowflakes</span><span class=o>.</span><span class=n>Unique</span><span class=p>):</span>
+                <span class=n>value</span> <span class=o>=</span> <span class=nb>str</span><span class=p>(</span><span class=n>value</span><span class=o>.</span><span class=n>id</span><span class=p>)</span>
+            <span class=k>else</span><span class=p>:</span>
+                <span class=n>value</span> <span class=o>=</span> <span class=nb>str</span><span class=p>(</span><span class=n>value</span><span class=p>)</span>
+
+            <span class=c1># __setitem__ just overwrites the previous value.</span>
+            <span class=bp>self</span><span class=o>.</span><span class=n>add</span><span class=p>(</span><span class=n>key</span><span class=p>,</span> <span class=n>value</span><span class=p>)</span>
+</pre></div></details><div class=docstring><p>Helper class used to quickly build query strings or header maps.<p>This will consume any items that are not <code><a href=../undefined.html#UNDEFINED>hikari.undefined.UNDEFINED</a></code>. If a value _is_ unspecified, it will be ignored when inserting it. This reduces the amount of boilerplate needed for generating the headers and query strings for low-level HTTP API interaction, amongst other things.<p><em>Warning:</em> Because this subclasses <code>dict</code>, you should not use the index operator to set items on this object. Doing so will skip any form of validation on the type. Use the <code>put*</code> methods instead.</div><section class=member_divisor><h5>Methods</h5><div id=StringMapBuilder.__init__><div class="attr function"><a class=headerlink href=#StringMapBuilder.__init__>#  </a><span class=def>def </span><span class=name>__init__</span><span class=signature>(<br>   self,<br>   arg: Union[Mapping[str, str], Dict[str, str], multidict._abc.MultiMapping[str], Iterable[Tuple[str, str]]] = (),<br>   **kwargs: str<br>):</span></div><details><summary>View Source</summary> <div class=codehilite><pre><span></span>    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>arg</span><span class=p>:</span> <span class=n>_StringMapBuilderArg</span> <span class=o>=</span> <span class=p>(),</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>:</span> <span class=nb>str</span><span class=p>)</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+        <span class=c1># We have to allow arguments to be passed to the init here otherwise the inherited copy behaviour from</span>
+        <span class=c1># multidict.MultiDict fails.</span>
+        <span class=nb>super</span><span class=p>()</span><span class=o>.</span><span class=fm>__init__</span><span class=p>(</span><span class=n>arg</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>)</span>
+</pre></div></details></div><div id=StringMapBuilder.add><div class="attr function"><a class=headerlink href=#StringMapBuilder.add>#  </a><span class=def>def </span><span class=name>add</span><span class=signature>(unknown):</span></div><div class=docstring><p>Add the key and value, not overwriting any previous value.</div></div><div id=StringMapBuilder.clear><div class="attr function"><a class=headerlink href=#StringMapBuilder.clear>#  </a><span class=def>def </span><span class=name>clear</span><span class=signature>(unknown):</span></div><div class=docstring><p>Remove all items from MultiDict</div></div><div id=StringMapBuilder.copy><div class="attr function"><a class=headerlink href=#StringMapBuilder.copy>#  </a><span class=def>def </span><span class=name>copy</span><span class=signature>(unknown):</span></div><div class=docstring><p>Return a copy of itself.</div></div><div id=StringMapBuilder.extend><div class="attr function"><a class=headerlink href=#StringMapBuilder.extend>#  </a><span class=def>def </span><span class=name>extend</span><span class=signature>(unknown):</span></div><div class=docstring><p>Extend current MultiDict with more values. This method must be used instead of update.</div></div><div id=StringMapBuilder.get><div class="attr function"><a class=headerlink href=#StringMapBuilder.get>#  </a><span class=def>def </span><span class=name>get</span><span class=signature>(unknown):</span></div><div class=docstring><p>Get first value matching the key.<p>The method is alias for .getone().</div></div><div id=StringMapBuilder.getall><div class="attr function"><a class=headerlink href=#StringMapBuilder.getall>#  </a><span class=def>def </span><span class=name>getall</span><span class=signature>(unknown):</span></div><div class=docstring><p>Return a list of all values matching the key.</div></div><div id=StringMapBuilder.getone><div class="attr function"><a class=headerlink href=#StringMapBuilder.getone>#  </a><span class=def>def </span><span class=name>getone</span><span class=signature>(unknown):</span></div><div class=docstring><p>Get first value matching the key.</div></div><div id=StringMapBuilder.items><div class="attr function"><a class=headerlink href=#StringMapBuilder.items>#  </a><span class=def>def </span><span class=name>items</span><span class=signature>(unknown):</span></div><div class=docstring><p>Return a new view of the dictionary's items *(key, value) pairs).</div></div><div id=StringMapBuilder.keys><div class="attr function"><a class=headerlink href=#StringMapBuilder.keys>#  </a><span class=def>def </span><span class=name>keys</span><span class=signature>(unknown):</span></div><div class=docstring><p>Return a new view of the dictionary's keys.</div></div><div id=StringMapBuilder.pop><div class="attr function"><a class=headerlink href=#StringMapBuilder.pop>#  </a><span class=def>def </span><span class=name>pop</span><span class=signature>(unknown):</span></div><div class=docstring><p>Remove the last occurrence of key and return the corresponding value.<p>If key is not found, default is returned if given, otherwise KeyError is raised.</div></div><div id=StringMapBuilder.popall><div class="attr function"><a class=headerlink href=#StringMapBuilder.popall>#  </a><span class=def>def </span><span class=name>popall</span><span class=signature>(unknown):</span></div><div class=docstring><p>Remove all occurrences of key and return the list of corresponding values.<p>If key is not found, default is returned if given, otherwise KeyError is raised.</div></div><div id=StringMapBuilder.popitem><div class="attr function"><a class=headerlink href=#StringMapBuilder.popitem>#  </a><span class=def>def </span><span class=name>popitem</span><span class=signature>(unknown):</span></div><div class=docstring><p>Remove and return an arbitrary (key, value) pair.</div></div><div id=StringMapBuilder.popone><div class="attr function"><a class=headerlink href=#StringMapBuilder.popone>#  </a><span class=def>def </span><span class=name>popone</span><span class=signature>(unknown):</span></div><div class=docstring><p>Remove the last occurrence of key and return the corresponding value.<p>If key is not found, default is returned if given, otherwise KeyError is raised.</div></div><div id=StringMapBuilder.put><div class="attr function"><a class=headerlink href=#StringMapBuilder.put>#  </a><span class=def>def </span><span class=name>put</span><span class=signature>(<br>   self,<br>   key: str,<br>   value: Union[Any, <a href=../undefined.html#UndefinedType>hikari.undefined.UndefinedType</a>],<br>   /,<br>   *,<br>   conversion: Optional[Callable[[Any], Any]] = None<br>) -> None:</span></div><details><summary>View Source</summary> <div class=codehilite><pre><span></span>    <span class=k>def</span> <span class=nf>put</span><span class=p>(</span>
+        <span class=bp>self</span><span class=p>,</span>
+        <span class=n>key</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span>
+        <span class=n>value</span><span class=p>:</span> <span class=n>undefined</span><span class=o>.</span><span class=n>UndefinedOr</span><span class=p>[</span><span class=n>typing</span><span class=o>.</span><span class=n>Any</span><span class=p>],</span>
+        <span class=o>/</span><span class=p>,</span>
+        <span class=o>*</span><span class=p>,</span>
+        <span class=n>conversion</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Optional</span><span class=p>[</span><span class=n>typing</span><span class=o>.</span><span class=n>Callable</span><span class=p>[[</span><span class=n>typing</span><span class=o>.</span><span class=n>Any</span><span class=p>],</span> <span class=n>typing</span><span class=o>.</span><span class=n>Any</span><span class=p>]]</span> <span class=o>=</span> <span class=kc>None</span><span class=p>,</span>
+    <span class=p>)</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+        <span class=sd>"""Add a key and value to the string map.</span>
+
+<span class=sd>        .. note::</span>
+<span class=sd>            The value will always be cast to a `str` before inserting it.</span>
+<span class=sd>            `True` will be translated to `"true"`, `False` will be</span>
+<span class=sd>            translated to `"false"`, and `None` will be translated to</span>
+<span class=sd>            `"null"`.</span>
+
+<span class=sd>        Parameters</span>
+<span class=sd>        ----------</span>
+<span class=sd>        key : str</span>
+<span class=sd>            The string key.</span>
+<span class=sd>        value : hikari.undefined.UndefinedOr[typing.Any]</span>
+<span class=sd>            The value to set.</span>
+
+<span class=sd>        Other Parameters</span>
+<span class=sd>        ----------------</span>
+<span class=sd>        conversion : typing.Optional[typing.Callable[[typing.Any], typing.Any]]</span>
+<span class=sd>            An optional conversion to perform.</span>
+<span class=sd>        """</span>
+        <span class=k>if</span> <span class=n>value</span> <span class=ow>is</span> <span class=ow>not</span> <span class=n>undefined</span><span class=o>.</span><span class=n>UNDEFINED</span><span class=p>:</span>
+            <span class=k>if</span> <span class=n>conversion</span> <span class=ow>is</span> <span class=ow>not</span> <span class=kc>None</span><span class=p>:</span>
+                <span class=n>value</span> <span class=o>=</span> <span class=n>conversion</span><span class=p>(</span><span class=n>value</span><span class=p>)</span>
+
+            <span class=k>if</span> <span class=n>value</span> <span class=ow>is</span> <span class=kc>True</span><span class=p>:</span>
+                <span class=n>value</span> <span class=o>=</span> <span class=s2>"true"</span>
+            <span class=k>elif</span> <span class=n>value</span> <span class=ow>is</span> <span class=kc>False</span><span class=p>:</span>
+                <span class=n>value</span> <span class=o>=</span> <span class=s2>"false"</span>
+            <span class=k>elif</span> <span class=n>value</span> <span class=ow>is</span> <span class=kc>None</span><span class=p>:</span>
+                <span class=n>value</span> <span class=o>=</span> <span class=s2>"null"</span>
+            <span class=k>elif</span> <span class=nb>isinstance</span><span class=p>(</span><span class=n>value</span><span class=p>,</span> <span class=n>snowflakes</span><span class=o>.</span><span class=n>Unique</span><span class=p>):</span>
+                <span class=n>value</span> <span class=o>=</span> <span class=nb>str</span><span class=p>(</span><span class=n>value</span><span class=o>.</span><span class=n>id</span><span class=p>)</span>
+            <span class=k>else</span><span class=p>:</span>
+                <span class=n>value</span> <span class=o>=</span> <span class=nb>str</span><span class=p>(</span><span class=n>value</span><span class=p>)</span>
+
+            <span class=c1># __setitem__ just overwrites the previous value.</span>
+            <span class=bp>self</span><span class=o>.</span><span class=n>add</span><span class=p>(</span><span class=n>key</span><span class=p>,</span> <span class=n>value</span><span class=p>)</span>
+</pre></div></details><div class=docstring><p>Add a key and value to the string map.<p><em>Note:</em> The value will always be cast to a <code>str</code> before inserting it. <code>True</code> will be translated to <code>"true"</code>, <code>False</code> will be translated to <code>"false"</code>, and <code>None</code> will be translated to <code>"null"</code>.<h6 id=parameters>Parameters</h6><ul><li><strong>key</strong> (str): The string key.<li><strong>value</strong> (<a href=../undefined.html#UndefinedOr>hikari.undefined.UndefinedOr</a>[typing.Any]): The value to set.</ul><h6 id=other-parameters>Other Parameters</h6><ul><li><strong>conversion</strong> (typing.Optional[typing.Callable[[typing.Any], typing.Any]]): An optional conversion to perform.</ul></div></div><div id=StringMapBuilder.setdefault><div class="attr function"><a class=headerlink href=#StringMapBuilder.setdefault>#  </a><span class=def>def </span><span class=name>setdefault</span><span class=signature>(unknown):</span></div><div class=docstring><p>Return value for key, set value to default if key is not present.</div></div><div id=StringMapBuilder.update><div class="attr function"><a class=headerlink href=#StringMapBuilder.update>#  </a><span class=def>def </span><span class=name>update</span><span class=signature>(unknown):</span></div><div class=docstring><p>Update the dictionary from <em>other</em>, overwriting existing keys.</div></div><div id=StringMapBuilder.values><div class="attr function"><a class=headerlink href=#StringMapBuilder.values>#  </a><span class=def>def </span><span class=name>values</span><span class=signature>(unknown):</span></div><div class=docstring><p>Return a new view of the dictionary's values.</div></div></section></section><section id=URLEncodedFormBuilder><div class="attr class"><a class=headerlink href=#URLEncodedFormBuilder>#  </a><div class=decorator>@typing.final</div><span class=def>class </span><span class=name>URLEncodedFormBuilder</span>:</div><details><summary>View Source</summary> <div class=codehilite><pre><span></span><span class=nd>@typing</span><span class=o>.</span><span class=n>final</span>
+<span class=k>class</span> <span class=nc>URLEncodedFormBuilder</span><span class=p>:</span>
+    <span class=sd>"""Helper class to generate `aiohttp.FormData`."""</span>
+
+    <span class=vm>__slots__</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Sequence</span><span class=p>[</span><span class=nb>str</span><span class=p>]</span> <span class=o>=</span> <span class=p>(</span><span class=s2>"_executor"</span><span class=p>,</span> <span class=s2>"_fields"</span><span class=p>,</span> <span class=s2>"_resources"</span><span class=p>)</span>
+
+    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>executor</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Optional</span><span class=p>[</span><span class=n>concurrent</span><span class=o>.</span><span class=n>futures</span><span class=o>.</span><span class=n>Executor</span><span class=p>]</span> <span class=o>=</span> <span class=kc>None</span><span class=p>)</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>_executor</span> <span class=o>=</span> <span class=n>executor</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>_fields</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>List</span><span class=p>[</span><span class=n>typing</span><span class=o>.</span><span class=n>Tuple</span><span class=p>[</span><span class=nb>str</span><span class=p>,</span> <span class=nb>str</span><span class=p>,</span> <span class=n>typing</span><span class=o>.</span><span class=n>Optional</span><span class=p>[</span><span class=nb>str</span><span class=p>]]]</span> <span class=o>=</span> <span class=p>[]</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>_resources</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>List</span><span class=p>[</span><span class=n>typing</span><span class=o>.</span><span class=n>Tuple</span><span class=p>[</span><span class=nb>str</span><span class=p>,</span> <span class=n>files</span><span class=o>.</span><span class=n>Resource</span><span class=p>[</span><span class=n>files</span><span class=o>.</span><span class=n>AsyncReader</span><span class=p>]]]</span> <span class=o>=</span> <span class=p>[]</span>
+
+    <span class=k>def</span> <span class=nf>add_field</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>name</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span> <span class=n>data</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span> <span class=o>*</span><span class=p>,</span> <span class=n>content_type</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Optional</span><span class=p>[</span><span class=nb>str</span><span class=p>]</span> <span class=o>=</span> <span class=kc>None</span><span class=p>)</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>_fields</span><span class=o>.</span><span class=n>append</span><span class=p>((</span><span class=n>name</span><span class=p>,</span> <span class=n>data</span><span class=p>,</span> <span class=n>content_type</span><span class=p>))</span>
+
+    <span class=k>def</span> <span class=nf>add_resource</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>name</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span> <span class=n>resource</span><span class=p>:</span> <span class=n>files</span><span class=o>.</span><span class=n>Resource</span><span class=p>[</span><span class=n>files</span><span class=o>.</span><span class=n>AsyncReader</span><span class=p>])</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>_resources</span><span class=o>.</span><span class=n>append</span><span class=p>((</span><span class=n>name</span><span class=p>,</span> <span class=n>resource</span><span class=p>))</span>
+
+    <span class=k>async</span> <span class=k>def</span> <span class=nf>build</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>stack</span><span class=p>:</span> <span class=n>contextlib</span><span class=o>.</span><span class=n>AsyncExitStack</span><span class=p>)</span> <span class=o>-></span> <span class=n>aiohttp</span><span class=o>.</span><span class=n>FormData</span><span class=p>:</span>
+        <span class=n>form</span> <span class=o>=</span> <span class=n>aiohttp</span><span class=o>.</span><span class=n>FormData</span><span class=p>()</span>
+
+        <span class=k>for</span> <span class=n>field</span> <span class=ow>in</span> <span class=bp>self</span><span class=o>.</span><span class=n>_fields</span><span class=p>:</span>
+            <span class=n>form</span><span class=o>.</span><span class=n>add_field</span><span class=p>(</span><span class=n>field</span><span class=p>[</span><span class=mi>0</span><span class=p>],</span> <span class=n>field</span><span class=p>[</span><span class=mi>1</span><span class=p>],</span> <span class=n>content_type</span><span class=o>=</span><span class=n>field</span><span class=p>[</span><span class=mi>2</span><span class=p>])</span>
+
+        <span class=k>for</span> <span class=n>name</span><span class=p>,</span> <span class=n>resource</span> <span class=ow>in</span> <span class=bp>self</span><span class=o>.</span><span class=n>_resources</span><span class=p>:</span>
+            <span class=n>stream</span> <span class=o>=</span> <span class=k>await</span> <span class=n>stack</span><span class=o>.</span><span class=n>enter_async_context</span><span class=p>(</span><span class=n>resource</span><span class=o>.</span><span class=n>stream</span><span class=p>(</span><span class=n>executor</span><span class=o>=</span><span class=bp>self</span><span class=o>.</span><span class=n>_executor</span><span class=p>))</span>
+            <span class=n>mimetype</span> <span class=o>=</span> <span class=n>stream</span><span class=o>.</span><span class=n>mimetype</span> <span class=ow>or</span> <span class=n>_APPLICATION_OCTET_STREAM</span>
+            <span class=n>form</span><span class=o>.</span><span class=n>add_field</span><span class=p>(</span><span class=n>name</span><span class=p>,</span> <span class=n>stream</span><span class=p>,</span> <span class=n>filename</span><span class=o>=</span><span class=n>stream</span><span class=o>.</span><span class=n>filename</span><span class=p>,</span> <span class=n>content_type</span><span class=o>=</span><span class=n>mimetype</span><span class=p>)</span>
+
+        <span class=k>return</span> <span class=n>form</span>
+</pre></div></details><div class=docstring><p>Helper class to generate <code>aiohttp.FormData</code>.</div><section class=member_divisor><h5>Methods</h5><div id=URLEncodedFormBuilder.__init__><div class="attr function"><a class=headerlink href=#URLEncodedFormBuilder.__init__>#  </a><span class=def>def </span><span class=name>__init__</span><span class=signature>(self, executor: Optional[concurrent.futures._base.Executor] = None):</span></div><details><summary>View Source</summary> <div class=codehilite><pre><span></span>    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>executor</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Optional</span><span class=p>[</span><span class=n>concurrent</span><span class=o>.</span><span class=n>futures</span><span class=o>.</span><span class=n>Executor</span><span class=p>]</span> <span class=o>=</span> <span class=kc>None</span><span class=p>)</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>_executor</span> <span class=o>=</span> <span class=n>executor</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>_fields</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>List</span><span class=p>[</span><span class=n>typing</span><span class=o>.</span><span class=n>Tuple</span><span class=p>[</span><span class=nb>str</span><span class=p>,</span> <span class=nb>str</span><span class=p>,</span> <span class=n>typing</span><span class=o>.</span><span class=n>Optional</span><span class=p>[</span><span class=nb>str</span><span class=p>]]]</span> <span class=o>=</span> <span class=p>[]</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>_resources</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>List</span><span class=p>[</span><span class=n>typing</span><span class=o>.</span><span class=n>Tuple</span><span class=p>[</span><span class=nb>str</span><span class=p>,</span> <span class=n>files</span><span class=o>.</span><span class=n>Resource</span><span class=p>[</span><span class=n>files</span><span class=o>.</span><span class=n>AsyncReader</span><span class=p>]]]</span> <span class=o>=</span> <span class=p>[]</span>
+</pre></div></details></div><div id=URLEncodedFormBuilder.add_field><div class="attr function"><a class=headerlink href=#URLEncodedFormBuilder.add_field>#  </a><span class=def>def </span><span class=name>add_field</span><span class=signature>(<br>   self,<br>   name: str,<br>   data: str,<br>   *,<br>   content_type: Optional[str] = None<br>) -> None:</span></div><details><summary>View Source</summary> <div class=codehilite><pre><span></span>    <span class=k>def</span> <span class=nf>add_field</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>name</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span> <span class=n>data</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span> <span class=o>*</span><span class=p>,</span> <span class=n>content_type</span><span class=p>:</span> <span class=n>typing</span><span class=o>.</span><span class=n>Optional</span><span class=p>[</span><span class=nb>str</span><span class=p>]</span> <span class=o>=</span> <span class=kc>None</span><span class=p>)</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>_fields</span><span class=o>.</span><span class=n>append</span><span class=p>((</span><span class=n>name</span><span class=p>,</span> <span class=n>data</span><span class=p>,</span> <span class=n>content_type</span><span class=p>))</span>
+</pre></div></details></div><div id=URLEncodedFormBuilder.add_resource><div class="attr function"><a class=headerlink href=#URLEncodedFormBuilder.add_resource>#  </a><span class=def>def </span><span class=name>add_resource</span><span class=signature>(<br>   self,<br>   name: str,<br>   resource: <a href=../files.html#Resource>hikari.files.Resource</a>[<a href=../files.html#AsyncReader>hikari.files.AsyncReader</a>]<br>) -> None:</span></div><details><summary>View Source</summary> <div class=codehilite><pre><span></span>    <span class=k>def</span> <span class=nf>add_resource</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>name</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span> <span class=n>resource</span><span class=p>:</span> <span class=n>files</span><span class=o>.</span><span class=n>Resource</span><span class=p>[</span><span class=n>files</span><span class=o>.</span><span class=n>AsyncReader</span><span class=p>])</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>_resources</span><span class=o>.</span><span class=n>append</span><span class=p>((</span><span class=n>name</span><span class=p>,</span> <span class=n>resource</span><span class=p>))</span>
+</pre></div></details></div><div id=URLEncodedFormBuilder.build><div class="attr function"><a class=headerlink href=#URLEncodedFormBuilder.build>#  </a><span class=def>async def </span><span class=name>build</span><span class=signature>(self, stack: contextlib.AsyncExitStack) -> aiohttp.formdata.FormData:</span></div><details><summary>View Source</summary> <div class=codehilite><pre><span></span>    <span class=k>async</span> <span class=k>def</span> <span class=nf>build</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>stack</span><span class=p>:</span> <span class=n>contextlib</span><span class=o>.</span><span class=n>AsyncExitStack</span><span class=p>)</span> <span class=o>-></span> <span class=n>aiohttp</span><span class=o>.</span><span class=n>FormData</span><span class=p>:</span>
+        <span class=n>form</span> <span class=o>=</span> <span class=n>aiohttp</span><span class=o>.</span><span class=n>FormData</span><span class=p>()</span>
+
+        <span class=k>for</span> <span class=n>field</span> <span class=ow>in</span> <span class=bp>self</span><span class=o>.</span><span class=n>_fields</span><span class=p>:</span>
+            <span class=n>form</span><span class=o>.</span><span class=n>add_field</span><span class=p>(</span><span class=n>field</span><span class=p>[</span><span class=mi>0</span><span class=p>],</span> <span class=n>field</span><span class=p>[</span><span class=mi>1</span><span class=p>],</span> <span class=n>content_type</span><span class=o>=</span><span class=n>field</span><span class=p>[</span><span class=mi>2</span><span class=p>])</span>
+
+        <span class=k>for</span> <span class=n>name</span><span class=p>,</span> <span class=n>resource</span> <span class=ow>in</span> <span class=bp>self</span><span class=o>.</span><span class=n>_resources</span><span class=p>:</span>
+            <span class=n>stream</span> <span class=o>=</span> <span class=k>await</span> <span class=n>stack</span><span class=o>.</span><span class=n>enter_async_context</span><span class=p>(</span><span class=n>resource</span><span class=o>.</span><span class=n>stream</span><span class=p>(</span><span class=n>executor</span><span class=o>=</span><span class=bp>self</span><span class=o>.</span><span class=n>_executor</span><span class=p>))</span>
+            <span class=n>mimetype</span> <span class=o>=</span> <span class=n>stream</span><span class=o>.</span><span class=n>mimetype</span> <span class=ow>or</span> <span class=n>_APPLICATION_OCTET_STREAM</span>
+            <span class=n>form</span><span class=o>.</span><span class=n>add_field</span><span class=p>(</span><span class=n>name</span><span class=p>,</span> <span class=n>stream</span><span class=p>,</span> <span class=n>filename</span><span class=o>=</span><span class=n>stream</span><span class=o>.</span><span class=n>filename</span><span class=p>,</span> <span class=n>content_type</span><span class=o>=</span><span class=n>mimetype</span><span class=p>)</span>
+
+        <span class=k>return</span> <span class=n>form</span>
+</pre></div></details></div></section></section><section id=dump_json><div class="attr function"><a class=headerlink href=#dump_json>#  </a><span class=def>def </span><span class=name>dump_json</span><span class=signature>(<br>   obj,<br>   *,<br>   skipkeys=False,<br>   ensure_ascii=True,<br>   check_circular=True,<br>   allow_nan=True,<br>   cls=None,<br>   indent=None,<br>   separators=None,<br>   default=None,<br>   sort_keys=False,<br>   **kw<br>):</span></div><details><summary>View Source</summary> <div class=codehilite><pre><span></span><span class=k>def</span> <span class=nf>dumps</span><span class=p>(</span><span class=n>obj</span><span class=p>,</span> <span class=o>*</span><span class=p>,</span> <span class=n>skipkeys</span><span class=o>=</span><span class=kc>False</span><span class=p>,</span> <span class=n>ensure_ascii</span><span class=o>=</span><span class=kc>True</span><span class=p>,</span> <span class=n>check_circular</span><span class=o>=</span><span class=kc>True</span><span class=p>,</span>
+        <span class=n>allow_nan</span><span class=o>=</span><span class=kc>True</span><span class=p>,</span> <span class=bp>cls</span><span class=o>=</span><span class=kc>None</span><span class=p>,</span> <span class=n>indent</span><span class=o>=</span><span class=kc>None</span><span class=p>,</span> <span class=n>separators</span><span class=o>=</span><span class=kc>None</span><span class=p>,</span>
+        <span class=n>default</span><span class=o>=</span><span class=kc>None</span><span class=p>,</span> <span class=n>sort_keys</span><span class=o>=</span><span class=kc>False</span><span class=p>,</span> <span class=o>**</span><span class=n>kw</span><span class=p>):</span>
+    <span class=sd>"""Serialize ``obj`` to a JSON formatted ``str``.</span>
+
+<span class=sd>    If ``skipkeys`` is true then ``dict`` keys that are not basic types</span>
+<span class=sd>    (``str``, ``int``, ``float``, ``bool``, ``None``) will be skipped</span>
+<span class=sd>    instead of raising a ``TypeError``.</span>
+
+<span class=sd>    If ``ensure_ascii`` is false, then the return value can contain non-ASCII</span>
+<span class=sd>    characters if they appear in strings contained in ``obj``. Otherwise, all</span>
+<span class=sd>    such characters are escaped in JSON strings.</span>
+
+<span class=sd>    If ``check_circular`` is false, then the circular reference check</span>
+<span class=sd>    for container types will be skipped and a circular reference will</span>
+<span class=sd>    result in an ``RecursionError`` (or worse).</span>
+
+<span class=sd>    If ``allow_nan`` is false, then it will be a ``ValueError`` to</span>
+<span class=sd>    serialize out of range ``float`` values (``nan``, ``inf``, ``-inf``) in</span>
+<span class=sd>    strict compliance of the JSON specification, instead of using the</span>
+<span class=sd>    JavaScript equivalents (``NaN``, ``Infinity``, ``-Infinity``).</span>
+
+<span class=sd>    If ``indent`` is a non-negative integer, then JSON array elements and</span>
+<span class=sd>    object members will be pretty-printed with that indent level. An indent</span>
+<span class=sd>    level of 0 will only insert newlines. ``None`` is the most compact</span>
+<span class=sd>    representation.</span>
+
+<span class=sd>    If specified, ``separators`` should be an ``(item_separator, key_separator)``</span>
+<span class=sd>    tuple.  The default is ``(', ', ': ')`` if *indent* is ``None`` and</span>
+<span class=sd>    ``(',', ': ')`` otherwise.  To get the most compact JSON representation,</span>
+<span class=sd>    you should specify ``(',', ':')`` to eliminate whitespace.</span>
+
+<span class=sd>    ``default(obj)`` is a function that should return a serializable version</span>
+<span class=sd>    of obj or raise TypeError. The default simply raises TypeError.</span>
+
+<span class=sd>    If *sort_keys* is true (default: ``False``), then the output of</span>
+<span class=sd>    dictionaries will be sorted by key.</span>
+
+<span class=sd>    To use a custom ``JSONEncoder`` subclass (e.g. one that overrides the</span>
+<span class=sd>    ``.default()`` method to serialize additional types), specify it with</span>
+<span class=sd>    the ``cls`` kwarg; otherwise ``JSONEncoder`` is used.</span>
+
+<span class=sd>    """</span>
+    <span class=c1># cached encoder</span>
+    <span class=k>if</span> <span class=p>(</span><span class=ow>not</span> <span class=n>skipkeys</span> <span class=ow>and</span> <span class=n>ensure_ascii</span> <span class=ow>and</span>
+        <span class=n>check_circular</span> <span class=ow>and</span> <span class=n>allow_nan</span> <span class=ow>and</span>
+        <span class=bp>cls</span> <span class=ow>is</span> <span class=kc>None</span> <span class=ow>and</span> <span class=n>indent</span> <span class=ow>is</span> <span class=kc>None</span> <span class=ow>and</span> <span class=n>separators</span> <span class=ow>is</span> <span class=kc>None</span> <span class=ow>and</span>
+        <span class=n>default</span> <span class=ow>is</span> <span class=kc>None</span> <span class=ow>and</span> <span class=ow>not</span> <span class=n>sort_keys</span> <span class=ow>and</span> <span class=ow>not</span> <span class=n>kw</span><span class=p>):</span>
+        <span class=k>return</span> <span class=n>_default_encoder</span><span class=o>.</span><span class=n>encode</span><span class=p>(</span><span class=n>obj</span><span class=p>)</span>
+    <span class=k>if</span> <span class=bp>cls</span> <span class=ow>is</span> <span class=kc>None</span><span class=p>:</span>
+        <span class=bp>cls</span> <span class=o>=</span> <span class=n>JSONEncoder</span>
+    <span class=k>return</span> <span class=bp>cls</span><span class=p>(</span>
+        <span class=n>skipkeys</span><span class=o>=</span><span class=n>skipkeys</span><span class=p>,</span> <span class=n>ensure_ascii</span><span class=o>=</span><span class=n>ensure_ascii</span><span class=p>,</span>
+        <span class=n>check_circular</span><span class=o>=</span><span class=n>check_circular</span><span class=p>,</span> <span class=n>allow_nan</span><span class=o>=</span><span class=n>allow_nan</span><span class=p>,</span> <span class=n>indent</span><span class=o>=</span><span class=n>indent</span><span class=p>,</span>
+        <span class=n>separators</span><span class=o>=</span><span class=n>separators</span><span class=p>,</span> <span class=n>default</span><span class=o>=</span><span class=n>default</span><span class=p>,</span> <span class=n>sort_keys</span><span class=o>=</span><span class=n>sort_keys</span><span class=p>,</span>
+        <span class=o>**</span><span class=n>kw</span><span class=p>)</span><span class=o>.</span><span class=n>encode</span><span class=p>(</span><span class=n>obj</span><span class=p>)</span>
+</pre></div></details><div class=docstring><p>Serialize <code>obj</code> to a JSON formatted <code>str</code>.<p>If <code>skipkeys</code> is true then <code>dict</code> keys that are not basic types (<code>str</code>, <code>int</code>, <code>float</code>, <code>bool</code>, <code>None</code>) will be skipped instead of raising a <code>TypeError</code>.<p>If <code>ensure_ascii</code> is false, then the return value can contain non-ASCII characters if they appear in strings contained in <code>obj</code>. Otherwise, all such characters are escaped in JSON strings.<p>If <code>check_circular</code> is false, then the circular reference check for container types will be skipped and a circular reference will result in an <code>RecursionError</code> (or worse).<p>If <code>allow_nan</code> is false, then it will be a <code>ValueError</code> to serialize out of range <code>float</code> values (<code>nan</code>, <code>inf</code>, <code>-inf</code>) in strict compliance of the JSON specification, instead of using the JavaScript equivalents (<code>NaN</code>, <code>Infinity</code>, <code>-Infinity</code>).<p>If <code>indent</code> is a non-negative integer, then JSON array elements and object members will be pretty-printed with that indent level. An indent level of 0 will only insert newlines. <code>None</code> is the most compact representation.<p>If specified, <code>separators</code> should be an <code>(item_separator, key_separator)</code> tuple. The default is <code>(', ', ': ')</code> if <em>indent</em> is <code>None</code> and <code>(',', ': ')</code> otherwise. To get the most compact JSON representation, you should specify <code>(',', ':')</code> to eliminate whitespace.<p><code>default(obj)</code> is a function that should return a serializable version of obj or raise TypeError. The default simply raises TypeError.<p>If <em>sort_keys</em> is true (default: <code>False</code>), then the output of dictionaries will be sorted by key.<p>To use a custom <code>JSONEncoder</code> subclass (e.g. one that overrides the <code>.default()</code> method to serialize additional types), specify it with the <code>cls</code> kwarg; otherwise <code>JSONEncoder</code> is used.</div></section><section id=load_json><div class="attr function"><a class=headerlink href=#load_json>#  </a><span class=def>def </span><span class=name>load_json</span><span class=signature>(<br>   s,<br>   *,<br>   cls=None,<br>   object_hook=None,<br>   parse_float=None,<br>   parse_int=None,<br>   parse_constant=None,<br>   object_pairs_hook=None,<br>   **kw<br>):</span></div><details><summary>View Source</summary> <div class=codehilite><pre><span></span><span class=k>def</span> <span class=nf>loads</span><span class=p>(</span><span class=n>s</span><span class=p>,</span> <span class=o>*</span><span class=p>,</span> <span class=bp>cls</span><span class=o>=</span><span class=kc>None</span><span class=p>,</span> <span class=n>object_hook</span><span class=o>=</span><span class=kc>None</span><span class=p>,</span> <span class=n>parse_float</span><span class=o>=</span><span class=kc>None</span><span class=p>,</span>
+        <span class=n>parse_int</span><span class=o>=</span><span class=kc>None</span><span class=p>,</span> <span class=n>parse_constant</span><span class=o>=</span><span class=kc>None</span><span class=p>,</span> <span class=n>object_pairs_hook</span><span class=o>=</span><span class=kc>None</span><span class=p>,</span> <span class=o>**</span><span class=n>kw</span><span class=p>):</span>
+    <span class=sd>"""Deserialize ``s`` (a ``str``, ``bytes`` or ``bytearray`` instance</span>
+<span class=sd>    containing a JSON document) to a Python object.</span>
+
+<span class=sd>    ``object_hook`` is an optional function that will be called with the</span>
+<span class=sd>    result of any object literal decode (a ``dict``). The return value of</span>
+<span class=sd>    ``object_hook`` will be used instead of the ``dict``. This feature</span>
+<span class=sd>    can be used to implement custom decoders (e.g. JSON-RPC class hinting).</span>
+
+<span class=sd>    ``object_pairs_hook`` is an optional function that will be called with the</span>
+<span class=sd>    result of any object literal decoded with an ordered list of pairs.  The</span>
+<span class=sd>    return value of ``object_pairs_hook`` will be used instead of the ``dict``.</span>
+<span class=sd>    This feature can be used to implement custom decoders.  If ``object_hook``</span>
+<span class=sd>    is also defined, the ``object_pairs_hook`` takes priority.</span>
+
+<span class=sd>    ``parse_float``, if specified, will be called with the string</span>
+<span class=sd>    of every JSON float to be decoded. By default this is equivalent to</span>
+<span class=sd>    float(num_str). This can be used to use another datatype or parser</span>
+<span class=sd>    for JSON floats (e.g. decimal.Decimal).</span>
+
+<span class=sd>    ``parse_int``, if specified, will be called with the string</span>
+<span class=sd>    of every JSON int to be decoded. By default this is equivalent to</span>
+<span class=sd>    int(num_str). This can be used to use another datatype or parser</span>
+<span class=sd>    for JSON integers (e.g. float).</span>
+
+<span class=sd>    ``parse_constant``, if specified, will be called with one of the</span>
+<span class=sd>    following strings: -Infinity, Infinity, NaN.</span>
+<span class=sd>    This can be used to raise an exception if invalid JSON numbers</span>
+<span class=sd>    are encountered.</span>
+
+<span class=sd>    To use a custom ``JSONDecoder`` subclass, specify it with the ``cls``</span>
+<span class=sd>    kwarg; otherwise ``JSONDecoder`` is used.</span>
+<span class=sd>    """</span>
+    <span class=k>if</span> <span class=nb>isinstance</span><span class=p>(</span><span class=n>s</span><span class=p>,</span> <span class=nb>str</span><span class=p>):</span>
+        <span class=k>if</span> <span class=n>s</span><span class=o>.</span><span class=n>startswith</span><span class=p>(</span><span class=s1>'</span><span class=se>\ufeff</span><span class=s1>'</span><span class=p>):</span>
+            <span class=k>raise</span> <span class=n>JSONDecodeError</span><span class=p>(</span><span class=s2>"Unexpected UTF-8 BOM (decode using utf-8-sig)"</span><span class=p>,</span>
+                                  <span class=n>s</span><span class=p>,</span> <span class=mi>0</span><span class=p>)</span>
+    <span class=k>else</span><span class=p>:</span>
+        <span class=k>if</span> <span class=ow>not</span> <span class=nb>isinstance</span><span class=p>(</span><span class=n>s</span><span class=p>,</span> <span class=p>(</span><span class=nb>bytes</span><span class=p>,</span> <span class=nb>bytearray</span><span class=p>)):</span>
+            <span class=k>raise</span> <span class=ne>TypeError</span><span class=p>(</span><span class=sa>f</span><span class=s1>'the JSON object must be str, bytes or bytearray, '</span>
+                            <span class=sa>f</span><span class=s1>'not </span><span class=si>{</span><span class=n>s</span><span class=o>.</span><span class=vm>__class__</span><span class=o>.</span><span class=vm>__name__</span><span class=si>}</span><span class=s1>'</span><span class=p>)</span>
+        <span class=n>s</span> <span class=o>=</span> <span class=n>s</span><span class=o>.</span><span class=n>decode</span><span class=p>(</span><span class=n>detect_encoding</span><span class=p>(</span><span class=n>s</span><span class=p>),</span> <span class=s1>'surrogatepass'</span><span class=p>)</span>
+
+    <span class=k>if</span> <span class=p>(</span><span class=bp>cls</span> <span class=ow>is</span> <span class=kc>None</span> <span class=ow>and</span> <span class=n>object_hook</span> <span class=ow>is</span> <span class=kc>None</span> <span class=ow>and</span>
+            <span class=n>parse_int</span> <span class=ow>is</span> <span class=kc>None</span> <span class=ow>and</span> <span class=n>parse_float</span> <span class=ow>is</span> <span class=kc>None</span> <span class=ow>and</span>
+            <span class=n>parse_constant</span> <span class=ow>is</span> <span class=kc>None</span> <span class=ow>and</span> <span class=n>object_pairs_hook</span> <span class=ow>is</span> <span class=kc>None</span> <span class=ow>and</span> <span class=ow>not</span> <span class=n>kw</span><span class=p>):</span>
+        <span class=k>return</span> <span class=n>_default_decoder</span><span class=o>.</span><span class=n>decode</span><span class=p>(</span><span class=n>s</span><span class=p>)</span>
+    <span class=k>if</span> <span class=bp>cls</span> <span class=ow>is</span> <span class=kc>None</span><span class=p>:</span>
+        <span class=bp>cls</span> <span class=o>=</span> <span class=n>JSONDecoder</span>
+    <span class=k>if</span> <span class=n>object_hook</span> <span class=ow>is</span> <span class=ow>not</span> <span class=kc>None</span><span class=p>:</span>
+        <span class=n>kw</span><span class=p>[</span><span class=s1>'object_hook'</span><span class=p>]</span> <span class=o>=</span> <span class=n>object_hook</span>
+    <span class=k>if</span> <span class=n>object_pairs_hook</span> <span class=ow>is</span> <span class=ow>not</span> <span class=kc>None</span><span class=p>:</span>
+        <span class=n>kw</span><span class=p>[</span><span class=s1>'object_pairs_hook'</span><span class=p>]</span> <span class=o>=</span> <span class=n>object_pairs_hook</span>
+    <span class=k>if</span> <span class=n>parse_float</span> <span class=ow>is</span> <span class=ow>not</span> <span class=kc>None</span><span class=p>:</span>
+        <span class=n>kw</span><span class=p>[</span><span class=s1>'parse_float'</span><span class=p>]</span> <span class=o>=</span> <span class=n>parse_float</span>
+    <span class=k>if</span> <span class=n>parse_int</span> <span class=ow>is</span> <span class=ow>not</span> <span class=kc>None</span><span class=p>:</span>
+        <span class=n>kw</span><span class=p>[</span><span class=s1>'parse_int'</span><span class=p>]</span> <span class=o>=</span> <span class=n>parse_int</span>
+    <span class=k>if</span> <span class=n>parse_constant</span> <span class=ow>is</span> <span class=ow>not</span> <span class=kc>None</span><span class=p>:</span>
+        <span class=n>kw</span><span class=p>[</span><span class=s1>'parse_constant'</span><span class=p>]</span> <span class=o>=</span> <span class=n>parse_constant</span>
+    <span class=k>return</span> <span class=bp>cls</span><span class=p>(</span><span class=o>**</span><span class=n>kw</span><span class=p>)</span><span class=o>.</span><span class=n>decode</span><span class=p>(</span><span class=n>s</span><span class=p>)</span>
+</pre></div></details><div class=docstring><p>Deserialize <code>s</code> (a <code>str</code>, <code>bytes</code> or <code>bytearray</code> instance containing a JSON document) to a Python object.<p><code>object_hook</code> is an optional function that will be called with the result of any object literal decode (a <code>dict</code>). The return value of <code>object_hook</code> will be used instead of the <code>dict</code>. This feature can be used to implement custom decoders (e.g. JSON-RPC class hinting).<p><code>object_pairs_hook</code> is an optional function that will be called with the result of any object literal decoded with an ordered list of pairs. The return value of <code>object_pairs_hook</code> will be used instead of the <code>dict</code>. This feature can be used to implement custom decoders. If <code>object_hook</code> is also defined, the <code>object_pairs_hook</code> takes priority.<p><code>parse_float</code>, if specified, will be called with the string of every JSON float to be decoded. By default this is equivalent to float(num_str). This can be used to use another datatype or parser for JSON floats (e.g. decimal.Decimal).<p><code>parse_int</code>, if specified, will be called with the string of every JSON int to be decoded. By default this is equivalent to int(num_str). This can be used to use another datatype or parser for JSON integers (e.g. float).<p><code>parse_constant</code>, if specified, will be called with one of the following strings: -Infinity, Infinity, NaN. This can be used to raise an exception if invalid JSON numbers are encountered.<p>To use a custom <code>JSONDecoder</code> subclass, specify it with the <code>cls</code> kwarg; otherwise <code>JSONDecoder</code> is used.</div></section></main><script src=../../../version_switcher.js></script><script>"use strict";const html=document.querySelector("html"),sidebarToggle=document.getElementById("sidebar-toggle");sidebarToggle.addEventListener("click",function(){html.classList.contains("sidebar-hidden")?html.classList.remove("sidebar-hidden"):html.classList.add("sidebar-hidden")});let firstContact=null;document.addEventListener("touchstart",function(e){firstContact={x:e.touches[0].clientX,time:Date.now()}},{passive:!0}),document.addEventListener("touchmove",function(e){if(!firstContact)return;let i=e.touches[0].clientX,t=i-firstContact.x;Date.now()-firstContact.time<300&&Math.abs(t)>=100&&(t>=0&&firstContact.x<Math.min(document.body.clientWidth,450)?(html.classList.remove("sidebar-hidden"),firstContact=null):t<0&&i<250&&(html.classList.add("sidebar-hidden"),firstContact=null))},{passive:!0});</script><script>function escapeHTML(n){return document.createElement("div").appendChild(document.createTextNode(n)).parentNode.innerHTML}const originalContent=document.querySelector("main.pdoc");let currentContent=originalContent;function setContent(n){let e;n?(e=document.createElement("main"),e.classList.add("pdoc"),e.innerHTML=n):e=originalContent,currentContent!==e&&(currentContent.replaceWith(e),currentContent=e)}function getSearchTerm(){return new URL(window.location).searchParams.get("search")}const searchBox=document.querySelector(".pdoc input[type=search]");searchBox.addEventListener("input",function(){let n=new URL(window.location);searchBox.value.trim()?(n.hash="",n.searchParams.set("search",searchBox.value)):n.searchParams.delete("search"),history.replaceState("","",n.toString()),onInput()}),window.addEventListener("popstate",onInput);let search,searchErr;async function initialize(){try{search=await new Promise((n,e)=>{const t=document.createElement("script");t.type="text/javascript",t.async=!0,t.onload=()=>n(window.pdocSearch),t.onerror=r=>e(r),t.src="../../search.js",document.getElementsByTagName("head")[0].appendChild(t)})}catch{console.error("Cannot fetch pdoc search index"),searchErr="Cannot fetch search index."}onInput(),document.querySelector("nav.pdoc").addEventListener("click",n=>{n.target.hash&&(searchBox.value="",searchBox.dispatchEvent(new Event("input")))})}function onInput(){setContent((()=>{const n=getSearchTerm();if(!n)return null;if(searchErr)return`<h3>Error: ${searchErr}</h3>`;if(!search)return"<h3>Searching...</h3>";window.scrollTo({top:0,left:0,behavior:"auto"});const e=search(n);let t;e.length===0?t=`No search results for '${escapeHTML(n)}'.`:t=`<h4>${e.length} search result${e.length>1?"s":""} for '${escapeHTML(n)}'.</h4>`;for(let r of e.slice(0,10)){let s=r.doc,l=`../../${s.modulename.replaceAll(".","/")}.html`;s.qualname&&(l+=`#${s.qualname}`);let a;switch(r.doc.type){case"function":a=`<span class="def">${s.funcdef}</span> <span class="name">${s.fullname}</span><span class="signature">${s.signature}:</span>`;break;case"class":a=`<span class="def">class</span> <span class="name">${s.fullname}</span>`,s.bases&&(a+=`<wbr>(<span class="base">${s.bases}</span>)`),a+=":";break;case"variable":a=`<span class="name">${s.fullname}</span>`,s.annotation&&(a+=`<span class="annotation">${s.annotation}</span>`),s.default_value&&(a+=`<span class="default_value">${s.default_value}</span>`);break;default:a=`<span class="name">${s.fullname}</span>`;break}t+=`
+                        <section class="search-result">
+                        <a href="${l}" class="attr ${s.type}">${a}</a>
+                        <div class="docstring">${s.doc}</div>
+                        </section>
+                    `}return t})())}getSearchTerm()?(initialize(),searchBox.value=getSearchTerm(),onInput()):searchBox.addEventListener("focus",initialize,{once:!0}),searchBox.addEventListener("keydown",n=>{if(["ArrowDown","ArrowUp","Enter"].includes(n.key)){let e=currentContent.querySelector(".search-result.focused");e?n.key==="ArrowDown"&&e.nextElementSibling&&e.nextElementSibling.classList.contains("search-result")?(e.classList.remove("focused"),e.nextElementSibling.classList.add("focused"),e.nextElementSibling.scrollIntoView({behavior:"smooth",block:"nearest",inline:"nearest"})):n.key==="ArrowUp"&&e.previousElementSibling&&e.previousElementSibling.classList.contains("search-result")?(e.classList.remove("focused"),e.previousElementSibling.classList.add("focused"),e.previousElementSibling.scrollIntoView({behavior:"smooth",block:"nearest",inline:"nearest"})):n.key==="Enter"&&e.querySelector("a").click():currentContent.querySelector(".search-result").classList.add("focused")}});</script>
