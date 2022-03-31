@@ -32,4 +32,4 @@ posix_read "Hikari version ('master' for git version)" VERSION
 posix_read "The relative path to the main hikari repository" SUPER_REPO_PATH
 posix_read "The relative path to the documentation repository" DOCS_REPO_PATH
 
-bash scripts/deploy.sh
+bash "${DOCS_REPO_PATH}/scripts/deploy.sh"

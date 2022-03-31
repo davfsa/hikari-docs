@@ -47,14 +47,16 @@ fi
 echo "-- Setting __git_sha1__ to '${REF_TO_SET}' --"
 sed "/^__git_sha1__.*/, \${s||__git_sha1__: typing.Final[str] = \"${REF_TO_SET}\"|g; b}; \$q1" -i hikari/_about.py || (echo "Variable '__git_sha1__' not found in about!" && exit 1)
 
-rm -rf public
-mkdir public
-
-nox -s pdoc
+#rm -rf public
+#mkdir public
+#
+#nox -s pdoc
 [ ! -d "public/docs" ] && exit 1
 
 echo "===== TRAVELING TO ${BASE_PATH} ====="
 cd "${BASE_PATH}"
+
+rm -rf "${DOCS_REPO_PATH}/docs/${VERSION}"
 mv "${SUPER_REPO_PATH}/public/docs" "${DOCS_REPO_PATH}/docs/${VERSION}"
 
 echo "===== TRAVELING TO ${DOCS_REPO_PATH} ====="
