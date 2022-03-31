@@ -62,6 +62,6 @@ versionSelector.removeAttribute("disabled");
 // Display warning if needed
 if (versionSelector.value === "master") {
     versionWarning.innerText = "This documentation is from an unreleased development version. Proceed with caution!";
-} else if (versions.indexOf(versionSelector.value) > versions.indexOf(latestStable)) {
+} else if (latestStable !== "" && (versions.indexOf(currentVersion) > versions.indexOf(latestStable))) {
     versionWarning.innerHTML = 'This documentation is for an outdated version. Consider upgrading to the <a href="/hikari-docs/stable">latest stable version</a>';
 }
