@@ -36,8 +36,9 @@ versionSelector.addEventListener("change", function () {
     let possibleUrl = `${mainUrl}/${window.location.pathname.split("/").slice(3).join("/")}`;
 
     const http = new XMLHttpRequest();
+    // 301 can be caused by Github Pages at times for some reason
     http.onreadystatechange = function () {
-        window.location = `${http.status === 200 ? possibleUrl : mainUrl}${window.location.hash}`;
+        window.location = `${http.status === 200 || http.status === 301 ? possibleUrl : mainUrl}${window.location.hash}`;
     }
 
     http.open("HEAD", possibleUrl);
