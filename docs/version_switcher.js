@@ -28,12 +28,12 @@ const latestStable="";const availableVersions={};
 let specialVersions = ["stable", "latest", "master"];
 let versionSelector = document.getElementById("version-selector");
 let versionWarning = document.getElementById("version-warning");
-let currentVersion = window.location.pathname.split("/")[1];
+let currentVersion = window.location.pathname.split("/")[2];
 
 // Add listener
 versionSelector.addEventListener("change", function () {
-    let mainUrl = `${window.location.origin}/${versionSelector.value}`;
-    let possibleUrl = `${mainUrl}/${window.location.pathname.split("/").slice(2).join("/")}`;
+    let mainUrl = `${window.location.origin}/hikari-docs/${versionSelector.value}`;
+    let possibleUrl = `${mainUrl}/${window.location.pathname.split("/").slice(3).join("/")}`;
 
     const http = new XMLHttpRequest();
     http.onreadystatechange = function () {
@@ -62,5 +62,5 @@ versionSelector.removeAttribute("disabled");
 if (versionSelector.value === "master") {
     versionWarning.innerText = "This documentation is from an unreleased development version. Proceed with caution!";
 } else if (versions.indexOf(versionSelector.value) > versions.indexOf(latestStable)) {
-    versionWarning.innerHTML = 'This documentation is for an outdated version. Consider upgrading to the <a href="/stable">latest stable version</a>';
+    versionWarning.innerHTML = 'This documentation is for an outdated version. Consider upgrading to the <a href="/hikari-docs/stable">latest stable version</a>';
 }
