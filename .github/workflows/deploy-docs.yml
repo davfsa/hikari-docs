@@ -92,7 +92,7 @@ jobs:
           git config --global user.email "90276125+hikari-bot[bot]@users.noreply.github.com"
 
       - name: Temporarily disable "include administrators" branch protection
-        uses: benjefferies/branch-protection-bot@1.0.7
+        uses: benjefferies/branch-protection-bot@1.0.8
         with:
           access_token: ${{ steps.generate_token.outputs.token }}
           enforce_admins: false
@@ -106,7 +106,7 @@ jobs:
           bash ${DOCS_REPO_PATH}/scripts/deploy.sh
 
       - name: Re-enable "include administrators" branch protection
-        uses: benjefferies/branch-protection-bot@1.0.7
+        uses: benjefferies/branch-protection-bot@1.0.8
         if: always()
         with:
           access_token: ${{ steps.generate_token.outputs.token }}
